@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 
 
 export default () => (
-    <Container maxWidth="sm">
+    <Container minWidth="sm">
       <Box my={4}>
         <Typography variant="h4" component="h1" gutterBottom>
           Next.js v4-beta Mockup

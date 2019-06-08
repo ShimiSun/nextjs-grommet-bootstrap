@@ -14,7 +14,7 @@ const styles = {
         margin: 'auto',
     },
     day: {
-        margin: '1.5rem',
+        margin: 'auto',
     },
 };
 
