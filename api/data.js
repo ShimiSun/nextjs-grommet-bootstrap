@@ -113,3 +113,33 @@ export default {
         },
     ],
 }
+
+/**
+ * // language agnostic events that support internalization
+ * 
+ * const events = [
+    {
+        id: 1234,
+        object: 'post',
+        objectName: 'Hello World',
+        type: 'modify',
+        createdAt: '2019-01-10T17:15:56.000Z',
+        author: {
+            name: 'John Doe',
+            email: 'jitewaboh@lagify.com',
+        },
+    },
+    {
+        id: 1233,
+        object: 'post',
+        objectName: 'Hello World',
+        type: 'create',
+        createdAt: '2019-01-10T16:34:00.000Z',
+        author: {
+            name: 'John Doe',
+            email: 'jitewaboh@lagify.com',
+        },
+    },
+    ...
+];
+ */
