@@ -1,11 +1,11 @@
 import React from 'react';
 import { Admin, Resource } from 'react-admin';
-import Timeline from 'components/organisms/Timeline';
+import TimelineNew from 'components/organisms/TimelineNew';
 import jsonRestProvider from 'ra-data-fakerest';
 import data from 'api/data';
    
 
-const App = () => {
+const AppNew = () => {
    
     let provider=null
 
@@ -22,7 +22,7 @@ const App = () => {
         
         return(
             <Admin dataProvider={provider}>
-                            <Resource name="events" list={Timeline} />
+                            <Resource name="events" list={TimelineNew} />
                            
                         </Admin>
         )
@@ -30,4 +30,4 @@ const App = () => {
     return <div/>
 }
 
-export default App;
+export default AppNew;

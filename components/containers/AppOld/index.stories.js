@@ -1,6 +1,6 @@
 // in src/App.stories.js
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import App from '.';
+import AppOld from '.';
 
-storiesOf('App', module).add('basic', () => <App />);
+storiesOf('AppOld', module).add('basic', () => <AppOld />);

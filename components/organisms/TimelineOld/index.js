@@ -25,7 +25,7 @@ const { ids, data, total, loadedOnce,setPage,page }=props
         const newEvents = ids.map(id => data[id]);
           setEvents([...events,...newEvents])
        }
-    }, [data,ids]);
+    }, [data, events, ids]);
 
     useEffect( () => {
        processEvents()
@@ -50,7 +50,7 @@ const handleLoadMore = () => {
       return  <TimelineEmpty />
     };
 
-const Timeline = props => (
+const TimelineOld = props => (
     <ListController {...props}>
         {controllerProps => (
             <Fragment>
@@ -62,4 +62,4 @@ const Timeline = props => (
     </ListController>
 );
 
-export default Timeline;
+export default TimelineOld;

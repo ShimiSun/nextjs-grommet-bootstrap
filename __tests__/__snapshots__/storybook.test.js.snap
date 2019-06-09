@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots App basic 1`] = `<div />`;
+exports[`Storyshots AppNew basic 1`] = `<div />`;
+
+exports[`Storyshots AppOld basic 1`] = `<div />`;
 
 exports[`Storyshots Avatar anonymous 1`] = `
 <div
