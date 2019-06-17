@@ -6,7 +6,7 @@ import { Tag } from 'grommet-icons'
 const Screen1 = (/* {  setScreen  } */) => {
  // const [layer, setLayer] = React.useState()
   return (
-  <Grommet style={{"height":"100vh"}}>
+  <Grommet style={{"height":"80vh"}}>
     <Box fill="vertical" background={{"image":"url('http://socialprotection-humanrights.org/wp-content/uploads/2015/05/water-san.jpg')","dark":true}}>
       <Box align="center" direction="row" justify="between">
         <Box align="center" justify="center" direction="row">

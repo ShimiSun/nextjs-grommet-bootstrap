@@ -4,6 +4,8 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "blueimp-md5": "^2.10.0",
+    "dotenv": "^8.0.0",
+    "dotenv-webpack": "^1.7.0",
     "grommet": "^2.7.1",
     "grommet-icons": "^4.2.0",
     "jss": "^9.8.7",
@@ -31,8 +33,6 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
-    "dotenv": "^8.0.0",
-    "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
