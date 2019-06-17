@@ -1,9 +1,9 @@
 import React from 'react';
-import App, { Container } from 'next/app';
-import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from 'themes/theme';
+import App from 'next/app';
+import { Grommet } from 'grommet';
+import theme from 'themes/theme'
+import AppBar from 'components/containers/AppBar'
+import 'static/css/styles.css'
 
 class MyApp extends App {
   componentDidMount() {
@@ -18,16 +18,17 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
-        <Head>
-          <title>My page</title>
-        </Head>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
+      <Grommet theme={theme} full> 
+       {/** Typically, you should include Grommet only once as one of your top-level nodes. */}
+        <AppBar>
+        <h4>
+          Next.js v4-beta Mockup
+        </h4>
+        </AppBar>
+       
           <Component {...pageProps} />
-        </ThemeProvider>
-      </Container>
+      
+      </Grommet>
     );
   }
 }

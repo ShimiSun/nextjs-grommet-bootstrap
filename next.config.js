@@ -3,8 +3,9 @@ require('dotenv').config({ silent: process.env.NODE_ENV === 'production' });
 
 const path = require('path')
 const Dotenv = require('dotenv-webpack');
+const withCSS = require('@zeit/next-css')
 
-module.exports = {
+module.exports =withCSS({
 
     webpack (config) {
 
@@ -21,4 +22,4 @@ module.exports = {
        
            return config; 
        }
-};
+});
