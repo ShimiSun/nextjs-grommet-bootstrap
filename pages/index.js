@@ -7,7 +7,7 @@ const Screen1 = (/* {  setScreen  } */) => {
  // const [layer, setLayer] = React.useState()
   return (<AppLayout>
     
-    <Box fill background={{"image":"url('static/imgs/tav-heru-bkgd.png')","dark":true}}>
+    <Box fill background={{"image":"url('static/imgs/tav-heru-bkgd4.png')","dark":true}}>
       <Box align="center" direction="row" justify="between">
         <Box/>
         <Box align="center" justify="center" pad="small" direction="row" gap="small">
@@ -29,7 +29,7 @@ const Screen1 = (/* {  setScreen  } */) => {
           Connect with friends, family, schools, and businesses who are interested in funding {"students'"} education because it takes a village to educate a child.
           </Paragraph>
           <Button label="CONNECT NOW" primary margin='medium' type='button' size='large'
- alignSelf='left'
+ alignSelf='start'
 />
         </Box>
       </Box>
