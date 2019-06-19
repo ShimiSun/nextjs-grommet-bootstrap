@@ -1,5 +1,15 @@
 import React from 'react'
-import {Box,Button,Heading,Image,TextInput,Text,Collapsible, } from 'grommet'
+import {
+  Image,
+  Text,
+  TextInput,
+   Box,
+   Button,
+   Collapsible,
+   Heading,
+   Grommet,
+   ResponsiveContext,
+  } from 'grommet';
 import { Twitter,Facebook,Linkedin,Mail, } from 'grommet-icons';
 import AppBar from 'components/containers/AppBar'
 
@@ -8,15 +18,21 @@ export default ({children})=>
 
   const [showSidebar,setShowSidebar]=React.useState(false)
 
+  const [reason,setReason]=React.useState('donate')
+
   const openForSignin=()=>{
     setShowSidebar(true)
+    setReason('signin')
   }
 
-  const openForSearch =()=>{
+  const openForDonation =()=>{
     setShowSidebar(true)
+    setReason('donate')
   }
 
-  return (
+
+  return (<ResponsiveContext.Consumer>
+   {size => ( 
     <Box fill>
 {
   /**
@@ -52,7 +68,7 @@ Takesavillage
         </Box>
         
         <Box  align="center" justify="center" pad={{"vertical":"small","right":"large","left":"xsmall","bottom":"small","top":"medium","horizontal":"medium"}} direction="row" wrap alignSelf="start" basis="medium" width="medium" elevation="none" round="xsmall" gap="small" margin={{"bottom":"small","left":"small","right":"xlarge","horizontal":"medium"}} flex="grow">
-         <TextInput placeholder="Search a user by name to donate to" onChange={openForSearch}/>
+         <TextInput placeholder="Search a user by name to donate to" onChange={openForDonation}/>
 
         </Box>
         
@@ -69,23 +85,27 @@ Takesavillage
     <Box flex align='center' justify='center'>
      {children}
     </Box>
-    {showSidebar &&<Collapsible direction="horizontal" open={showSidebar}>
-      <Box
-      flex
-      width='medium'
-      background='light-2'
-      elevation='small'
-      align='center'
-      justify='center'
-    >
+    {size !== 'small' && (
+      <Collapsible direction="horizontal" open={showSidebar}>
     {/**
     The sidebar box has a medium width with a light-2 background.
      */}
-     sidebar
-    </Box>
+     <Box
+                flex
+                width='medium'
+                background='light-2'
+                elevation='small'
+                align='center'
+                justify='center'
+              >
+                {reason}
+              </Box>
+   
     </Collapsible>
-    }
+    )}
   </Box>
   </Box> 
+  )}
+  </ResponsiveContext.Consumer>
   )
 }  
