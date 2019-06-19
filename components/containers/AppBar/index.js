@@ -8,7 +8,7 @@ export default  (props) => (
         align='center'
         justify='between'
         background='brand'
-        pad={{ left: 'medium', right: 'small', vertical: 'small' }}
+        pad={{ left: 'xsmall', right: 'xsmall', vertical: 'xsmall' }}
         elevation='medium'
         style={{ zIndex: '1' }}
         {...props}

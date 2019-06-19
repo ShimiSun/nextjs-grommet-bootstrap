@@ -1,63 +1,42 @@
 import React from 'react'
-import { Grommet, Box, Button, Text, Heading, Paragraph } from 'grommet'
-import { Tag } from 'grommet-icons'
+import {Box, Button, Text, Heading, Paragraph} from 'grommet'
+import AppLayout from 'components/Layouts/AppLayout'
 
 
 const Screen1 = (/* {  setScreen  } */) => {
  // const [layer, setLayer] = React.useState()
-  return (
-  <Grommet style={{"height":"80vh"}}>
-    <Box fill="vertical" background={{"image":"url('http://socialprotection-humanrights.org/wp-content/uploads/2015/05/water-san.jpg')","dark":true}}>
+  return (<AppLayout>
+    
+    <Box fill background={{"image":"url('static/imgs/tav-heru-bkgd.png')","dark":true}}>
       <Box align="center" direction="row" justify="between">
-        <Box align="center" justify="center" direction="row">
-          <Button label="">
-            <Box align="center" justify="center" pad="small" direction="row" gap="small">
-              <Tag  />
-              <Text weight="bold">
-                charity: water
-              </Text>
-            </Box>
-          </Button>
-          <Button label="" hoverIndicator>
-            <Box align="center" justify="center" pad="small" direction="row" gap="small">
-              <Text>
-                WHY WATER?
-              </Text>
-            </Box>
-          </Button>
-          <Button label="" hoverIndicator>
-            <Box align="center" justify="center" pad="small" direction="row" gap="small">
-              <Text>
-                OUR WORK?
-              </Text>
-            </Box>
-          </Button>
-        </Box>
+        <Box/>
         <Box align="center" justify="center" pad="small" direction="row" gap="small">
-          <Button label="DONATE" />
-          <Button label="FUNDRAISE" />
-          <Button label="" hoverIndicator>
-            <Box align="center" justify="center" pad="small" direction="row" gap="small">
-              <Text>
-                SIGN IN
-              </Text>
-            </Box>
-          </Button>
+          <Button label="ABOUT US" href='/about'/>
+          <Button label="OUR WORK" />
+         
         </Box>
       </Box>
-      <Box align="stretch" pad="large" direction="row" background={{"dark":false}}>
-        <Box align="start" basis="large" flex={false} background={{"dark":true}} pad="medium" gap="small">
+      <Box align="stretch" pad="medium" direction="row" background={{"dark":false}}>
+        <Box align="start" basis="large" flex={false} background={{"dark":true}} pad="xsmall" gap="xxsmall">
           <Heading margin="none">
-            Clean water changes everything.
+            Crowdfund your
+          </Heading>
+          <Heading margin="none">
+           education.
           </Heading>
           <Paragraph>
-            charity: water brings clean and safe drinking water to developing countries, improving health, education, and opportunity - especially for women and children.
+          Takesavillage allows students to build campaigns to crowdfund their education while connecting with a network of licensed Financial Educators.
+          Connect with friends, family, schools, and businesses who are interested in funding {"students'"} education because it takes a village to educate a child.
           </Paragraph>
-          <Button label="DONATE NOW" primary />
+          <Button label="CONNECT NOW" primary margin='medium' type='button' size='large'
+ alignSelf='left'
+/>
         </Box>
       </Box>
     </Box>
-  </Grommet>
+ 
+  
+  </AppLayout>
   )
 }
 
