@@ -153,7 +153,7 @@ export default({onUserSelected})=>{
                 : undefined
             }
           >
-            <Search color="accent-1" />
+            <Search color={!suggestionOpen ? "accent-1":"transparent"} />
             <TextInput
               type="search"
               dropTarget={boxRef.current}
