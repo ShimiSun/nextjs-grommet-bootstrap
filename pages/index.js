@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Button, Text, Heading, Paragraph} from 'grommet'
+import {Box, Button, Heading, Paragraph} from 'grommet'
 import AppLayout from 'components/Layouts/AppLayout'
 
 
@@ -12,8 +12,7 @@ const Screen1 = (/* {  setScreen  } */) => {
         <Box/>
         <Box align="center" justify="center" pad="small" direction="row" gap="small">
           <Button label="ABOUT US" href='/about'/>
-          <Button label="OUR WORK" />
-         
+          <Button label="OUR WORK" />  
         </Box>
       </Box>
       <Box align="stretch" pad="medium" direction="row" background={{"dark":false}}>
@@ -28,9 +27,7 @@ const Screen1 = (/* {  setScreen  } */) => {
           Takesavillage allows students to build campaigns to crowdfund their education while connecting with a network of licensed Financial Educators.
           Connect with friends, family, schools, and businesses who are interested in funding {"students'"} education because it takes a village to educate a child.
           </Paragraph>
-          <Button label="CONNECT NOW" primary margin='medium' type='button' size='large'
- alignSelf='start'
-/>
+          <Button label="CONNECT NOW" primary margin='medium' type='button' size='large' alignSelf='start' />
         </Box>
       </Box>
     </Box>

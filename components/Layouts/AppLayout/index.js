@@ -2,16 +2,16 @@ import React from 'react'
 import {
   Image,
   Text,
-  TextInput,
+  // TextInput,
    Box,
    Button,
    Collapsible,
    Heading,
-   Grommet,
    ResponsiveContext,
   } from 'grommet';
 import { Twitter,Facebook,Linkedin,Mail, } from 'grommet-icons';
 import AppBar from 'components/containers/AppBar'
+import CustomSuggestionsTextInput from 'components/containers/CustomSuggestionsTextInput'
 
 export default ({children})=>   
 {
@@ -25,10 +25,15 @@ export default ({children})=>
     setReason('signin')
   }
 
-  const openForDonation =()=>{
+  
+  const reviewUser=(user)=>{
     setShowSidebar(true)
-    setReason('donate')
+    console.log('user: ',user)
+const {name}=user
+// setShowSidebar()
+    setReason(`review for ${name} `)
   }
+
 
 
   return (<ResponsiveContext.Consumer>
@@ -68,8 +73,7 @@ Takesavillage
         </Box>
         
         <Box  align="center" justify="center" pad={{"vertical":"small","right":"large","left":"xsmall","bottom":"small","top":"medium","horizontal":"medium"}} direction="row" wrap alignSelf="start" basis="medium" width="medium" elevation="none" round="xsmall" gap="small" margin={{"bottom":"small","left":"small","right":"xlarge","horizontal":"medium"}} flex="grow">
-         <TextInput placeholder="Search a user by name to donate to" onChange={openForDonation}/>
-
+         <CustomSuggestionsTextInput onUserSelected={reviewUser}/>
         </Box>
         
     </AppBar>

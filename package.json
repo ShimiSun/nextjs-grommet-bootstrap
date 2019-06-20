@@ -8,6 +8,7 @@
     "dotenv-webpack": "^1.7.0",
     "grommet": "^2.7.1",
     "grommet-icons": "^4.2.0",
+    "initials": "^3.0.1",
     "jss": "^9.8.7",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",

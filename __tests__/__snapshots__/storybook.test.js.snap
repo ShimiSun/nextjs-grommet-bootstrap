@@ -2,7 +2,7 @@
 
 exports[`Storyshots AppBar basic 1`] = `
 <header
-  className="StyledBox-sc-13pk1d4-0 cFVOMA"
+  className="StyledBox-sc-13pk1d4-0 hJLOHv"
   style={
     Object {
       "zIndex": "1",
@@ -11,17 +11,8 @@ exports[`Storyshots AppBar basic 1`] = `
 />
 `;
 
-exports[`Storyshots AppLayout basic 1`] = `
-<div
-  className="StyledBox-sc-13pk1d4-0 itcVnc"
->
-  <div
-    className="StyledBox-sc-13pk1d4-0 QIaXS"
-  />
-  <div
-    className="StyledBox-sc-13pk1d4-0 fnuWkx"
-  />
-</div>
-`;
+exports[`Storyshots AppLayout basic 1`] = `null`;
 
 exports[`Storyshots Avatar basic 1`] = `<div />`;
+
+exports[`Storyshots TextInput Custom 1`] = `null`;
