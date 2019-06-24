@@ -1,23 +1,22 @@
 import React from 'react'
 import {
-  Image,
-  Text,
-  // TextInput,
+   Layer,
    Box,
    Button,
    Collapsible,
-   Heading,
    ResponsiveContext,
   } from 'grommet';
-import { Twitter,Facebook,Linkedin,Mail, } from 'grommet-icons';
-import AppBar from 'components/containers/AppBar'
-import CustomSuggestionsTextInput from 'components/containers/CustomSuggestionsTextInput'
+// import dynamic from 'next/dynamic';
+import { FormClose} from 'grommet-icons';
+import AppBar from 'components/organisms/AppBar'
+import UserSearchBox from 'components/molecules/UserSearchBox'
+
+
 
 export default ({children})=>   
 {
-
+ 
   const [showSidebar,setShowSidebar]=React.useState(false)
-
   const [reason,setReason]=React.useState('donate')
 
   const openForSignin=()=>{
@@ -25,15 +24,9 @@ export default ({children})=>
     setReason('signin')
   }
 
-  
-  const reviewUser=(user)=>{
-    setShowSidebar(true)
-    console.log('user: ',user)
-const {name}=user
-// setShowSidebar()
-    setReason(`review for ${name} `)
-  }
-
+  const getSelectedUserId = (id) => {
+    setShowSidebar(!!id)
+  };
 
 
   return (<ResponsiveContext.Consumer>
@@ -45,38 +38,14 @@ const {name}=user
   a flexbox container to rely on */
 }
 
-<AppBar>
-<Box align="center" justify="center" pad={{"vertical":"small","right":"xlarge","left":"xsmall","bottom":"small","top":"medium","horizontal":"medium"}} direction="row" wrap alignSelf="start" basis="medium" width="medium" elevation="none" round="xsmall" gap="small" margin={{"bottom":"small","left":"small","right":"xlarge","horizontal":"medium"}} flex="grow">
-<Heading level='3' margin='none'>
-<Image
-    fit="cover"
-    src="/static/imgs/tav-header-symbol.png"
-    size='xsmall'
-  />
-Takesavillage
-      </Heading>
-</Box>
-      
-      
-      <Box align="center" justify="center" pad={{"vertical":"small","right":"large","left":"xsmall","bottom":"small","top":"medium","horizontal":"medium"}} direction="row" wrap alignSelf="start" basis="medium" width="medium" elevation="none" round="xsmall" gap="small" margin={{"bottom":"small","left":"small","right":"xlarge","horizontal":"medium"}} flex="grow">
-      <Button label="" icon={<Facebook />} hoverIndicator/>
-          <Button label="" icon={<Linkedin />} hoverIndicator />
-          <Button label="" icon={<Twitter />} hoverIndicator/>
-          <Button label="" icon={<Mail />} hoverIndicator />
-          <Button label="" hoverIndicator onClick={openForSignin}>
-            <Box align="center" justify="center" pad="small" direction="row" gap="small">
-              <Text>
-                SIGN IN
-              </Text>
-            </Box>
-          </Button>
-        </Box>
-        
-        <Box  align="center" justify="center" pad={{"vertical":"small","right":"large","left":"xsmall","bottom":"small","top":"medium","horizontal":"medium"}} direction="row" wrap alignSelf="start" basis="medium" width="medium" elevation="none" round="xsmall" gap="small" margin={{"bottom":"small","left":"small","right":"xlarge","horizontal":"medium"}} flex="grow">
-         <CustomSuggestionsTextInput onUserSelected={reviewUser}/>
-        </Box>
-        
-    </AppBar>
+<AppBar
+searchbox= {
+<UserSearchBox {...{getSelectedUserId}}/>
+}
+
+   {...{openForSignin,showSidebar}}
+/>
+
 <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
    {/** The body is a Box with row direction.
    
@@ -89,12 +58,12 @@ Takesavillage
     <Box flex align='center' justify='center'>
      {children}
     </Box>
-    {size !== 'small' && (
+    {(!showSidebar || size !== 'small') ? (
       <Collapsible direction="horizontal" open={showSidebar}>
     {/**
     The sidebar box has a medium width with a light-2 background.
      */}
-     <Box
+     <Box 
                 flex
                 width='medium'
                 background='light-2'
@@ -106,6 +75,29 @@ Takesavillage
               </Box>
    
     </Collapsible>
+    ): (
+   <Layer>
+    <Box
+   background='light-2'
+   tag='header'
+   justify='end'
+   align='center'
+   direction='row'
+ >
+   <Button
+     icon={<FormClose />}
+     onClick={() => setShowSidebar(false)}
+   />
+ </Box>
+     <Box
+       fill
+       background='light-2'
+       align='center'
+       justify='center'
+     >
+       {reason}
+     </Box>
+   </Layer>
     )}
   </Box>
   </Box> 

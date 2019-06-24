@@ -2,63 +2,12 @@ import React from "react";
 
 import { Search } from "grommet-icons";
 import { Box, Image,  Text, TextInput,} from "grommet";
+import data from 'api/data'
 
+const {folks}=data
 
-
-const folks = [
-  { id:1,
-    category:'student',
-    name: "Alan Souza",
-    imageUrl:
-      "https://s.gravatar.com/avatar/b226da5c619b18b44eb95c30be393953?s=80",
-     
-  },
-  {
-    id:2,
-    category:'student',
-    name: "Bryan Jacquot",
-    imageUrl:
-      "https://s.gravatar.com/avatar/10d15019166606cfed23846a7f902660?s=80"
-  },
-  {
-    id:3,
-    category:'guardian',
-    name: "Chris Carlozzi",
-    imageUrl:
-      "https://s.gravatar.com/avatar/56ea1e2ecd0d3cc85479b2d09e31d071?s=80"
-  },
-  {
-    id:4,
-    category:'guardian',
-    name: "Eric Soderberg",
-    imageUrl:
-      "https://s.gravatar.com/avatar/99020cae7ff399a4fbea19c0634f77c3?s=80"
-  },
-  {
-    id:5,
-    category:'student',
-    name: "Marlon Parizzotto",
-    imageUrl:
-      "https://s.gravatar.com/avatar/e6684969375a4dcc0aa99f0bfae544c3?s=80"
-  },
-  {
-    id:6,
-    category:'financial educator',
-    name: "Tales Chaves",
-    imageUrl:
-      "https://s.gravatar.com/avatar/1f80adca55d9f5d97932ff97f631a4e8?s=80"
-  },
-  {
-    id:7,
-    category:'student',
-    name: "Tracy Barmore",
-    imageUrl:
-      "https://s.gravatar.com/avatar/4ec9c3a91da89f278e4482811caad7f3?s=80"
-  }
-];
-
-export default({onUserSelected})=>{
-    const [key,setKey]=React.useState(null)
+export default({getSelectedUserId})=>{
+   // const [key,setKey]=React.useState(null)
     const [value,setValue]=React.useState('')
     const [suggestionOpen,setSuggestionOpen]=React.useState(false)
     const [suggestedFolks,setSuggestedFolks]=React.useState([])
@@ -67,10 +16,11 @@ export default({onUserSelected})=>{
 
   const boxRef = React.useRef(null);
 
+  /*
   React.useEffect( () => {if(!suggestionOpen){
     console.log(!key?'sidebar is open':'sidebarShdClose')
   }}, [key,suggestionOpen]);
-  
+  */
 
   const onChange = event =>{
     setValue(event.target.value )
@@ -84,14 +34,9 @@ export default({onUserSelected})=>{
     };
 
   const onSelect = event => {
-   console.log(suggestionOpen," : ",event.suggestion.key)
+   
     setValue(event.suggestion.value);
-    setKey(event.suggestion.key)
-    onUserSelected({
-        closed:suggestionOpen&&event.suggestion.key,
-        id:event.suggestion.key,
-        name:event.suggestion.value,
-    })
+    getSelectedUserId(event.suggestion.key)
   }
 
   const renderSuggestions = () => {
@@ -134,12 +79,13 @@ export default({onUserSelected})=>{
        
           <Box
             ref={boxRef}
-            width="large"
+            width="medium"
+            
             direction="row"
             align="center"
-            pad={{ horizontal: "xsmall", vertical: "xsmall" }}
+            pad={{ horizontal: "small", vertical: "xxsmall" }}
             round="small"
-            elevation={suggestionOpen ? "medium" : undefined}
+            elevation={suggestionOpen ? "small" : undefined}
             border={{
               side: "all",
               color: suggestionOpen ? "accent-1" : "border"
@@ -154,7 +100,10 @@ export default({onUserSelected})=>{
             }
           >
             <Search color={!suggestionOpen ? "accent-1":"transparent"} />
+            
             <TextInput
+   // dropHeight='small'
+            size='medium'
               type="search"
               dropTarget={boxRef.current}
               plain

@@ -7,12 +7,12 @@ const Screen1 = (/* {  setScreen  } */) => {
  // const [layer, setLayer] = React.useState()
   return (<AppLayout>
     
-    <Box fill background={{"image":"url('static/imgs/tav-heru-bkgd4.png')","dark":true}}>
+    <Box  fill background={{"image":"url('static/imgs/tav-heru-bkgd4.png')","dark":true}}>
       <Box align="center" direction="row" justify="between">
         <Box/>
-        <Box align="center" justify="center" pad="small" direction="row" gap="small">
+        <Box align="center" justify="center" pad="medium" direction="row" gap="small">
           <Button label="ABOUT US" href='/about'/>
-          <Button label="OUR WORK" />  
+          <Button label="OUR WORK"/>  
         </Box>
       </Box>
       <Box align="stretch" pad="medium" direction="row" background={{"dark":false}}>

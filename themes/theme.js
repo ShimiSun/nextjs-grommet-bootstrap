@@ -6,7 +6,8 @@ const theme = deepMerge(grommet, {
   global: {
     colors:{
       brand:'#558b2f',
-      'accent-1':'#FFD700'
+      'accent-1':'#FFD700',
+      placeholder:'#FFD700'
     },
     drop: {
       background: "#FFD700",
@@ -41,7 +42,8 @@ const theme = deepMerge(grommet, {
           dark:'#558b2f'
         }
       }
-    }
+    },
+
   }
 });
 

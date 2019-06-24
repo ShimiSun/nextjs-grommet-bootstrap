@@ -1,15 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots AppBar basic 1`] = `
-<header
-  className="StyledBox-sc-13pk1d4-0 hJLOHv"
-  style={
-    Object {
-      "zIndex": "1",
-    }
-  }
-/>
-`;
+exports[`Storyshots AppBar basic 1`] = `null`;
 
 exports[`Storyshots AppLayout basic 1`] = `null`;
 
