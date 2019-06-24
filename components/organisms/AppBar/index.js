@@ -1,7 +1,8 @@
 import React from 'react'
-import { Box, Image,Button,ResponsiveContext} from 'grommet';
+import { Box, Image,Button,ResponsiveContext,Anchor} from 'grommet';
 import { Twitter,Facebook,Linkedin,Mail,Menu} from 'grommet-icons';
 import config from 'config'
+import Link from 'next/link';
 
 export default  (props) => {
   const size = React.useContext(ResponsiveContext)
@@ -23,11 +24,21 @@ const {searchbox,openForSignin,showSidebar}=props
           margin={{ left: `small` }}
           gap="xxsmall"
         >
-          <Image
-      fit="contain"
-      src="/static/imgs/tav-header-symbol.png"
-      size='xxsmall'
-    />
+         <Link href="/">
+         <Anchor primary label={
+           <Box>
+              <Image
+         
+         fit="contain"
+         src="/static/imgs/tav-header-symbol.png"
+         size='xxsmall'
+       />
+           </Box>
+         }
+          />
+        
+         </Link>
+         
           
         </Box>
         {size !== `small` && (

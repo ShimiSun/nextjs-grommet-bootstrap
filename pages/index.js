@@ -1,6 +1,7 @@
 import React from 'react'
 import {Box, Button, Heading, Paragraph} from 'grommet'
 import AppLayout from 'components/Layouts/AppLayout'
+import Link from 'next/link';
 
 
 const Screen1 = (/* {  setScreen  } */) => {
@@ -11,7 +12,9 @@ const Screen1 = (/* {  setScreen  } */) => {
       <Box align="center" direction="row" justify="between">
         <Box/>
         <Box align="center" justify="center" pad="medium" direction="row" gap="small">
-          <Button label="ABOUT US" href='/about'/>
+        <Link href="/about">
+          <Button label="ABOUT US"/>
+          </Link>
           <Button label="OUR WORK"/>  
         </Box>
       </Box>
