@@ -86,7 +86,7 @@ const {searchbox,openForSignin,showSidebar}=props
              {/** the search box start */}
            {searchbox}
   {/** the search box end */}
-       {size !== `small`? <Button pad='small' label="Sign in" hoverIndicator onClick={openForSignin} margin='xsmall'/>
+       {size !== `small`? <Button pad='small' label="SIGN IN" hoverIndicator onClick={openForSignin} margin='xsmall'/>
             :
             <Button
             icon={<Menu />}
