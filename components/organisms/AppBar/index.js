@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Image,Button,ResponsiveContext,Anchor} from 'grommet';
-import { Twitter,Facebook,Linkedin,Mail,Menu} from 'grommet-icons';
+import { Twitter,Facebook,Linkedin,Menu} from 'grommet-icons';
 import config from 'config'
 import Link from 'next/link';
 
@@ -72,15 +72,7 @@ const {searchbox,openForSignin,showSidebar}=props
               icon={<Facebook />}
               href={`https://facebook.com/${config.facebook}`}
             />
-            <Button
-            label="" hoverIndicator
-              rel="noopener noreferrer"
-               target="_blank"
-              a11title="Email"
-              icon={<Mail />}
-              href={`mailto:${config.email}`}
-            />
-            
+           
           </Box>
           
           </Box>
@@ -94,7 +86,7 @@ const {searchbox,openForSignin,showSidebar}=props
              {/** the search box start */}
            {searchbox}
   {/** the search box end */}
-       {size !== `small`? <Button pad='small' label="Sign in" hoverIndicator onClick={openForSignin} margin='xsmall'  />
+       {size !== `small`? <Button pad='small' label="Sign in" hoverIndicator onClick={openForSignin} margin='xsmall'/>
             :
             <Button
             icon={<Menu />}
