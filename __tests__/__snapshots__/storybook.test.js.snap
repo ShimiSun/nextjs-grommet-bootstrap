@@ -4,6 +4,6 @@ exports[`Storyshots AppBar basic 1`] = `null`;
 
 exports[`Storyshots AppLayout basic 1`] = `null`;
 
-exports[`Storyshots Avatar basic 1`] = `<div />`;
+exports[`Storyshots SocialLinks basic 1`] = `null`;
 
 exports[`Storyshots TextInput Custom 1`] = `null`;

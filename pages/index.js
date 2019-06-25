@@ -11,11 +11,11 @@ const Screen1 = (/* {  setScreen  } */) => {
     <Box  fill background={size!=='small'?{"image":"url('static/imgs/tav-heru-bkgd-mobi1.png')","dark":true}:{"image":"url('static/imgs/tav-heru-bkgd-mobi.png')","dark":true}}>
       <Box align="center" direction="row" justify="between">
         <Box/>
-        <Box align="center" justify="center" pad="medium"  margin ="small" direction="row" gap="small">
+        <Box wrap align="center" justify="center" pad="medium"  margin ="small" direction="row" gap="small">
         <Link href="/about">
-          <Button primary  color='brand' label="ABOUT US"/>
+          <Button magin='small' primary  color='brand' label="ABOUT US"/>
           </Link>
-          <Button primary  color='brand' label="HOW IT WORK"/>  
+          <Button margin='small'  primary  color='brand' label="HOW IT WORK"/>  
         </Box>
         <Box/>
       </Box>

@@ -7,7 +7,7 @@ const theme = deepMerge(grommet, {
     colors:{
       brand:'#558b2f',
       'accent-1':'#FFD700',
-      'brand-mobi':"#c4ff88",
+      'brand-mobi':"#e5eec3",
       placeholder:'#FFD700'
     },
     drop: {
@@ -39,12 +39,23 @@ const theme = deepMerge(grommet, {
     },
     button:{
       border:{
-        color:{
-          dark:'#558b2f'
-        }
+        color:'#558b2f'
+        
       }
     },
-
+focus:{
+  border:{
+    color:'#558b2f'
+  }
+},
+size:{
+  "sidebar":"550px"
+}
+  },
+  text:{
+    medium:{
+      size:'14px'
+    }
   }
 });
 

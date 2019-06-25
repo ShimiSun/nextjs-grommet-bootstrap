@@ -10,7 +10,7 @@ import {
 import { FormClose} from 'grommet-icons';
 import AppBar from 'components/organisms/AppBar'
 import UserSearchBox from 'components/molecules/UserSearchBox'
-
+import SocialLinks from 'components/atoms/SocialLinks'
 
 
 export default ({children})=>   
@@ -28,23 +28,12 @@ export default ({children})=>
     setShowSidebar(!!id)
   };
 
+  const searchbox =<UserSearchBox {...{getSelectedUserId}}/> // add user serachbox into AppBar
 
   return (<ResponsiveContext.Consumer>
    {size => ( 
-    <Box fill>
-{
-  /**
-  We add a Box to fill all the available space so that we have 
-  a flexbox container to rely on */
-}
-
-<AppBar
-searchbox= {
-<UserSearchBox {...{getSelectedUserId}}/>
-}
-
-   {...{openForSignin,showSidebar}}
-/>
+    <Box fill>{/** We add a Box to fill all the available space so that we have a flexbox container to rely on */}
+    <AppBar {...{openForSignin,showSidebar,searchbox}}/> {/** the AppBar component with user searchbox integrated */}
 
 <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
    {/** The body is a Box with row direction.
@@ -65,25 +54,29 @@ searchbox= {
      */}
      <Box 
                 flex
-                width='medium'
-                background='light-2'
+                width='sidebar'
+                background='brand-mobi'
                 elevation='small'
                 align='center'
                 justify='center'
+                
               >
-                {reason}
+                <Button label={reason} primary  margin='medium' type='button' size='large' alignSelf='start' /> 
               </Box>
    
     </Collapsible>
     ): (
    <Layer>
     <Box
-   background='light-2'
+   background='brand-mobi'
    tag='header'
    justify='end'
    align='center'
    direction='row'
+   elevation='small'
+   style={{ zIndex: '1' }}
  >
+ <SocialLinks/>
    <Button
      icon={<FormClose />}
      onClick={() => setShowSidebar(false)}
@@ -91,11 +84,11 @@ searchbox= {
  </Box>
      <Box
        fill
-       background='light-2'
+       background='brand'
        align='center'
        justify='center'
      >
-       {reason}
+       <Button label={reason} primary margin='medium' type='button' size='large' alignSelf='start' /> 
      </Box>
    </Layer>
     )}
