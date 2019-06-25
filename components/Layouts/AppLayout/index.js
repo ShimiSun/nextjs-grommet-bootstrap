@@ -1,16 +1,12 @@
 import React from 'react'
 import {
-   Layer,
    Box,
    Button,
-   Collapsible,
    ResponsiveContext,
   } from 'grommet';
-// import dynamic from 'next/dynamic';
-import { FormClose} from 'grommet-icons';
 import AppBar from 'components/organisms/AppBar'
 import UserSearchBox from 'components/molecules/UserSearchBox'
-import SocialLinks from 'components/atoms/SocialLinks'
+import SideBar from '../../organisms/SideBar';
 
 
 export default ({children})=>   
@@ -27,6 +23,8 @@ export default ({children})=>
   const getSelectedUserId = (id) => {
     setShowSidebar(!!id)
   };
+
+  const onClose=()=>setShowSidebar (false)
 
   const searchbox =<UserSearchBox {...{getSelectedUserId}}/> // add user serachbox into AppBar
 
@@ -47,51 +45,11 @@ export default ({children})=>
     <Box flex align='center' justify='center'>
      {children}
     </Box>
-    {(!showSidebar || size !== 'small') ? (
-      <Collapsible direction="horizontal" open={showSidebar}>
-    {/**
-    The sidebar box has a medium width with a light-2 background.
-     */}
-     <Box 
-                flex
-                width='sidebar'
-                background='brand-mobi'
-                elevation='small'
-                align='center'
-                justify='center'
-                
-              >
-                <Button label={reason} primary  margin='medium' type='button' size='large' alignSelf='start' /> 
-              </Box>
-   
-    </Collapsible>
-    ): (
-   <Layer>
-    <Box
-   background='brand-mobi'
-   tag='header'
-   justify='end'
-   align='center'
-   direction='row'
-   elevation='small'
-   style={{ zIndex: '1' }}
- >
- <SocialLinks/>
-   <Button
-     icon={<FormClose />}
-     onClick={() => setShowSidebar(false)}
-   />
- </Box>
-     <Box
-       fill
-       background='brand'
-       align='center'
-       justify='center'
-     >
-       <Button label={reason} primary margin='medium' type='button' size='large' alignSelf='start' /> 
-     </Box>
-   </Layer>
-    )}
+    <SideBar {...{showSidebar, onClose}}>
+    <Box fill> {size}</Box>
+    <Button label={reason} primary margin='medium' type='button' size='large' alignSelf='start' /> 
+
+    </SideBar>
   </Box>
   </Box> 
   )}
