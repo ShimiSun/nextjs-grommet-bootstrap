@@ -15,7 +15,7 @@ export default  ({showSidebar,children,onClose}) => {
    <Box 
               flex
               width='sidebar'
-              background='brand'
+              background={{"image":"url('static/imgs/tav-heru-bkgd-mobi.png')","dark":true}}
               elevation='small'
               align='center'
               justify='center'
@@ -45,7 +45,7 @@ export default  ({showSidebar,children,onClose}) => {
 </Box>
    <Box
      fill
-     background='brand'
+ background={{"image":"url('static/imgs/tav-heru-bkgd-mobi.png')","dark":true}}
      align='center'
      justify='center'
    >
