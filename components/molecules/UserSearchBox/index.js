@@ -48,6 +48,7 @@ export default({getSelectedUserId})=>{
       .map(({ id, category,name, imageUrl }, index, list) => ({
         label: (
           <Box
+          flex
             direction="row"
             align="center"
             gap="small"
