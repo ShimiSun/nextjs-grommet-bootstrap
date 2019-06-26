@@ -4,6 +4,8 @@ exports[`Storyshots AppBar basic 1`] = `null`;
 
 exports[`Storyshots AppLayout basic 1`] = `null`;
 
+exports[`Storyshots LoginForm basic 1`] = `null`;
+
 exports[`Storyshots SideBar basic 1`] = `null`;
 
 exports[`Storyshots SocialLinks basic 1`] = `null`;

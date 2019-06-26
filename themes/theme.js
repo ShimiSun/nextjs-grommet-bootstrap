@@ -56,7 +56,14 @@ size:{
     medium:{
       size:'14px'
     }
+  },
+  formField:{
+    border:{
+      color:'#558b2f'
+    },
+    
   }
+
 });
 
 export default theme;

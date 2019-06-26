@@ -15,11 +15,11 @@ export default  ({showSidebar,children,onClose}) => {
    <Box 
               flex
               width='sidebar'
-              background='brand-mobi'
+              background='brand'
               elevation='small'
               align='center'
               justify='center'
-              
+              overflow={{ horizontal: 'hidden' }}
             >
               {children}
             </Box>
@@ -35,6 +35,7 @@ export default  ({showSidebar,children,onClose}) => {
  direction='row'
  elevation='small'
  style={{ zIndex: '1' }}
+ overflow={{ horizontal: 'hidden' }}
 >
 <SocialLinks/>
  <Button
