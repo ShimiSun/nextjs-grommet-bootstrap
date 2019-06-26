@@ -20,20 +20,11 @@ const Screen1 = (/* {  setScreen  } */) => {
         <Box/>
       </Box>
       <Box alignSelf={size!=='small'?'start':'center'}  align="center" alignContent="between" pad="small" direction="row" background={{"dark":false}} >
-        <Box pad={size!=='small'&&{left:'xlarge'}} justify='start' align="start" basis={size!=='small'?'large':"medium"} flex={false} background={{"dark":true}}  gap="small">
-      
-         <Heading  level={size!=='small'?'2':'2'} margin="none">
-            Crowdfund your education.
-          </Heading>
-         
-          <Paragraph textAlign='start' basis="small" pad='small'>
-          Takesavillage allows students to build campaigns to crowdfund their education while connecting with a network of licensed Financial Educators. 
-          Connect with friends, family, schools, and businesses who are interested in funding {"students'"} education because it takes a village to educate a child.
-          </Paragraph>
-          <Button label="CONNECT NOW" primary margin='medium' type='button' size='large' alignSelf='start' />
-         
-         
-        </Box>
+        
+      {
+size==='small'?<MobiHeroContent/>:<HeroContent/>
+      }
+          
       </Box>
       
     </Box>
@@ -52,3 +43,38 @@ export default () => {
   const Screen = screens[screen]
   return <Screen setScreen={setScreen} />
 }
+
+const MobiHeroContent=()=> <Box
+fill
+color='nuetral-1'
+alignSelf='center'
+alignContent='center'
+justify='center'
+align='center'
+pad='large'
+
+>
+<Heading textAlign='center' color='white'  level='1' margin="none">
+            Crowdfund your education.
+          </Heading>
+         
+          <Paragraph color='white' textAlign='center' basis="small" pad='small'>
+          Takesavillage allows students to build campaigns to crowdfund their education while connecting with a network of licensed Financial Educators. 
+          Connect with friends, family, schools, and businesses who are interested in funding {"students'"} education because it takes a village to educate a child.
+          </Paragraph>
+          <Button color='accent-1' label="CONNECT NOW" primary margin='medium' type='button' size='large' alignSelf='center' />
+         
+</Box>
+
+const HeroContent =()=><Box  justify='start' align="start" basis="large" flex={false} background={{"dark":true}}  gap="small">
+  <Heading  level='2' margin="none">
+            Crowdfund your education.
+          </Heading>
+         
+          <Paragraph textAlign='start' basis="small" pad='small'>
+          Takesavillage allows students to build campaigns to crowdfund their education while connecting with a network of licensed Financial Educators. 
+          Connect with friends, family, schools, and businesses who are interested in funding {"students'"} education because it takes a village to educate a child.
+          </Paragraph>
+          <Button label="CONNECT NOW" primary margin='medium' type='button' size='large' alignSelf='start' />
+         
+</Box>
