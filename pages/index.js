@@ -19,7 +19,7 @@ const Screen1 = (/* {  setScreen  } */) => {
         </Box>
         <Box/>
       </Box>
-      <Box alignSelf={size!=='small'?'start':'center'}  align="center" alignContent="between" pad="small" direction="row" background={{"dark":false}} >
+      
         
       {
 size==='small'?<MobiHeroContent/>:<HeroContent/>
@@ -27,7 +27,7 @@ size==='small'?<MobiHeroContent/>:<HeroContent/>
           
       </Box>
       
-    </Box>
+
  
   
   </AppLayout>
@@ -66,7 +66,8 @@ pad='medium'
          
 </Box>
 
-const HeroContent =()=><Box  justify='start' align="start" basis="large" flex={false} background={{"dark":true}}  gap="small">
+const HeroContent =()=><Box margin='medium'  >
+<Box  justify='start' align="start" basis="large" flex={false} background={{"dark":true}}  gap="small">
   <Heading  level='2' margin="none">
             Crowdfund your education.
           </Heading>
@@ -77,4 +78,5 @@ const HeroContent =()=><Box  justify='start' align="start" basis="large" flex={f
           </Paragraph>
           <Button label="CONNECT NOW" primary margin='medium' type='button' size='large' alignSelf='start' />
          
+</Box>
 </Box>
