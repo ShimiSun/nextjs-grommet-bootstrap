@@ -9,7 +9,7 @@ import {
 } from "grommet";
 
 import PasswordValidator from 'password-validator';
-import Validator from 'validator';
+import {isEmail} from 'validator';
 
 const schema = new PasswordValidator().is()
 .min(8) // Minimum length 8
@@ -29,15 +29,17 @@ export default ({onClose,onLogin}) => {
     const [password,setPassword]=React.useState('')
 
 const validateEmail = (value)=>{
-    if(!Validator.isEmail(value)){
+    if(!isEmail(value)){
         return 'invalid e-mail'
     }
+    return null
 }
 
 const validatePassword = (value)=>{
     if(!schema.validate(value)){
         return 'invalid password'
     }
+    return null
 }
 
     return (

@@ -111,7 +111,7 @@ export default({getSelectedUserId})=>{
               onChange={onChange}
               onSelect={onSelect}
               suggestions={renderSuggestions()}
-              placeholder="Who is on takesavillage?"
+              placeholder="Find out who is on takesavillage here"
               onSuggestionsOpen={() => setSuggestionOpen(true)}
               onSuggestionsClose={() =>setSuggestionOpen(false)}
             />
