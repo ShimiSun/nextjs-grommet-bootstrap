@@ -8,13 +8,37 @@ import {
   Form
 } from "grommet";
 
+import PasswordValidator from 'password-validator';
+import Validator from 'validator';
+
+const schema = new PasswordValidator().is()
+.min(8) // Minimum length 8
+.is()
+.max(100) // Maximum length 100
+.has()
+.uppercase() // Must have uppercase letters
+.has()
+.lowercase() // Must have lowercase letters
+.has()
+.digits(); // Must have digits
+
 
 export default ({onClose,onLogin}) => {
 
     const [email, setEmail]=React.useState('')
     const [password,setPassword]=React.useState('')
 
+const validateEmail = (value)=>{
+    if(!Validator.isEmail(value)){
+        return 'invalid e-mail'
+    }
+}
 
+const validatePassword = (value)=>{
+    if(!schema.validate(value)){
+        return 'invalid password'
+    }
+}
 
     return (
   
@@ -28,6 +52,7 @@ export default ({onClose,onLogin}) => {
             component={TextInput}
            label="E-mail" name="email" type="email" required 
            value={email}
+           validate={validateEmail}
               onChange={event => setEmail(event.target.value)}
            />
             <FormField
@@ -36,7 +61,7 @@ export default ({onClose,onLogin}) => {
               name="password"
               type='password'
               required
-              validate={{ regexp: /^[a-z]/i }}
+              validate={validatePassword}
               value={password}
               onChange={event => setPassword(event.target.value)}
             />
