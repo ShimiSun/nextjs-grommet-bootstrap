@@ -51,14 +51,14 @@ alignSelf='center'
 alignContent='center'
 justify='center'
 align='center'
-pad='large'
+pad='medium'
 
 >
-<Heading textAlign='center' color='white'  level='1' margin="none">
+<Heading textAlign='center' color='white'  level='3' margin="none">
             Crowdfund your education.
           </Heading>
          
-          <Paragraph color='white' textAlign='center' basis="small" pad='small'>
+          <Paragraph size='small' color='white' textAlign='center' basis="small" pad='small'>
           Takesavillage allows students to build campaigns to crowdfund their education while connecting with a network of licensed Financial Educators. 
           Connect with friends, family, schools, and businesses who are interested in funding {"students'"} education because it takes a village to educate a child.
           </Paragraph>
