@@ -48,7 +48,7 @@ export default  ({showSidebar,children,onClose}) => {
  background={{"image":"url('static/imgs/tav-heru-bkgd-mobi.png')","dark":true}}
      align='center'
      justify='center'
-     margin='large'
+     pad='large'
    >
     {children}
    </Box>
