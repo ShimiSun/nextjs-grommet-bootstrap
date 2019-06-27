@@ -41,7 +41,7 @@ const onSendMail=(value)=>{
           <Box background='brand-mobi'  flex elevation='medium' justify='center'>
            <Box pad={{horizontal:'large',vertical:'medium'}} gap='xxsmall'>
            
-           <Text size='small' textAlign='end'> To reset your password, enter your</Text>
+           <Text color='brand' size='small' textAlign='start'> To reset your password, enter your</Text>
 
            <FormField 
          //  help='Enter a valid e-mail address'
