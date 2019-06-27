@@ -6,6 +6,8 @@ import { FormClose,} from 'grommet-icons';
 export default  ({showSidebar,children,onClose}) => {
   const size = React.useContext(ResponsiveContext)
 
+ 
+
   return <React.Fragment>
   {(!showSidebar || size !== 'small') ? (
     <Collapsible direction="horizontal" open={showSidebar}>

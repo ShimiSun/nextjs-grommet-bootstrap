@@ -13,6 +13,7 @@ import Link from 'next/link';
 import PasswordValidator from 'password-validator';
 import {isEmail} from 'validator';
 import { View,FormLock } from "grommet-icons";
+import Email4ResetForm from 'components/organisms/Email4ResetForm'
 
 const schema = new PasswordValidator().is()
 .min(8) // Minimum length 8
@@ -33,7 +34,8 @@ export default ({onClose,onLogin}) => {
   const [hide,setHide]=React.useState(true)
     const [email, setEmail]=React.useState('')
     const [password,setPassword]=React.useState('')
-
+  const [showEmail4ResetForm,toggleShowEmail4ResetForm]=React.useState(false)
+  
 const validateEmail = (value)=>{
     if(!isEmail(value)){
         return 'invalid e-mail'
@@ -53,7 +55,8 @@ const toggleHide=()=>setHide(!hide)
     return (
   
         <Box>
-        <Form  onSubmit={({ value }) => onLogin(value)}>
+        {!showEmail4ResetForm?
+          <Form  onSubmit={({ value }) => onLogin(value)}>
           <Box background='brand-mobi'  flex elevation='medium' justify='center'>
            <Box pad={{horizontal:'large',vertical:'medium'}} gap='xxsmall'>
            
@@ -83,7 +86,7 @@ const toggleHide=()=>setHide(!hide)
       />
     </Box>
           </FormField>
- <Text size='xsmall' textAlign='end'> <Link href='/#'><Anchor primary label="forgot password?" /></Link></Text>
+ <Text size='xsmall' textAlign='end'> <Link href='/#'><Anchor onClick={()=>toggleShowEmail4ResetForm(!showEmail4ResetForm)} primary label="forgot password?" /></Link></Text>
 
            
            </Box>
@@ -95,7 +98,9 @@ const toggleHide=()=>setHide(!hide)
               <Button primary type="submit" label="LOG IN"  />
               <Button label="CANCEL" onClick={onClose}/>
             </Box>
-            </Form>
+            </Form>:
+            <Email4ResetForm onClose={()=>toggleShowEmail4ResetForm(!showEmail4ResetForm)} />
+            }
         </Box>
      
   );
