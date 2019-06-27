@@ -66,7 +66,7 @@ pad='medium'
          
 </Box>
 
-const HeroContent =()=><Box margin='medium'  >
+const HeroContent =()=><Box margin='medium    '  >
 <Box  justify='start' align="start" basis="large" flex={false} background={{"dark":true}}  gap="small">
   <Heading  level='2' margin="none">
             Crowdfund your education.

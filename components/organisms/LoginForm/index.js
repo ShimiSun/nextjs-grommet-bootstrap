@@ -5,11 +5,14 @@ import {
   Button,
   TextInput,
   FormField,
-  Form
+  Form,
+  Text,
+  Anchor
 } from "grommet";
-
+import Link from 'next/link';
 import PasswordValidator from 'password-validator';
 import {isEmail} from 'validator';
+import { View,FormLock } from "grommet-icons";
 
 const schema = new PasswordValidator().is()
 .min(8) // Minimum length 8
@@ -23,8 +26,11 @@ const schema = new PasswordValidator().is()
 .digits(); // Must have digits
 
 
+
+
 export default ({onClose,onLogin}) => {
 
+  const [hide,setHide]=React.useState(true)
     const [email, setEmail]=React.useState('')
     const [password,setPassword]=React.useState('')
 
@@ -42,12 +48,14 @@ const validatePassword = (value)=>{
     return null
 }
 
+const toggleHide=()=>setHide(!hide)
+
     return (
   
-        <Box width="medium">
+        <Box>
         <Form  onSubmit={({ value }) => onLogin(value)}>
-          <Box background='brand-mobi' fill flex elevation='medium' justify='center'>
-           <Box pad='xlarge'>
+          <Box background='brand-mobi'  flex elevation='medium' justify='center'>
+           <Box pad={{horizontal:'large',vertical:'medium'}} gap='xxsmall'>
            
            <FormField 
          //  help='Enter a valid e-mail address'
@@ -57,21 +65,32 @@ const validatePassword = (value)=>{
            validate={validateEmail}
               onChange={event => setEmail(event.target.value)}
            />
-            <FormField
+          
+          <FormField
           //  help='Atleast 8 characters (a digit, lowercase and uppercase letter)'
+          // component={TextInput}
               label="Password"
               name="password"
-              type='password'
-              required
-              validate={validatePassword}
+             validate={validatePassword}
               value={password}
-              onChange={event => setPassword(event.target.value)}
-            />
+              >
+           <Box direction="row" align="center">
+      <TextInput plain type={!hide ? "text" : "password"} value={password}
+              onChange={(e)=> setPassword(e.target.value)}/>
+      <Button
+        icon={!hide ? <View /> : <FormLock />}
+        onClick={toggleHide}
+      />
+    </Box>
+          </FormField>
+ <Text size='xsmall' textAlign='end'> <Link href='/#'><Anchor primary label="forgot password?" /></Link></Text>
+
            
            </Box>
       
            </Box>
-           
+           <Text size='xsmall'>By using our site, you agree to our <Link href='/terms'>
+           <Anchor primary label="terms" /></Link> and <Link href='privacy'><Anchor primary label="privacy policy" /></Link>.</Text>
             <Box  direction="row" justify="between" margin='medium' >
               <Button primary type="submit" label="LOG IN"  />
               <Button label="CANCEL" onClick={onClose}/>
