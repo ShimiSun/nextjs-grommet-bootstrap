@@ -11,7 +11,7 @@ import {
 } from "grommet";
 import Link from 'next/link';
 import {isEmail} from 'validator';
-
+import Router from 'next/router'
 
 
 
@@ -30,13 +30,12 @@ const validateEmail = (value)=>{
 
 const onSendMail=(value)=>{
   console.log('e-mailing: ',value.email)
+  Router.push(`https://${email}`)
 }
-
 
 
     return (
   
-        <Box>
         <Form  onSubmit={({ value }) => onSendMail(value)}>
           <Box background='brand-mobi'  flex elevation='medium' justify='center'>
            <Box pad={{horizontal:'large',vertical:'medium'}} gap='xxsmall'>
@@ -58,11 +57,11 @@ const onSendMail=(value)=>{
            <Text size='xsmall'>By using our site, you agree to our <Link href='/terms'>
            <Anchor primary label="terms" /></Link> and <Link href='privacy'><Anchor primary label="privacy policy" /></Link>.</Text>
             <Box  direction="row" justify="between" margin='medium' >
-              <Button primary type="submit" label="SEND E-MAIL" href={`https://${email}`} />
+              <Button primary type="submit" label="SEND E-MAIL" />
               <Button label="CANCEL" onClick={onClose}/>
             </Box>
             </Form>
-        </Box>
+      
      
   );
 }

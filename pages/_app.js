@@ -1,15 +1,12 @@
 import React from 'react';
 import App from 'next/app';
-import { Grommet ,} from 'grommet';
+import { Grommet } from 'grommet';
 import theme from 'themes/theme'
 
-import { createGlobalStyle } from "styled-components"
 
 import 'static/css/styles.css'
 
-const FullGlobalStyle = createGlobalStyle`
-  body { margin: 0; }
-`
+
 
 class MyApp extends App {
   componentDidMount() {
@@ -25,8 +22,9 @@ class MyApp extends App {
 
     return (
       
-      <Grommet theme={theme} full> 
-      <FullGlobalStyle />
+      <Grommet theme={theme} style={{"height":"100vh"}}>
+     
+     
       {/** 
       Typically, you should include Grommet only once as one of your top-level nodes.
       We are extending Grommet to take the full viewport height and width.

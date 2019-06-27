@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button,ResponsiveContext,Layer,Collapsible} from 'grommet';
+import { Box, Button,ResponsiveContext,Layer,Collapsible,} from 'grommet';
 import SocialLinks from 'components/atoms/SocialLinks'
 import { FormClose,} from 'grommet-icons';
 
@@ -23,6 +23,7 @@ export default  ({showSidebar,children,onClose}) => {
               justify='center'
               overflow={{ horizontal: 'hidden' }}
             >
+         
               {children}
             </Box>
  

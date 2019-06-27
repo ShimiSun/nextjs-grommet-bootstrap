@@ -36,7 +36,7 @@ export default ({children})=>
     <Box fill>{/** We add a Box to fill all the available space so that we have a flexbox container to rely on */}
     <AppBar {...{openForSignin,showSidebar,searchbox}} /> {/** the AppBar component with user searchbox integrated */}
 
-<Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
+<Box direction='row' flex overflow={{ horizontal: 'hidden',vertical:'hidden' }}>
    {/** The body is a Box with row direction.
    The flex prop instructs the Box to expand into the remaining available space 
    The overflow prop ensures that both the main panel and sidebar fit 
