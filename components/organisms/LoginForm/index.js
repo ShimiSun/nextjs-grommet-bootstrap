@@ -88,8 +88,13 @@ const validatePassword = (value)=>{
            </Box>
       
            </Box>
-           <Text size='xsmall'>By using our site, you agree to our <Link href='/terms'>
-           <Anchor primary label="terms" /></Link> and <Link href='privacy'><Anchor primary label="privacy policy" /></Link>.</Text>
+           <Box gap='xxsmall' alignSelf='between' alignContent='between'>
+           <Text size='xsmall' textAlign='center'>By using our site, you agree to our </Text>
+           <Text size='xsmall' textAlign='center'>
+           <Link href='/terms'>
+           <Anchor primary label="terms" /></Link> and <Link href='privacy'><Anchor primary label="privacy policy" /></Link>.
+           </Text>
+           </Box>
             <Box  direction="row" justify="between" margin='medium' >
               <Button primary type="submit" label="LOG IN"  />
               <Button label="CANCEL" onClick={onClose}/>
