@@ -12,7 +12,7 @@ import {
 import Link from 'next/link';
 import PasswordValidator from 'password-validator';
 import {isEmail} from 'validator';
-import { View,FormLock } from "grommet-icons";
+import PasswordInput from "components/atoms/PasswordInput";
 import Email4ResetForm from 'components/organisms/Email4ResetForm'
 
 const schema = new PasswordValidator().is()
@@ -31,7 +31,7 @@ const schema = new PasswordValidator().is()
 
 export default ({onClose,onLogin}) => {
 
-  const [hide,setHide]=React.useState(true)
+  
     const [email, setEmail]=React.useState('')
     const [password,setPassword]=React.useState('')
   const [showEmail4ResetForm,toggleShowEmail4ResetForm]=React.useState(false)
@@ -50,7 +50,7 @@ const validatePassword = (value)=>{
     return null
 }
 
-const toggleHide=()=>setHide(!hide)
+
 
     return (
   
@@ -63,29 +63,25 @@ const toggleHide=()=>setHide(!hide)
            <FormField 
          //  help='Enter a valid e-mail address'
             component={TextInput}
-           label="E-mail" name="email" type="email" required 
+           label="E-mail" 
+           name="email" 
+           type="email" 
+           required 
            value={email}
            validate={validateEmail}
-              onChange={event => setEmail(event.target.value)}
+          onChange={event => setEmail(event.target.value)}
            />
           
           <FormField
           //  help='Atleast 8 characters (a digit, lowercase and uppercase letter)'
-          // component={TextInput}
+           component={PasswordInput}
               label="Password"
               name="password"
+              required
              validate={validatePassword}
               value={password}
-              >
-           <Box direction="row" align="center">
-      <TextInput plain type={!hide ? "text" : "password"} value={password}
-              onChange={(e)=> setPassword(e.target.value)}/>
-      <Button
-        icon={!hide ? <View /> : <FormLock />}
-        onClick={toggleHide}
-      />
-    </Box>
-          </FormField>
+              onChange={(e)=> setPassword(e.target.value)}
+              />
  <Text size='xsmall' textAlign='end'> <Link href='/#'><Anchor onClick={()=>toggleShowEmail4ResetForm(!showEmail4ResetForm)} primary label="forgot password?" /></Link></Text>
 
            
