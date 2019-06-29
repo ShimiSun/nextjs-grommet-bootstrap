@@ -1,13 +1,13 @@
 
 require('dotenv').config({ silent: process.env.NODE_ENV === 'production' });
-const withTM = require('next-plugin-transpile-modules');
+// const withTM = require('next-plugin-transpile-modules');
 
 const path = require('path')
 const Dotenv = require('dotenv-webpack');
 const withCSS = require('@zeit/next-css')
 
-module.exports =withTM(withCSS({
-  transpileModules: ['grommet-controls', 'grommet', 'grommet-icons'],
+module.exports =withCSS({
+ // transpileModules: ['grommet-controls', 'grommet', 'grommet-icons'],
     webpack (config) {
 
         config.plugins.push(
@@ -23,4 +23,4 @@ module.exports =withTM(withCSS({
        
            return config; 
        }
-}));
+});
