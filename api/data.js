@@ -118,6 +118,10 @@ export default {
           name: "Alan Souza",
           imageUrl:
             "https://s.gravatar.com/avatar/b226da5c619b18b44eb95c30be393953?s=80",
+            story:{
+                title:"Dreaming College",
+                story:"I have just finished my high school and looking forward to do computer science at Michighan state university"
+            }
            
         },
         {
@@ -125,42 +129,65 @@ export default {
           category:'student',
           name: "Bryan Jacquot",
           imageUrl:
-            "https://s.gravatar.com/avatar/10d15019166606cfed23846a7f902660?s=80"
+            "https://s.gravatar.com/avatar/10d15019166606cfed23846a7f902660?s=80",
+            story:{
+                title:"Dreaming College",
+                story:"I have just finished my high school and looking forward to do computer science at Michighan state university"
+            }
         },
         {
           id:3,
           category:'guardian',
           name: "Chris Carlozzi",
           imageUrl:
-            "https://s.gravatar.com/avatar/56ea1e2ecd0d3cc85479b2d09e31d071?s=80"
+            "https://s.gravatar.com/avatar/56ea1e2ecd0d3cc85479b2d09e31d071?s=80",
+            story:{
+                title:"Optimistic Researcher",
+                story:"Creg is an amazing creature... Very inquisitive and teachable. She loves reading. Hope you and me can help save his future. I launched this campaign, hoping that amazing people like you would donate to his cause. Blessings"
+            }
         },
         {
           id:4,
           category:'guardian',
           name: "Eric Soderberg",
           imageUrl:
-            "https://s.gravatar.com/avatar/99020cae7ff399a4fbea19c0634f77c3?s=80"
+            "https://s.gravatar.com/avatar/99020cae7ff399a4fbea19c0634f77c3?s=80",
+            story:{
+                title:"The Surgeon in the making",
+                story:"It's evident that Drake's entire being dictates that he wants to be the Surgeon. He is 7th grade but already acquainted with most mamal organs. As his granny mother, this inspires me to run this campaign for him. Will you join me as we support this Wizard please?"
+            }
         },
         {
           id:5,
           category:'student',
           name: "Marlon Parizzotto",
           imageUrl:
-            "https://s.gravatar.com/avatar/e6684969375a4dcc0aa99f0bfae544c3?s=80"
+            "https://s.gravatar.com/avatar/e6684969375a4dcc0aa99f0bfae544c3?s=80",
+            story:{
+                title:"Dreaming College",
+                story:"I have just finished my high school and looking forward to do computer science at Michighan state university"
+            }
         },
         {
           id:6,
           category:'financial educator',
           name: "Tales Chaves",
           imageUrl:
-            "https://s.gravatar.com/avatar/1f80adca55d9f5d97932ff97f631a4e8?s=80"
+            "https://s.gravatar.com/avatar/1f80adca55d9f5d97932ff97f631a4e8?s=80",
+            license:{
+                aboutFA:"If you want your campaign to succeed, you need to connect with someone who has been in this field for a while. Not only have I been a financial advisor for 6 full years but I also went through college by running an education crowdfunding campaign. I bet you are looking for someone like me"
+            }
         },
         {
           id:7,
           category:'student',
           name: "Tracy Barmore",
           imageUrl:
-            "https://s.gravatar.com/avatar/4ec9c3a91da89f278e4482811caad7f3?s=80"
+            "https://s.gravatar.com/avatar/4ec9c3a91da89f278e4482811caad7f3?s=80",
+            story:{
+                title:"Dreaming College",
+                story:"I have just finished my high school and looking forward to do computer science at Michighan state university"
+            }
         }
       ]
 }

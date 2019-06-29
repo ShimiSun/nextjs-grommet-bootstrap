@@ -4,6 +4,7 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "blueimp-md5": "^2.10.0",
+    "capitalize": "^2.0.0",
     "dotenv": "^8.0.0",
     "dotenv-webpack": "^1.7.0",
     "grommet": "^2.7.1",

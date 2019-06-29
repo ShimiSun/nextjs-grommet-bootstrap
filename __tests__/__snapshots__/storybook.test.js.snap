@@ -8,8 +8,12 @@ exports[`Storyshots Email4ResetForm basic 1`] = `null`;
 
 exports[`Storyshots LoginForm basic 1`] = `null`;
 
+exports[`Storyshots PasswordInput basic 1`] = `null`;
+
 exports[`Storyshots SideBar basic 1`] = `null`;
 
 exports[`Storyshots SocialLinks basic 1`] = `null`;
 
 exports[`Storyshots TextInput Custom 1`] = `null`;
+
+exports[`Storyshots UserCard basic 1`] = `null`;

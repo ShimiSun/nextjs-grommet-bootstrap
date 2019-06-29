@@ -88,7 +88,7 @@ const validatePassword = (value)=>{
            </Box>
       
            </Box>
-           <Box gap='xxsmall' alignSelf='between' alignContent='between'>
+           <Box gap='xxsmall'  alignContent='between'>
            <Text size='xsmall' textAlign='center'>By using our site, you agree to our </Text>
            <Text size='xsmall' textAlign='center'>
            <Link href='/terms'>

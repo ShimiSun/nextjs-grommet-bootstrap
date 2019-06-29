@@ -3,10 +3,12 @@ import {
    Box,
   
   } from 'grommet';
+ 
 import AppBar from 'components/organisms/AppBar'
 import UserSearchBox from 'components/molecules/UserSearchBox'
-import SideBar from '../../organisms/SideBar';
-import LoginForm from '../../organisms/LoginForm';
+import SideBar from 'components/organisms/SideBar';
+import LoginForm from 'components/organisms/LoginForm';
+import UserCard from 'components/molecules/UserCard'
 
 
 export default ({children})=>   
@@ -22,6 +24,7 @@ export default ({children})=>
 
   const getSelectedUserId = (id) => {
     setShowSidebar(!!id)
+    setReason(id)
   };
 
   const onClose=()=>setShowSidebar (false)
@@ -47,7 +50,7 @@ export default ({children})=>
     </Box>
     <SideBar {...{showSidebar, onClose}}>
     <Box>
-    {reason==='signin'&&<LoginForm {...{onClose,onLogin}}/> }
+    {reason==='signin' ?<LoginForm {...{onClose,onLogin}}/> :<UserCard id={reason}/> }
     </Box>
 
     </SideBar>
@@ -56,3 +59,4 @@ export default ({children})=>
  
   )
 }  
+
