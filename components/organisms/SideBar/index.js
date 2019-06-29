@@ -38,7 +38,7 @@ export default  ({showSidebar,children,onClose}) => {
  direction='row'
  elevation='small'
  style={{ zIndex: '1' }}
- overflow={{ horizontal: 'hidden' }}
+ overflow={{ horizontal: 'hidden',vertical:'scroll' }}
 >
 <SocialLinks/>
  <Button
