@@ -14,6 +14,7 @@ import capitalize from 'capitalize'
 import { ImageStamp, Card } from 'grommet-controls';
 import Rating from 'components/atoms/Rating'
 import Score from 'components/atoms/Score'
+import config from 'config'
 
 const {folks}=data
 
@@ -106,7 +107,7 @@ console.log(obj)
       </Box>
         
         <Paragraph textAlign='center' margin='none' size='small'>
-          {description}
+        {config.truncateSentence(description,2)}
         </Paragraph>
       </Box>
       <Box direction='row'>

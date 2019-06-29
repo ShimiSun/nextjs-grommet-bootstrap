@@ -1,4 +1,4 @@
-
+const truncateSentence = (text, sentenceCount) => `${text.split('.').slice(0, sentenceCount).join('.')}.`;
 
 module.exports = {
     title: `Takesavillage`,
@@ -9,5 +9,5 @@ module.exports = {
     // gaId: `UA-126639314-1`,
     email: `info.takesavillage.com`,
     facebook: `TakesaVillagecom-1231801423529757/`,
-    
+    truncateSentence,
   }
