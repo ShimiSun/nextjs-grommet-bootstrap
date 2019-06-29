@@ -50,7 +50,7 @@ export default ({children})=>
     </Box>
     <SideBar {...{showSidebar, onClose}}>
     <Box>
-    {reason==='signin' ?<LoginForm {...{onClose,onLogin}}/> :<UserCard id={reason}/> }
+    {reason==='signin' ?<LoginForm {...{onClose,onLogin}}/> :<UserCard id={reason} onClose={onClose}/> }
     </Box>
 
     </SideBar>

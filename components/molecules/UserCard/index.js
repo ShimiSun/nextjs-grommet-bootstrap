@@ -6,9 +6,9 @@ import {
  Paragraph,
   Text,
   Image,
-Heading
+Heading,ResponsiveContext
 } from "grommet";
-import {View,Money} from 'grommet-icons'
+import {View,Money,FormClose} from 'grommet-icons'
 import data from 'api/data'
 import capitalize from 'capitalize'
 import { ImageStamp, Card } from 'grommet-controls';
@@ -19,7 +19,7 @@ import config from 'config'
 const {folks}=data
 
 
-export default ({id}) => {
+export default ({id,onClose}) => {
 const [cover,setCover]=React.useState('https://i.ytimg.com/vi/6pJP2NJbJ1I/maxresdefault.jpg')
 const [image,setImage]=React.useState('https://avatars0.githubusercontent.com/u/1753301?s=460&v=4\n')
 const [name,setName]=React.useState('')
@@ -55,18 +55,25 @@ React.useEffect( () => {
     }
   }
  }
-console.log(obj)
+
+// console.log(obj)
+
 }, [id]);
 
+const size = React.useContext(ResponsiveContext)
+
     return(
-      <Card background='brand-mobi'>
+  <Card background='brand-mobi'>
     <Card.CardTitle pad='none' basis='small'>
-      <Box style={{ position: 'relative' }} height='small' width='full'>
-      <Box align="start" justify="start" pad="small" direction="row" alignSelf="start"  style={{zIndex:1}}>
-     <Box direction='row' round='medium' primary pad='small' elevation='medium' background='brand'>
+  <Box style={{ position: 'relative' }} height='small' width='full'>
+    {size!=='small'&&<Box size='xsmall' justify='end' direction='row' round='full' primary pad='xsmall' elevation='large' style={{zIndex:1}}>
+    <Button onClick={onClose}  size='xsmall'  primary color='brand-mobi'  icon={<FormClose color='brand'/>}/>
+    </Box>}
+    <Box align="start" justify="start" pad="small" direction="row" alignSelf="start"  style={{zIndex:1}}>
+    <Box direction='row' round='medium' primary pad='small' elevation='medium' background='brand'>
      {category==='financial educator'&&<Rating value={3}/>}
      {(category==='guardian'||category==='student')&&<Score amount={amount} goal={goal}/>}
-     </Box> 
+    </Box> 
         </Box>
         <Image
           style={{

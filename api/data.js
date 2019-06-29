@@ -152,7 +152,7 @@ export default {
                 goal:7000,
                 cover:"https://images.pexels.com/photos/266004/pexels-photo-266004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
                 title:"Optimistic Researcher",
-                story:"Creg is an amazing creature... Very inquisitive and teachable. She loves reading. Hope you and me can help save his future. I launched this campaign, hoping that amazing people like you would donate to his cause. Blessings"
+                story:"Creg is an amazing creature. Very inquisitive and teachable. She loves reading. Hope you and me can help save his future. I launched this campaign, hoping that amazing people like you would donate to his cause. Blessings"
             }
         },
         {
