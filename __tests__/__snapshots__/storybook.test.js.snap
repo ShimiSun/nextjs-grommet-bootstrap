@@ -10,6 +10,8 @@ exports[`Storyshots LoginForm basic 1`] = `null`;
 
 exports[`Storyshots PasswordInput basic 1`] = `null`;
 
+exports[`Storyshots Rating basic 1`] = `null`;
+
 exports[`Storyshots SideBar basic 1`] = `null`;
 
 exports[`Storyshots SocialLinks basic 1`] = `null`;

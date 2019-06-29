@@ -119,6 +119,9 @@ export default {
           imageUrl:
             "https://s.gravatar.com/avatar/b226da5c619b18b44eb95c30be393953?s=80",
             story:{
+                amount:2100,
+                goal:30000,
+                cover:"https://images.pexels.com/photos/129062/pexels-photo-129062.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
                 title:"Dreaming College",
                 story:"I have just finished my high school and looking forward to do computer science at Michighan state university"
             }
@@ -131,6 +134,9 @@ export default {
           imageUrl:
             "https://s.gravatar.com/avatar/10d15019166606cfed23846a7f902660?s=80",
             story:{
+                amount:7100,
+                goal:35000,
+                cover:"https://images.pexels.com/photos/40065/woman-detail-bed-jeans-40065.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
                 title:"Dreaming College",
                 story:"I have just finished my high school and looking forward to do computer science at Michighan state university"
             }
@@ -142,6 +148,9 @@ export default {
           imageUrl:
             "https://s.gravatar.com/avatar/56ea1e2ecd0d3cc85479b2d09e31d071?s=80",
             story:{
+                amount:100,
+                goal:7000,
+                cover:"https://images.pexels.com/photos/266004/pexels-photo-266004.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
                 title:"Optimistic Researcher",
                 story:"Creg is an amazing creature... Very inquisitive and teachable. She loves reading. Hope you and me can help save his future. I launched this campaign, hoping that amazing people like you would donate to his cause. Blessings"
             }
@@ -153,6 +162,8 @@ export default {
           imageUrl:
             "https://s.gravatar.com/avatar/99020cae7ff399a4fbea19c0634f77c3?s=80",
             story:{
+                amount:2900,
+                goal:8300,
                 title:"The Surgeon in the making",
                 story:"It's evident that Drake's entire being dictates that he wants to be the Surgeon. He is 7th grade but already acquainted with most mamal organs. As his granny mother, this inspires me to run this campaign for him. Will you join me as we support this Wizard please?"
             }
@@ -164,6 +175,9 @@ export default {
           imageUrl:
             "https://s.gravatar.com/avatar/e6684969375a4dcc0aa99f0bfae544c3?s=80",
             story:{
+                amount:0,
+                goal:30000,
+                cover:"https://images.pexels.com/photos/1130980/pexels-photo-1130980.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
                 title:"Dreaming College",
                 story:"I have just finished my high school and looking forward to do computer science at Michighan state university"
             }
@@ -175,6 +189,7 @@ export default {
           imageUrl:
             "https://s.gravatar.com/avatar/1f80adca55d9f5d97932ff97f631a4e8?s=80",
             license:{
+              
                 aboutFA:"If you want your campaign to succeed, you need to connect with someone who has been in this field for a while. Not only have I been a financial advisor for 6 full years but I also went through college by running an education crowdfunding campaign. I bet you are looking for someone like me"
             }
         },
@@ -185,6 +200,9 @@ export default {
           imageUrl:
             "https://s.gravatar.com/avatar/4ec9c3a91da89f278e4482811caad7f3?s=80",
             story:{
+                amount:2100,
+                goal:5000,
+                cover:"https://images.pexels.com/photos/1323206/pexels-photo-1323206.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
                 title:"Dreaming College",
                 story:"I have just finished my high school and looking forward to do computer science at Michighan state university"
             }

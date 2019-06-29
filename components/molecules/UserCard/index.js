@@ -8,21 +8,24 @@ import {
   Image,
 Heading
 } from "grommet";
-import {View,Previous,Money} from 'grommet-icons'
+import {View,Money} from 'grommet-icons'
 import data from 'api/data'
 import capitalize from 'capitalize'
 import { ImageStamp, Card } from 'grommet-controls';
-
+import Rating from 'components/atoms/Rating'
+import Score from 'components/atoms/Score'
 
 const {folks}=data
 
 
 export default ({id}) => {
-
+const [cover,setCover]=React.useState('https://i.ytimg.com/vi/6pJP2NJbJ1I/maxresdefault.jpg')
 const [image,setImage]=React.useState('https://avatars0.githubusercontent.com/u/1753301?s=460&v=4\n')
 const [name,setName]=React.useState('')
 const [description,setDescription]=React.useState('')
 const [category,setCategory]=React.useState('')
+const [amount,setAmount]=React.useState(0)
+const [goal,setGoal]=React.useState(1000)
 
 React.useEffect( () => {
  const obj= folks.filter((f)=>f.id===id)
@@ -34,9 +37,21 @@ React.useEffect( () => {
   }
   if(obj[0].license){
     setDescription(obj[0].license.aboutFA)
+    if(obj[0].license.cover){
+      setCover(obj[0].license.cover)
+    }
   }
   if(obj[0].story){
     setDescription(obj[0].story.story)
+    if(obj[0].story.cover){
+      setCover(obj[0].story.cover)
+    }
+    if(obj[0].story.goal){
+      setGoal(obj[0].story.goal)
+    }
+    if(obj[0].story.amount){
+      setAmount(obj[0].story.amount)
+    }
   }
  }
 console.log(obj)
@@ -47,7 +62,10 @@ console.log(obj)
     <Card.CardTitle pad='none' basis='small'>
       <Box style={{ position: 'relative' }} height='small' width='full'>
       <Box align="start" justify="start" pad="small" direction="row" alignSelf="start"  style={{zIndex:1}}>
-          <Button elevetion='small' label="" icon={<Previous />} primary color="brand" hoverIndicator={false} disabled={false} reverse={false} />
+     <Box direction='row' round='medium' primary pad='small' elevation='medium' background='brand'>
+     {category==='financial educator'&&<Rating value={3}/>}
+     {(category==='guardian'||category==='student')&&<Score amount={amount} goal={goal}/>}
+     </Box> 
         </Box>
         <Image
           style={{
@@ -58,7 +76,7 @@ console.log(obj)
             width: '100%',
           }}
           fit='cover'
-          src='https://i.ytimg.com/vi/6pJP2NJbJ1I/maxresdefault.jpg'
+          src={cover}
         />
         <ImageStamp
           style={{
