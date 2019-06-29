@@ -57,7 +57,7 @@ console.log(obj)
           <Paragraph size="small" margin="medium" textAlign="center">
           {description}
           </Paragraph>
-          <Box align="center" justify="center" pad="medium" direction="row" gap="small" overflow="hidden" alignSelf="center" basis="full" fill="horizontal" flex height="medium" background={{"dark":false}} />
+
           <Box align="center" justify="center" pad="medium" direction="row-responsive" flex alignSelf="center" width="medium" basis="xxsmall" gap="small" margin="xsmall">
            {(category==='student' || category==='guardian')&& <Button  label="DONATE" primary plain={false} />}
             <Button label="SEE PROFILE" />
