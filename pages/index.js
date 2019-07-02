@@ -54,7 +54,7 @@ align='center'
 pad='medium'
 
 >
-<Heading textAlign='center' color='white'  level='3' margin="none">
+<Heading textAlign='center' color='brand-mobi'  level='3' margin="none">
             Crowdfund your education.
           </Heading>
          
@@ -68,7 +68,7 @@ pad='medium'
 
 const HeroContent =()=><Box margin='medium    '  >
 <Box  justify='start' align="start" basis="large" flex={false} background={{"dark":true}}  gap="small">
-  <Heading  level='2' margin="none">
+  <Heading color='brand-mobi' level='2' margin="none">
             Crowdfund your education.
           </Heading>
          

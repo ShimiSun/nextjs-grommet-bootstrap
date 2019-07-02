@@ -11,10 +11,7 @@ import {
 } from "grommet";
 import Link from 'next/link';
 import {isEmail} from 'validator';
-import Router from 'next/router'
-
-
-
+import Router from 'next/router';
 
 export default ({onClose,}) => {
 
@@ -32,6 +29,7 @@ const onSendMail=(value)=>{
   console.log('e-mailing: ',value.email)
   Router.push(`https://${email}`)
 }
+
 
 
     return (
