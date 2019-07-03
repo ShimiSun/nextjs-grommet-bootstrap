@@ -1,19 +1,20 @@
 import React from 'react'
 import AppLayout from 'components/Layouts/AppLayout'
 import {
-    Box,Button, Anchor
+    Box,Button, Anchor,ResponsiveContext
   } from "grommet";  
   import Link from 'next/link';
   import {Mail, Phone} from 'grommet-icons';
 import About from 'components/containers/About'
 
 export default ()=>{
+  const size = React.useContext(ResponsiveContext)
 
     return <AppLayout>
     <Box pad='medium' fill background={{"image":"url('static/imgs/tav-heru-bkgd-mobi.png')","dark":true}}>
          <Box align="center" direction="row" justify="between">
            <Box/>
-           <Box wrap align="center" justify="center" pad="medium"  margin ="small" direction="row" gap="small">
+           <Box align="center" justify="center" pad="medium"  margin ="small" direction="row" gap="small">
            <Link href="/">
              <Button magin='small' primary  color='brand' label="HOME"/>
              </Link>
