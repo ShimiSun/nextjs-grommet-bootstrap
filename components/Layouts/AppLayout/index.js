@@ -10,10 +10,11 @@ import SideBar from 'components/organisms/SideBar';
 import LoginForm from 'components/organisms/LoginForm';
 import UserCard from 'components/molecules/UserCard'
 
+export const SidebarContext = React.createContext(false)
 
 export default ({children})=>   
 {
- 
+ // const [sidebarVisible, setSidebarVisible] = useState(false)
   const [showSidebar,setShowSidebar]=React.useState(false)
   const [reason,setReason]=React.useState('donate')
 
@@ -46,7 +47,9 @@ export default ({children})=>
    within the width of the viewport, instead of having to scroll horizontally.
    */}
     <Box flex align='center' justify='center'>
-     {children}
+    <SidebarContext.Provider value={showSidebar}>
+        {children}
+    </SidebarContext.Provider>
     </Box>
     <SideBar {...{showSidebar, onClose}}>
     <Box>
@@ -60,3 +63,30 @@ export default ({children})=>
   )
 }  
 
+/**
+ * // AppLayout
+
+const SidebarContext = createContext(false)
+
+export default function AppLayout({ children }) {
+    const [sidebarVisible, setSidebarVisible] = useState(false)
+
+    return <SidebarContext.Provider value={sidebarVisible}>
+        {children}
+    </SidebarContext.Provider>
+}
+
+
+// AboutContent
+
+export default function AboutContent() {
+    const sidebarVisible = useContext(SidebarContext)
+
+    return (
+        <div>
+            {sidebarVisible && <AboutNav />}
+            <Content />
+        </div>
+    )
+}
+ */
