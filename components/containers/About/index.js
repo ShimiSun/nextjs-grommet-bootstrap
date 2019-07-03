@@ -4,10 +4,13 @@ import { Box,Grid,Button,ResponsiveContext, Heading, Paragraph,Video,Text} from 
 import {Previous} from 'grommet-icons'
 // import { Card, Avatar, IconButton  } from 'grommet-controls';
 
-export default ()=> {
+
+
+export default ({getSelected})=> {
     const showSidebar = React.useContext(SidebarContext)
     const size = React.useContext(ResponsiveContext)
     const [selected,setSelected]=React.useState('Who we are')
+    
     
     const notMobileAreas =!showSidebar?[
         { name: "nav", start: [0, 0], end: [0, 0] },
@@ -15,6 +18,11 @@ export default ()=> {
       ]:[
         { name: "main", start: [0, 0], end: [0, 0] },
       ]
+
+      React.useEffect( () => {
+        
+       getSelected(selected)
+     }, [getSelected, selected, size]);
 
       React.useEffect( () => {
         
