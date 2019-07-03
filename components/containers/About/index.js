@@ -96,7 +96,6 @@ const WhoweareDesktop = ({showSidebar}) => (
               
               <Paragraph
               color='white'
-              
                 style={{
                   display: '-webkit-box',
                   WebkitLineClamp: '10',
@@ -109,7 +108,6 @@ const WhoweareDesktop = ({showSidebar}) => (
                </Paragraph>
               <Paragraph
               color='white'
-               size='small'
                 style={{
                   display: '-webkit-box',
                   WebkitLineClamp: '10',
@@ -131,13 +129,13 @@ const WhoweareDesktop = ({showSidebar}) => (
 
   const WhoweareMobile =({backToMenu})=><Box fill>
 
-<Box direction='row' gap='small'>
+<Box direction='row' gap='small' margin='small' >
 <Box align="start" justify="start" pad="small" direction="row" alignSelf="start">
           <Button  onClick={backToMenu} label="" icon={<Previous color="brand-mobi"/>}   hoverIndicator={false} disabled={false} reverse={false} />
         </Box>
 <Heading alignSelf='center'  textAlign='center' level='3' margin='none' color='brand-mobi'>Precisely this is who we are:</Heading>
 </Box>
-<Box align='center' justify='center'  margin="small" gap='xsmall'>
+<Box align='center' justify='center'  margin={{top:"large"}} pad='small'>
 <Paragraph
 
 magin='none'
@@ -155,13 +153,13 @@ magin='none'
               >
               Our mission is to provide a secure virtual platform to connect with friends, 
                family, schools, and businesses who are interested in funding {"students'"} education.
-          
+               Why? Because it takes a village to educate a child. 
                </Paragraph>
 </Box>
 
        
               
-<Box size='small' align='center' justify='center'  margin="medium" gap='small'>
+<Box  size='small' align='center' justify='center'  margin="medium" pad='xlarge'>
    
    <Video controls="over" fit="cover">
    <source
@@ -170,7 +168,9 @@ magin='none'
        controls="below"
      />
    </Video>
-  
+   <Text size='xsmall' margin='none' color='brand-mobi'>
+         Kate Boswel, the founder of Takesavillage, tells the story.
+                </Text>
  </Box>
 
 
