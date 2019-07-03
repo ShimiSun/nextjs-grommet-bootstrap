@@ -153,12 +153,7 @@ magin='none'
               >
                Takesavillage allows students to build campaigns to crowdfund their education while connecting with 
                a network of financial educators.
-               </Paragraph>
-               <Paragraph
-
-              color='white'
-              size='small'
-              >
+               
               Our mission is to provide a secure virtual platform to connect with friends, 
                family, schools, and businesses who are interested in funding {"students'"} education.
                Why? Because it takes a village to educate a child. 

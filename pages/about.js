@@ -4,19 +4,23 @@ import {
     Box,Button, Anchor,ResponsiveContext
   } from "grommet";  
  import Link from 'next/link';
-  import {Mail, Phone} from 'grommet-icons';
+  import {Mail, Phone,Previous} from 'grommet-icons';
 import About from 'components/containers/About'
 
 
 export default ()=>{
   const size = React.useContext(ResponsiveContext)
-  const [hide,setHide]=React.useState(false)
+  const [show,setShow]=React.useState('/')
 
-  const getSelected =(value)=>setHide(!value)
+  const getSelected=(value)=>{
+
+  setShow(value)
+
+  }
 
     return <AppLayout>
     <Box alignContent='center' pad='medium' fill background={{"image":"url('static/imgs/tav-heru-bkgd-mobi.png')","dark":true}}>
-        {hide&& <Box align="center" direction="row" justify="between">
+        {size!=='small'? <Box align="center" direction="row" justify="between">
            <Box/>
            <Box align="center" justify="center" pad="medium"  margin ="small" direction="row" gap="small">
            <Link href="/">
@@ -25,11 +29,16 @@ export default ()=>{
              <Button margin='small'  primary  color='brand' label="HOW IT WORK"/>  
            </Box>
         
-         </Box>
+         </Box>:
+         <Box align="start" justify="start" pad="small" direction="row" alignSelf="start">
+        { !show?<Link href='/'>
+         <Button   label="BACK" plain icon={<Previous color="brand-mobi"/>}   hoverIndicator={false} disabled={false} reverse={false} />
+         </Link>:null} 
+        </Box>
          }
          <Box align="center" direction="row" justify="between">
            <Box/>
-           <Box/>
+           
            <About getSelected={getSelected}/>
          </Box>
          
