@@ -1,6 +1,7 @@
 import React from "react";
 import {SidebarContext} from 'components/Layouts/AppLayout'
 import { Box,Grid,Button,ResponsiveContext, Heading, Paragraph,Video,Text} from "grommet";
+import {Previous} from 'grommet-icons'
 // import { Card, Avatar, IconButton  } from 'grommet-controls';
 
 export default ()=> {
@@ -15,6 +16,15 @@ export default ()=> {
         { name: "main", start: [0, 0], end: [0, 0] },
       ]
 
+      React.useEffect( () => {
+        
+       if(size==='small'){
+         setSelected('')
+       }else{
+         setSelected('Who we are')
+       }
+    }, [size]);
+
     return (
       <Grid
       fill
@@ -28,7 +38,7 @@ export default ()=> {
     >
       
 
-      {!showSidebar&&
+      {!showSidebar&&size!=='small'&&
 <Box  gridArea="nav" wrap align="center" justify="center" pad="small"  margin ="small" direction="column" gap="medium">
 <Button active={selected==='Who we are'} alignSelf='stretch'   color={selected==='Who we are'?'accent-1':'brand'} label="WHO WE ARE" onClick={()=>setSelected('Who we are')}/>
 <Button active={selected==='What we do'} alignSelf='stretch'   color={selected==='What we do'?'accent-1':'brand'} label="WHAT WE DO" onClick={()=>setSelected('What we do')}/> 
@@ -38,9 +48,22 @@ export default ()=> {
 </Box> 
       }
 
+      {!selected&&size==='small'&&
+<Box  gridArea="nav" wrap align="center" justify="center" pad="small"  margin ="small" direction="column" gap="medium">
+<Button active={selected==='Who we are'} alignSelf='stretch'   color={selected==='Who we are'?'accent-1':'brand'} label="WHO WE ARE" onClick={()=>setSelected('Who we are')}/>
+<Button active={selected==='What we do'} alignSelf='stretch'   color={selected==='What we do'?'accent-1':'brand'} label="WHAT WE DO" onClick={()=>setSelected('What we do')}/> 
+<Button active={selected==='Who we serve'} alignSelf='stretch' color={selected==='Who we serve'?'accent-1':'brand'} label="WHO WE SERVE" onClick={()=>setSelected('Who we serve')}/>  
+<Button active={selected==='whatotherssay'} alignSelf='stretch' color={selected==='whatotherssay'?'accent-1':'brand'} label="WHAT OTHERS SAY" onClick={()=>setSelected('whatotherssay')}/>   
+<Button active={selected==='wherewearegoing'} alignSelf='stretch' color={selected==='wherewearegoing'?'accent-1':'brand'} label="WHERE WE ARE GOING" onClick={()=>setSelected('wherewearegoing')}/>  
+</Box> 
+      }
+
+      {selected==='Who we are'&&size==='small'&&
+<WhoweareMobile backToMenu={()=>setSelected('')}/> 
+      }
      
      {size!=='small'&& <Box gridArea="main" background="transparent">
-     {selected==='Who we are'&&<WhoWeAre {...{showSidebar}}/>}
+     {selected==='Who we are'&&<WhoweareDesktop {...{showSidebar}}/>}
      </Box>
      }
     </Grid>
@@ -49,7 +72,7 @@ export default ()=> {
 }
 
 
-const WhoWeAre = ({showSidebar}) => (
+const WhoweareDesktop = ({showSidebar}) => (
     <Box direction='row' fill>
         
     <Box align='start' justify='start'  pad="medium" gap='small'>
@@ -73,7 +96,7 @@ const WhoWeAre = ({showSidebar}) => (
               
               <Paragraph
               color='white'
-               
+              
                 style={{
                   display: '-webkit-box',
                   WebkitLineClamp: '10',
@@ -86,7 +109,7 @@ const WhoWeAre = ({showSidebar}) => (
                </Paragraph>
               <Paragraph
               color='white'
-               
+               size='small'
                 style={{
                   display: '-webkit-box',
                   WebkitLineClamp: '10',
@@ -106,4 +129,51 @@ const WhoWeAre = ({showSidebar}) => (
   );
 
 
+  const WhoweareMobile =({backToMenu})=><Box fill>
+
+<Box direction='row' gap='small'>
+<Box align="start" justify="start" pad="small" direction="row" alignSelf="start">
+          <Button  onClick={backToMenu} label="" icon={<Previous color="brand-mobi"/>}   hoverIndicator={false} disabled={false} reverse={false} />
+        </Box>
+<Heading alignSelf='center'  textAlign='center' level='3' margin='none' color='brand-mobi'>Precisely this is who we are:</Heading>
+</Box>
+<Box align='center' justify='center'  margin="small" gap='xsmall'>
+<Paragraph
+
+magin='none'
+              color='white'
+              size='small'
+           
+              >
+               Takesavillage allows students to build campaigns to crowdfund their education while connecting with 
+               a network of financial educators.
+               </Paragraph>
+               <Paragraph
+
+              color='white'
+              size='small'
+              >
+              Our mission is to provide a secure virtual platform to connect with friends, 
+               family, schools, and businesses who are interested in funding {"students'"} education.
+          
+               </Paragraph>
+</Box>
+
+       
+              
+<Box size='small' align='center' justify='center'  margin="medium" gap='small'>
+   
+   <Video controls="over" fit="cover">
+   <source
+       src="static/vids/tvillage-story-min.mp4"
+       type="video/mp4"
+       controls="below"
+     />
+   </Video>
+  
+ </Box>
+
+
+
+  </Box>
   
