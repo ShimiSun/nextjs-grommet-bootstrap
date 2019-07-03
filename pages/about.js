@@ -15,9 +15,7 @@ export default ()=>{
          <Box align="center" direction="row" justify="between">
            <Box/>
            <Box align="center" justify="center" pad="medium"  margin ="small" direction="row" gap="small">
-           <Link href="/">
-             <Button magin='small' primary  color='brand' label="HOME"/>
-             </Link>
+
              <Button margin='small'  primary  color='brand' label="HOW IT WORK"/>  
            </Box>
         
@@ -36,6 +34,7 @@ export default ()=>{
          <Anchor  size='xsmall' icon={<Phone size='small' color='accent-1'/>} plain color='brand-mobi' label='+1 (242) 444 - 4211'/>
          
         </Box>
+
          </Box>
    </AppLayout>
 
