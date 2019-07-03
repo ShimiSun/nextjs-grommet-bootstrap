@@ -135,9 +135,52 @@ const WhoweareDesktop = ({showSidebar}) => (
   );
 
 
-  const WhoweareMobile =({backToMenu})=><Box fill>
+  const WhoweareMobile =({backToMenu})=><Box direction='column' fill>
+ 
+  <Box align="start" justify="start" pad="small" direction="row" alignSelf="start">
+            <Button  onClick={backToMenu} label="BACK" plain icon={<Previous />}   hoverIndicator={false} disabled={false} reverse={false} />
+  </Box>
+          <Box align='center' justify='center'  margin={{top:"large"}} pad='small'>
+          <Heading  level='2' margin='none' >Precisely this is who we are:</Heading>
+  <Paragraph
+  
+  magin='none'
+               
+                size='small'
+             
+                >
+               Takesavillage allows students to build campaigns to crowdfund their education while connecting with 
+               a network of financial educators.
+               
+              Our mission is to provide a secure virtual platform to connect with friends, 
+               family, schools, and businesses who are interested in funding {"students'"} education.
+               Why? Because it takes a village to educate a child. 
+                 </Paragraph>
+  </Box>
+      <Box align='center' justify='start'  pad="medium" gap='small'>
+      <Box/>
+      <Video fit="cover" controls="over">
+      <source key="video" src='static/vids/tvillage-story-min.mp4' />
+      <track
+        key="cc"
+        label="English"
+        kind="subtitles"
+        srcLang="en"
+        src="static/imgs/kateBoswell.jpg"
+        default
+      />
+    </Video>
+    
+    <Text size='xsmall' margin='none' color='brand-mobi'>
+         Kate Boswel, the founder of Takesavillage, tells the story.
+                </Text>
+    </Box>
+    </Box>
+  /*
+  <Box fill>
 
 <Box direction='row' gap='small' margin='small' >
+<Box/>
 <Box align="start" justify="start" pad="small" direction="row" alignSelf="start">
           <Button  onClick={backToMenu} label="" icon={<Previous color="brand-mobi"/>}   hoverIndicator={false} disabled={false} reverse={false} />
         </Box>
@@ -179,4 +222,5 @@ magin='none'
 
 
   </Box>
-  
+  */
+ 
