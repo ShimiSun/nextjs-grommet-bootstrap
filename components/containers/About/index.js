@@ -276,16 +276,17 @@ return (
   const VerticalPost = ({media,category,description,activetab}) => (
     <Box direction='row' fill >
         
-    <Box align='start'    pad="large" gap='small' justify='center'>
-    <Heading textAlign='center' level='5' margin='none' color='brand-mobi'>{category}</Heading>
+    <Box align='start' margin={{top:'large'}}  gap='small' justify='start'>
+    <Heading textAlign='center' level='4' margin='none' color='brand-mobi'>{category}</Heading>
    {media}
     </Box>
   
-  <Box pad='medium' justify='between' fill='horizontal'>
+  <Box pad='medium' justify='center' fill='horizontal'>
             <Box fill>
              
           
               <Paragraph
+             
               color='white'
                 style={{
                   display: '-webkit-box',
