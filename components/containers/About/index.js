@@ -77,7 +77,7 @@ export default ({getSelected})=> {
      {selected==='Who we are'&&<WhoweareDesktop {...{showSidebar}}/>}
      
      {selected==='Who we serve'&&
-     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{color:'brand',opacity:'0.4'}} pad='medium'>
+     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{color:'brand',opacity:'0.3'}} pad='medium'>
      <Whoweserve/>
      </Box>
      }
