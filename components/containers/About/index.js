@@ -1,8 +1,12 @@
 import React from "react";
 import {SidebarContext} from 'components/Layouts/AppLayout'
-import { Box,Grid,Button,ResponsiveContext, Heading, Paragraph,Video,Text} from "grommet";
-import {Previous} from 'grommet-icons'
-// import { Card, Avatar, IconButton  } from 'grommet-controls';
+import { Box,Grid,Button,ResponsiveContext, Heading, Paragraph,Video,Text,
+  Tab,
+  Tabs,
+Image,Carousel
+} from "grommet";
+import {Previous,Group,UserManager,UserExpert,LinkNext} from 'grommet-icons'
+
 
 
 
@@ -72,6 +76,12 @@ export default ({getSelected})=> {
      
      {size!=='small'&& <Box gridArea="main" background="transparent">
      {selected==='Who we are'&&<WhoweareDesktop {...{showSidebar}}/>}
+     
+     {selected==='Who we serve'&&
+     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{color:'brand',opacity:'0.4'}} pad='medium'>
+     <Whoweserve/>
+     </Box>
+     }
      </Box>
      }
     </Grid>
@@ -176,51 +186,149 @@ const WhoweareDesktop = ({showSidebar}) => (
                 </Text>
     </Box>
     </Box>
-  /*
-  <Box fill>
+  const RichTabTitle = ({ icon, label }) => (
+    <Box direction="row" align="center" gap="xsmall" margin="xsmall">
+      {icon}
+      <Text size="small">
+        <strong>{label}</strong>
+      </Text>
+    </Box>
+  );
 
-<Box direction='row' gap='small' margin='small' >
-<Box/>
-<Box align="start" justify="start" pad="small" direction="row" alignSelf="start">
-          <Button  onClick={backToMenu} label="" icon={<Previous color="brand-mobi"/>}   hoverIndicator={false} disabled={false} reverse={false} />
-        </Box>
-<Heading alignSelf='center'  textAlign='center' level='3' margin='none' color='brand-mobi'>Precisely this is who we are:</Heading>
-</Box>
-<Box align='center' justify='center'  margin={{top:"large"}} pad='small'>
-<Paragraph
-
-magin='none'
-              color='white'
-              size='small'
-           
-              >
-               Takesavillage allows students to build campaigns to crowdfund their education while connecting with 
-               a network of financial educators.
-               
-              Our mission is to provide a secure virtual platform to connect with friends, 
-               family, schools, and businesses who are interested in funding {"students'"} education.
-               Why? Because it takes a village to educate a child. 
-               </Paragraph>
-</Box>
-
-       
-              
-<Box  size='small' align='center' justify='center'  margin="medium" pad='xlarge'>
+const Whoweserve= () => (
    
-   <Video controls="over" fit="cover">
-   <source
-       src="static/vids/tvillage-story-min.mp4"
-       type="video/mp4"
-       controls="below"
-     />
-   </Video>
-   <Text size='xsmall' margin='none' color='brand-mobi'>
-         Kate Boswel, the founder of Takesavillage, tells the story.
-                </Text>
- </Box>
-
-
-
+    <Tabs flex={false} background='brand-mobi'>
+    <Tab 
+    title={<RichTabTitle icon={<Group/>} label='Students'/>}
+    >
+   <VerticalPost
+   
+   media={
+    <Box height="small" width="large" overflow="hidden" alignContent='center'>
+  <Carousel fill>
+    <Image fit="cover" src="static/imgs/student1.jpg" />
+    <Image fit="cover" src="static/imgs/student2.jpg" />
+  </Carousel>
+</Box>
+   }
+   category='We support over 9400 Students'
+   description="Legendary assassin retired from his violent career after marrying the love of his life.
+   Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
+   steal John's prized car and kill the puppy that was a last gift from his wife,
+   John unleashes the remorseless killing machine within and seeks vengeance.
+        "
+   />
+    </Tab>
+    <Tab 
+    title={<RichTabTitle icon={<UserManager/>} label='Guardians'/>}
+    >
+  <VerticalPost
+  
+   media={
+    <Box height="small" width="large" overflow="hidden" alignContent='center'>
+  <Carousel fill>
+    <Image fit="cover" src="static/imgs/guardian1.jpg" />
+    <Image fit="cover" src="static/imgs/guardian2.jpg" />
+  </Carousel>
+</Box>
+   }
+   category='Over 900 Guardians have benefited'
+   description="Legendary assassin retired from his violent career after marrying the love of his life.
+   Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
+   steal John's prized car and kill the puppy that was a last gift from his wife,
+   John unleashes the remorseless killing machine within and seeks vengeance.
+        "
+   />
+    </Tab>
+    <Tab 
+      title={<RichTabTitle icon={<UserExpert/>} label='Financial Educators'/>}
+  
+    >
+  <VerticalPost
+  
+   media={
+    <Box height="small" width="large" overflow="hidden" alignContent='center'>
+  <Carousel fill>
+    <Image fit="cover" src="static/imgs/financialeducator1.png" />
+    <Image fit="cover" src="static/imgs/financialeducator2.jpg" />
+  </Carousel>
+</Box>
+   }
+   category='238 Financial Educators onboard'
+   description="Legendary assassin retired from his violent career after marrying the love of his life.
+   Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
+   steal John's prized car and kill the puppy that was a last gift from his wife,
+   John unleashes the remorseless killing machine within and seeks vengeance.
+        "
+   />
+    </Tab>
+  </Tabs>
+    
+  );
+  
+  
+  const VerticalPost = ({media,category,description,}) => (
+    <Box direction='row' fill >
+        
+    <Box align='start'    pad="large" gap='small' justify='center'>
+    <Heading textAlign='center' level='5' margin='none' color='brand-mobi'>{category}</Heading>
+   {media}
+    </Box>
+  
+  <Box pad='medium' justify='between' fill='horizontal'>
+            <Box fill>
+             
+          
+              <Paragraph
+              color='white'
+                style={{
+                  display: '-webkit-box',
+                  WebkitLineClamp: '10',
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}
+              >
+             {description}
+              </Paragraph>
+              <Paragraph/>
+            </Box>
+            <Box align="end" justify="end" pad="small" direction="row" alignSelf="end">
+            <Button reverse  label="LEARN MORE" plain icon={<LinkNext />} color='accent-1'  hoverIndicator={false} disabled={false} />
   </Box>
-  */
- 
+          </Box>
+</Box>
+  );
+    
+  /**
+   * <Box basis='small' direction='row' flex={false} fill='horizontal'>
+      {media}
+        <Box pad='medium' justify='between' fill='horizontal'>
+          <Box>
+       
+              <Heading level={3} margin='none'>
+              {category}
+              </Heading>
+            
+            <Paragraph
+              size='small'
+              style={{
+                display: '-webkit-box',
+                WebkitLineClamp: '3',
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+              }}
+            >
+             {description}
+            </Paragraph>
+          </Box>
+          <Box direction='row' justify='between' pad={{ vertical: 'small', horizontal: 'medium' }} fill='horizontal'>
+          <Avatar
+            image='https://picsum.photos/g/200/200?image=99'
+            title='Featured students'
+            subTitle='2000 students are benefiting already'
+          />
+          <Button size='xsmall'  label='Connect' primary/>
+        </Box>
+        </Box>
+      </Box>
+   */

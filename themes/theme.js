@@ -9,7 +9,8 @@ const theme = deepMerge(grommet, {
       'accent-1':'#FFD700',
       'brand-mobi':"#e5eec3",
       placeholder:'#e5eec3',
-   focus:'#444'
+ 
+  
     },
     drop: {
       background: "#FFD700",
@@ -63,6 +64,30 @@ size:{
       color:'#558b2f'
     },
     
+  },
+  
+  tab:{
+   border:{
+    "side": "bottom",
+    "size": "small",
+    "color": {
+      "dark": "brand",
+      "light": "brand-mobi"
+    },
+    "active": {
+      "color": {
+        "dark": "white",
+        "light": "accent-1"
+      }
+    },
+    "hover": {
+      "color": {
+        "dark": "white",
+        "light": "accent-1"
+      }
+    }
+  },
+ color:"brand-mobi"
   }
 
 });
