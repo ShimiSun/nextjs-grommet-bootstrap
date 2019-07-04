@@ -6,8 +6,7 @@ import { Box,Grid,Button,ResponsiveContext, Heading, Paragraph,Video,Text,
 Image,Carousel
 } from "grommet";
 import {Previous,Group,UserManager,UserExpert,LinkNext} from 'grommet-icons'
-
-
+import Link from 'next/link';
 
 
 export default ({getSelected})=> {
@@ -195,79 +194,86 @@ const WhoweareDesktop = ({showSidebar}) => (
     </Box>
   );
 
-const Whoweserve= () => (
+const Whoweserve= () => {
+const [activetab,setActivetab]=React.useState('students')
+
+return (
    
-    <Tabs flex={false} background='brand-mobi'>
-    <Tab 
-    title={<RichTabTitle icon={<Group/>} label='Students'/>}
-    >
-   <VerticalPost
-   
-   media={
-    <Box height="small" width="large" overflow="hidden" alignContent='center'>
-  <Carousel fill>
-    <Image fit="cover" src="static/imgs/student1.jpg" />
-    <Image fit="cover" src="static/imgs/student2.jpg" />
-  </Carousel>
+  <Tabs flex={false} background='brand-mobi'>
+  <Tab 
+  title={<RichTabTitle icon={<Group/>} label='Students'/>}
+  onActive={()=>setActivetab('students')}
+  >
+ <VerticalPost
+ {...{activetab}}
+ media={
+  <Box height="small" width="large" overflow="hidden" alignContent='center'>
+<Carousel fill play={8000}>
+  <Image fit="cover" src="static/imgs/student1.jpg" />
+  <Image fit="cover" src="static/imgs/student2.jpg" />
+</Carousel>
 </Box>
-   }
-   category='We support over 9400 Students'
-   description="Legendary assassin retired from his violent career after marrying the love of his life.
-   Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
-   steal John's prized car and kill the puppy that was a last gift from his wife,
-   John unleashes the remorseless killing machine within and seeks vengeance.
-        "
-   />
-    </Tab>
-    <Tab 
-    title={<RichTabTitle icon={<UserManager/>} label='Guardians'/>}
-    >
-  <VerticalPost
-  
-   media={
-    <Box height="small" width="large" overflow="hidden" alignContent='center'>
-  <Carousel fill>
-    <Image fit="cover" src="static/imgs/guardian1.jpg" />
-    <Image fit="cover" src="static/imgs/guardian2.jpg" />
-  </Carousel>
+ }
+ category='We support over 9400 Students'
+ description="Legendary assassin retired from his violent career after marrying the love of his life.
+ Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
+ steal John's prized car and kill the puppy that was a last gift from his wife,
+ John unleashes the remorseless killing machine within and seeks vengeance.
+      "
+ />
+  </Tab>
+  <Tab 
+  title={<RichTabTitle icon={<UserManager/>} label='Guardians'/>}
+  onActive={()=>setActivetab('guardians')}
+  >
+<VerticalPost
+{...{activetab}}
+ media={
+  <Box height="small" width="large" overflow="hidden" alignContent='center'>
+<Carousel fill play={8000}>
+  <Image fit="cover" src="static/imgs/guardian1.jpg" />
+  <Image fit="cover" src="static/imgs/guardian2.jpg" />
+</Carousel>
 </Box>
-   }
-   category='Over 900 Guardians have benefited'
-   description="Legendary assassin retired from his violent career after marrying the love of his life.
-   Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
-   steal John's prized car and kill the puppy that was a last gift from his wife,
-   John unleashes the remorseless killing machine within and seeks vengeance.
-        "
-   />
-    </Tab>
-    <Tab 
-      title={<RichTabTitle icon={<UserExpert/>} label='Financial Educators'/>}
-  
-    >
-  <VerticalPost
-  
-   media={
-    <Box height="small" width="large" overflow="hidden" alignContent='center'>
-  <Carousel fill>
-    <Image fit="cover" src="static/imgs/financialeducator1.png" />
-    <Image fit="cover" src="static/imgs/financialeducator2.jpg" />
-  </Carousel>
+ }
+ category='Over 900 Guardians have benefited'
+ description="Legendary assassin retired from his violent career after marrying the love of his life.
+ Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
+ steal John's prized car and kill the puppy that was a last gift from his wife,
+ John unleashes the remorseless killing machine within and seeks vengeance.
+      "
+ />
+  </Tab>
+  <Tab 
+    title={<RichTabTitle icon={<UserExpert/>} label='Financial Educators'/>}
+    onActive={()=>setActivetab('financialeducators')}
+  >
+<VerticalPost
+{...{activetab}}
+ media={
+  <Box height="small" width="large" overflow="hidden" alignContent='center'>
+<Carousel fill play={8000}>
+  <Image fit="cover" src="static/imgs/financialeducator1.png" />
+  <Image fit="cover" src="static/imgs/financialeducator2.jpg" />
+</Carousel>
 </Box>
-   }
-   category='238 Financial Educators onboard'
-   description="Legendary assassin retired from his violent career after marrying the love of his life.
-   Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
-   steal John's prized car and kill the puppy that was a last gift from his wife,
-   John unleashes the remorseless killing machine within and seeks vengeance.
-        "
-   />
-    </Tab>
-  </Tabs>
-    
-  );
+ }
+ category='238 Financial Educators onboard'
+ description="Legendary assassin retired from his violent career after marrying the love of his life.
+ Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
+ steal John's prized car and kill the puppy that was a last gift from his wife,
+ John unleashes the remorseless killing machine within and seeks vengeance.
+      "
+ />
+  </Tab>
+</Tabs>
   
+);
+
   
-  const VerticalPost = ({media,category,description,}) => (
+}
+  
+  const VerticalPost = ({media,category,description,activetab}) => (
     <Box direction='row' fill >
         
     <Box align='start'    pad="large" gap='small' justify='center'>
@@ -293,42 +299,13 @@ const Whoweserve= () => (
               <Paragraph/>
             </Box>
             <Box align="end" justify="end" pad="small" direction="row" alignSelf="end">
+            <Link href={`/${activetab}`}>
             <Button reverse  label="LEARN MORE" plain icon={<LinkNext />} color='accent-1'  hoverIndicator={false} disabled={false} />
+            </Link>
+            
   </Box>
           </Box>
 </Box>
   );
     
-  /**
-   * <Box basis='small' direction='row' flex={false} fill='horizontal'>
-      {media}
-        <Box pad='medium' justify='between' fill='horizontal'>
-          <Box>
-       
-              <Heading level={3} margin='none'>
-              {category}
-              </Heading>
-            
-            <Paragraph
-              size='small'
-              style={{
-                display: '-webkit-box',
-                WebkitLineClamp: '3',
-                WebkitBoxOrient: 'vertical',
-                overflow: 'hidden',
-              }}
-            >
-             {description}
-            </Paragraph>
-          </Box>
-          <Box direction='row' justify='between' pad={{ vertical: 'small', horizontal: 'medium' }} fill='horizontal'>
-          <Avatar
-            image='https://picsum.photos/g/200/200?image=99'
-            title='Featured students'
-            subTitle='2000 students are benefiting already'
-          />
-          <Button size='xsmall'  label='Connect' primary/>
-        </Box>
-        </Box>
-      </Box>
-   */
+  
