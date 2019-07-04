@@ -301,7 +301,7 @@ return (
             </Box>
             <Box align="end" justify="end" pad="small" direction="row" alignSelf="end">
             <Link href={`/${activetab}`}>
-            <Button reverse  label="LEARN MORE" plain icon={<LinkNext />} color='accent-1'  hoverIndicator={false} disabled={false} />
+            <Button reverse  label="SEE MORE" plain icon={<LinkNext />} color='accent-1'  hoverIndicator={false} disabled={false} />
             </Link>
             
   </Box>
