@@ -422,7 +422,7 @@ socialproof='We support over 9400 Students'
               color='white'
                 style={{
                   display: '-webkit-box',
-                  WebkitLineClamp: '10',
+                  WebkitLineClamp: '6',
                   WebkitBoxOrient: 'vertical',
                   overflow: 'hidden',
                 }}
