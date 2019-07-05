@@ -52,20 +52,20 @@ export default ({getSelected})=> {
       {!showSidebar&&size!=='small'&&
 <Box  gridArea="nav" wrap align="center" justify="center" pad="small"  margin ="small" direction="column" gap="medium">
 <Button active={selected==='Who we are'} alignSelf='stretch'   color={selected==='Who we are'?'accent-1':'brand'} label="WHO WE ARE" onClick={()=>setSelected('Who we are')}/>
-<Button active={selected==='What we do'} alignSelf='stretch'   color={selected==='What we do'?'accent-1':'brand'} label="WHAT WE DO" onClick={()=>setSelected('What we do')}/> 
+
 <Button active={selected==='Who we serve'} alignSelf='stretch' color={selected==='Who we serve'?'accent-1':'brand'} label="WHO WE SERVE" onClick={()=>setSelected('Who we serve')}/>  
-<Button active={selected==='whatotherssay'} alignSelf='stretch' color={selected==='whatotherssay'?'accent-1':'brand'} label="WHAT OTHERS SAY" onClick={()=>setSelected('whatotherssay')}/>   
-<Button active={selected==='wherewearegoing'} alignSelf='stretch' color={selected==='wherewearegoing'?'accent-1':'brand'} label="WHERE WE ARE GOING" onClick={()=>setSelected('wherewearegoing')}/>  
+<Button active={selected==='What others say'} alignSelf='stretch' color={selected==='What others say'?'accent-1':'brand'} label="WHAT OTHERS SAY" onClick={()=>setSelected('What others say')}/>   
+<Button active={selected==='In the media'} alignSelf='stretch' color={selected==='In the media'?'accent-1':'brand'} label="IN THE MEDIA" onClick={()=>setSelected('In the media')}/>  
 </Box> 
       }
 
       {!selected&&size==='small'&&
 <Box  gridArea="nav" wrap align="center" justify="center" pad="small"  margin ="small" direction="column" gap="medium">
 <Button active={selected==='Who we are'} alignSelf='stretch'   color={selected==='Who we are'?'accent-1':'brand'} label="WHO WE ARE" onClick={()=>setSelected('Who we are')}/>
-<Button active={selected==='What we do'} alignSelf='stretch'   color={selected==='What we do'?'accent-1':'brand'} label="WHAT WE DO" onClick={()=>setSelected('What we do')}/> 
+
 <Button active={selected==='Who we serve'} alignSelf='stretch' color={selected==='Who we serve'?'accent-1':'brand'} label="WHO WE SERVE" onClick={()=>setSelected('Who we serve')}/>  
-<Button active={selected==='whatotherssay'} alignSelf='stretch' color={selected==='whatotherssay'?'accent-1':'brand'} label="WHAT OTHERS SAY" onClick={()=>setSelected('whatotherssay')}/>   
-<Button active={selected==='wherewearegoing'} alignSelf='stretch' color={selected==='wherewearegoing'?'accent-1':'brand'} label="WHERE WE ARE GOING" onClick={()=>setSelected('wherewearegoing')}/>  
+<Button active={selected==='What others say'} alignSelf='stretch' color={selected==='What others say'?'accent-1':'brand'} label="WHAT OTHERS SAY" onClick={()=>setSelected('What others say')}/>   
+<Button active={selected==='In the media'} alignSelf='stretch' color={selected==='In the media'?'accent-1':'brand'} label="In the media" onClick={()=>setSelected('In the media')}/>  
 </Box> 
       }
 
@@ -74,11 +74,25 @@ export default ({getSelected})=> {
       }
      
      {size!=='small'&& <Box gridArea="main" background="transparent">
-     {selected==='Who we are'&&<WhoweareDesktop {...{showSidebar}}/>}
+     {selected==='Who we are'&&<Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',"opacity":'0.3'}} pad='medium'>
+    
+     <WhoweareDesktop {...{showSidebar}}/>
+     </Box>
+     }
      
      {selected==='Who we serve'&&
-     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{color:'brand',opacity:'0.3'}} pad='medium'>
+     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',"opacity":'0.3'}} pad='medium'>
      <Whoweserve/>
+     </Box>
+     }
+     {selected==='What others say'&&
+     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',"opacity":'0.3'}} pad='medium'>
+     <Whatotherssay/>
+     </Box>
+     }
+     {selected==='In the media'&&
+     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',"opacity":'0.3'}} pad='medium'>
+     <Inthemedia/>
      </Box>
      }
      </Box>
@@ -89,12 +103,24 @@ export default ({getSelected})=> {
 }
 
 
-const WhoweareDesktop = ({showSidebar}) => (
+const WhoweareDesktop = () => (
     <Box direction='row' fill>
         
     <Box align='start' justify='start'  pad="medium" gap='small'>
-   
-      <Video controls="over" fit="contain">
+    <MediaTab image='static/imgs/header-symbol.png' />
+    <Paragraph
+              color='white'
+                style={{
+                  display: '-webkit-box',
+                  WebkitLineClamp: '10',
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}
+              >
+    Takesavillage is a crowdfunding platform 
+    that ensures that all the money collected goes directly to the {"student's"} college education
+    </Paragraph>
+      <Video controls="over" fit="cover">
       <source
           src="static/vids/tvillage-story-min.mp4"
           type="video/mp4"
@@ -109,7 +135,7 @@ const WhoweareDesktop = ({showSidebar}) => (
   <Box pad='medium' justify='between' fill='horizontal'>
             <Box fill>
              
-            {showSidebar&&<Heading level='3' margin='none' color='brand-mobi'>Precisely this is who we are:</Heading>}
+          
               
               <Paragraph
               color='white'
@@ -120,7 +146,7 @@ const WhoweareDesktop = ({showSidebar}) => (
                   overflow: 'hidden',
                 }}
               >
-               Takesavillage allows students to build campaigns to crowdfund their education while connecting with 
+               We allow students to build campaigns to crowdfund their education while connecting with 
                a network of financial educators.
                </Paragraph>
               <Paragraph
@@ -133,10 +159,21 @@ const WhoweareDesktop = ({showSidebar}) => (
                 }}
               >
               Our mission is to provide a secure virtual platform to connect with friends, 
-               family, schools, and businesses who are interested in funding {"students'"} education.
-                Why? Because it takes a village to educate a child. 
+               family, schools, and businesses who are interested in funding {"students'"} education because we believe that 
+               it takes a village to educate a child. 
               </Paragraph>
-              <Paragraph/>
+              <Paragraph
+              color='white'
+                style={{
+                  display: '-webkit-box',
+                  WebkitLineClamp: '10',
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}
+              >
+              At takesavillage; we take your feedback very seriously and 
+              make sure that you are well taken care of. Each and everyone of your is our board member and we are listening.
+              </Paragraph>
             </Box>
            
           </Box>
@@ -204,7 +241,7 @@ return (
   title={<RichTabTitle icon={<Group/>} label='Students'/>}
   onActive={()=>setActivetab('students')}
   >
- <VerticalPost
+ <WhoweareBox
  {...{activetab}}
  media={
   <Box height="small" width="large" overflow="hidden" alignContent='center'>
@@ -214,7 +251,7 @@ return (
 </Carousel>
 </Box>
  }
- category='We support over 9400 Students'
+socialproof='We support over 9400 Students'
  description="Legendary assassin retired from his violent career after marrying the love of his life.
  Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
  steal John's prized car and kill the puppy that was a last gift from his wife,
@@ -226,7 +263,7 @@ return (
   title={<RichTabTitle icon={<UserManager/>} label='Guardians'/>}
   onActive={()=>setActivetab('guardians')}
   >
-<VerticalPost
+<WhoweareBox
 {...{activetab}}
  media={
   <Box height="small" width="large" overflow="hidden" alignContent='center'>
@@ -236,7 +273,7 @@ return (
 </Carousel>
 </Box>
  }
- category='Over 900 Guardians have benefited'
+ socialproof='Over 900 Guardians have benefited'
  description="Legendary assassin retired from his violent career after marrying the love of his life.
  Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
  steal John's prized car and kill the puppy that was a last gift from his wife,
@@ -248,7 +285,7 @@ return (
     title={<RichTabTitle icon={<UserExpert/>} label='Financial Educators'/>}
     onActive={()=>setActivetab('financialeducators')}
   >
-<VerticalPost
+<WhoweareBox
 {...{activetab}}
  media={
   <Box height="small" width="large" overflow="hidden" alignContent='center'>
@@ -258,7 +295,7 @@ return (
 </Carousel>
 </Box>
  }
- category='238 Financial Educators onboard'
+ socialproof='238 Financial Educators onboard'
  description="Legendary assassin retired from his violent career after marrying the love of his life.
  Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
  steal John's prized car and kill the puppy that was a last gift from his wife,
@@ -273,11 +310,11 @@ return (
   
 }
   
-  const VerticalPost = ({media,category,description,activetab}) => (
+  const WhoweareBox = ({media,socialproof,description,activetab}) => (
     <Box direction='row' fill >
         
     <Box align='start' margin={{top:'large'}}  gap='small' justify='start'>
-    <Heading textAlign='center' level='4' margin='none' color='brand-mobi'>{category}</Heading>
+    <Heading textAlign='center' level='4' margin='none' color='brand-mobi'>{socialproof}</Heading>
    {media}
     </Box>
   
@@ -308,5 +345,203 @@ return (
           </Box>
 </Box>
   );
-    
+
+  const Whatotherssay= () => {
+    const [activetab,setActivetab]=React.useState('students')
+
+    const readArray = (array, index = 0) => {
+      
   
+          setTimeout(() => {
+           
+              const i= index < (array.length-1)? index+1:0
+              readArray(array, i);
+           
+          }, 7000);
+         return(array[index]);
+  };
+
+  readArray( ['Student one says','Student two says',])
+    
+    return (
+       
+      <Tabs flex={false} background='brand-mobi'>
+      <Tab 
+      title={<RichTabTitle icon={<Group/>} label='Students'/>}
+      onActive={()=>setActivetab('students')}
+      >
+     <WhatotherssayBox
+     {...{activetab}}
+     media={
+      <Box height="small" width="large" overflow="hidden" alignContent='center'>
+    <Carousel fill play={8000}>
+      <Image fit="cover" src="static/imgs/montana.png" />
+    </Carousel>
+    </Box>
+     }
+    caption='Montana Kyle speaks wonders'
+     description="Montana kyle says Joining takesavillage was the best decision she has ever made. At the point when 
+     Montana kyle says Joining takesavillage was the best decision she has ever made. At the point when
+     Montana kyle says Joining takesavillage was the best decision she has ever made. At the point when
+     Montana kyle says Joining takesavillage was the best decision she has ever made. At the point when
+          "
+     />
+      </Tab>
+      <Tab 
+      title={<RichTabTitle icon={<UserManager/>} label='Guardians'/>}
+      onActive={()=>setActivetab('guardians')}
+      >
+    <WhatotherssayBox
+    {...{activetab}}
+     media={
+      <Box height="small" width="large" overflow="hidden" alignContent='center'>
+    <Carousel fill play={8000}>
+      <Image fit="cover" src="static/imgs/bruce.png" />
+    </Carousel>
+    </Box>
+     }
+     caption="Bruce attributes Ann`s academic success  to us"
+     description="She was just 14 when I openned this campaign for her. I knew she wanted to be a cardiologist but we did not have such money
+     She was just 14 when I openned this campaign for her. I knew she wanted to be a cardiologist but we did not have such money
+     She was just 14 when I openned this campaign for her. I knew she wanted to be a cardiologist but we did not have such money
+     She was just 14 when I openned this campaign for her. I knew she wanted to be a cardiologist but we did not have such money
+          "
+     />
+      </Tab>
+      <Tab 
+        title={<RichTabTitle icon={<UserExpert/>} label='Financial Educators'/>}
+        onActive={()=>setActivetab('financialeducators')}
+      >
+    <WhatotherssayBox
+    {...{activetab}}
+     media={
+      <Box height="small" width="large" overflow="hidden" alignContent='center'>
+    <Carousel fill play={8000}>
+      <Image fit="cover" src="static/imgs/liz.jpg" />
+    </Carousel>
+    </Box>
+     }
+     caption='Liz knows no better platform for education crowdfunding than takesavillage'
+     description="Elizabeth Fiattarone is my name, I have been a financial educator for a decade, but honestly speaking, I have not found
+     Elizabeth Fiattarone is my name, I have been a financial educator for a decade, but honestly speaking, I have not found
+     Elizabeth Fiattarone is my name, I have been a financial educator for a decade, but honestly speaking, I have not found
+     "
+     />
+      </Tab>
+    </Tabs>
+      
+    );
+    
+      
+    }
+    
+  const WhatotherssayBox = ({media,caption,description,activetab}) => (
+    <Box direction='row' fill >
+        
+    <Box align='start' margin={{top:'large'}}  gap='small' justify='start'>
+    
+   {media}
+   <Heading textAlign='center' level='6' margin='none' color='brand-mobi'>{caption}</Heading>
+    </Box>
+  
+  <Box pad='medium' justify='center' fill='horizontal'>
+            <Box fill>
+             
+          
+              <Paragraph
+             
+              color='white'
+                style={{
+                  display: '-webkit-box',
+                  WebkitLineClamp: '10',
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}
+              >
+             {description}
+              </Paragraph>
+              <Paragraph/>
+            </Box>
+            <Box align="end" justify="end" pad="small" direction="row" alignSelf="end">
+            <Link href={`/${activetab}`}>
+            <Button reverse  label="SEE MORE" plain icon={<LinkNext />} color='accent-1'  hoverIndicator={false} disabled={false} />
+            </Link>
+            
+  </Box>
+          </Box>
+</Box>
+  );
+
+   const InthemediaBox = ({media,headline,activetab,description}) => (
+    <Box direction='row' fill >
+        
+    <Box align='start' margin={{top:'large'}}  gap='small' justify='start'>
+    
+   {media}
+    </Box>
+  
+  <Box pad='medium' justify='center' fill='horizontal'>
+            <Box fill>
+            <Heading textAlign='center' level='4' margin='none' color='brand-mobi'>{headline}</Heading>
+          
+              <Paragraph
+             
+              color='white'
+                style={{
+                  display: '-webkit-box',
+                  WebkitLineClamp: '10',
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}
+              >
+             {description}
+              </Paragraph>
+              <Paragraph/>
+            </Box>
+            <Box align="end" justify="end" pad="small" direction="row" alignSelf="end">
+            
+            <Button reverse  href={activetab} label="SEE MORE" plain icon={<LinkNext />} color='accent-1'  hoverIndicator={false} disabled={false} />
+            
+            
+  </Box>
+          </Box>
+</Box>
+  );
+
+  const MediaTab = ({image,})=><Box direction="row" align="center" gap="xsmall" margin="xsmall">
+ <Image src={image} round/>
+ 
+</Box>
+
+  const Inthemedia= () => {
+    const [activetab,setActivetab]=React.useState('https://www.king5.com/article/news/local/bellevue-mom-creates-college-crowd-funding-site/238763111')
+    
+    return (
+       
+      <Tabs flex={false} background='brand-mobi'>
+      <Tab 
+      title={<MediaTab image="static/imgs/king.png" />}
+      onActive={()=>setActivetab('https://www.king5.com/article/news/local/bellevue-mom-creates-college-crowd-funding-site/238763111')}
+      >
+     <InthemediaBox
+     {...{activetab}}
+     media={
+      <Carousel fill play={8000}>
+      <Image fit="cover" src="static/imgs/kingnews.png" />
+    </Carousel>
+     }
+    headline='Bellevue mom creates college crowd-funding site'
+    description="
+    BELLEVUE, Wash. -- Just as students are preparing to pay for their first semester of college, 
+    a woman from Bellevue has created a website that works to make things a bit easier. She is taking 
+    on a new approach to crowd-funding to give students another option to help offset their pricey investment.
+    "
+     />
+      </Tab>
+      
+    </Tabs>
+      
+    );
+    
+      
+    }
