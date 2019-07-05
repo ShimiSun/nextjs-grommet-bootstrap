@@ -65,29 +65,34 @@ size:{
     },
     
   },
-  
-  tab:{
-   border:{
-    "side": "bottom",
-    "size": "small",
-    "color": {
-      "dark": "brand",
-      "light": "brand-mobi"
+  tab: {
+    active: {
+      color: "#FFD700"
     },
-    "active": {
+    hover: {
+      color: "#FFD700"
+    },
+    color: "white",
+    border:{
+      "side": "bottom",
+      "size": "small",
       "color": {
-        "dark": "white",
-        "light": "accent-1"
+        "dark": "brand",
+        "light": "brand-mobi"
+      },
+      "active": {
+        "color": {
+          "dark": "white",
+          "light": "accent-1"
+        }
+      },
+      "hover": {
+        "color": {
+          "dark": "white",
+          "light": "accent-1"
+        }
       }
     },
-    "hover": {
-      "color": {
-        "dark": "white",
-        "light": "accent-1"
-      }
-    }
-  },
- color:"brand-mobi"
   }
 
 });
