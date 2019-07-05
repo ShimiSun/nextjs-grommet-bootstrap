@@ -77,17 +77,17 @@ export default ({getSelected})=> {
      {selected==='Who we are'&&<WhoweareDesktop {...{showSidebar}}/>}
      
      {selected==='Who we serve'&&
-     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',"opacity":'0.3'}} pad='medium'>
+     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',opacity: "medium"}} pad='medium'>
      <Whoweserve/>
      </Box>
      }
      {selected==='What others say'&&
-     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',"opacity":'0.3'}} pad='medium'>
+     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',opacity: "medium"}} pad='medium'>
      <Whatotherssay/>
      </Box>
      }
      {selected==='In the media'&&
-     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',"opacity":'0.3'}} pad='medium'>
+     <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',opacity: "medium"}} pad='medium'>
      <Inthemedia/>
      </Box>
      }
@@ -207,12 +207,29 @@ const WhoweareDesktop = ({showSidebar}) => (
 const Whoweserve= () => {
 const [activetab,setActivetab]=React.useState('students')
 
+const onActive =(index)=>{
+
+  switch (index){
+    case 1:
+        setActivetab('guardians')
+    break;
+
+    case 2:
+        setActivetab('financialeducators')
+    break;
+
+    default:
+        setActivetab('students')
+  }
+
+}
+
 return (
    
-  <Tabs flex={false} background='brand-mobi'>
+  <Tabs flex={false} background='brand-mobi'  onActive={onActive}>
   <Tab 
   title={<RichTabTitle icon={<Group/>} label='Students'/>}
-  onActive={()=>setActivetab('students')}
+ 
   >
  
  <WhatotherssayBox
@@ -234,7 +251,7 @@ return (
   </Tab>
   <Tab 
   title={<RichTabTitle icon={<UserManager/>} label='Guardians'/>}
-  onActive={()=>setActivetab('guardians')}
+  
   >
 
   <WhatotherssayBox
@@ -256,7 +273,7 @@ return (
   </Tab>
   <Tab 
     title={<RichTabTitle icon={<UserExpert/>} label='Financial Educators'/>}
-    onActive={()=>setActivetab('financialeducators')}
+   
   >
   <WhatotherssayBox
     {...{activetab}}
@@ -282,65 +299,34 @@ return (
   
 }
   
-  const WhoweareBox = ({media,socialproof,description,activetab}) => (
-    <Box direction='row' fill >
-        
-    <Box align='start' margin={{top:'large'}}  gap='small' justify='start'>
-    <Heading textAlign='center' level='4' margin='none' color='brand-mobi'>{socialproof}</Heading>
-   {media}
-    </Box>
-  
-  <Box pad='medium' justify='center' fill='horizontal'>
-            <Box fill>
-             
-          
-              <Paragraph
-             
-              color='white'
-                style={{
-                  display: '-webkit-box',
-                  WebkitLineClamp: '10',
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden',
-                }}
-              >
-             {description}
-              </Paragraph>
-              <Paragraph/>
-            </Box>
-            <Box align="end" justify="end" pad="small" direction="row" alignSelf="end">
-            <Link href={`/${activetab}`}>
-            <Button reverse  label="SEE MORE" plain icon={<LinkNext />} color='accent-1'  hoverIndicator={false} disabled={false} />
-            </Link>
-            
-  </Box>
-          </Box>
-</Box>
-  );
+ 
 
   const Whatotherssay= () => {
     const [activetab,setActivetab]=React.useState('students')
 
-    const readArray = (array, index = 0) => {
-      
-  
-          setTimeout(() => {
-           
-              const i= index < (array.length-1)? index+1:0
-              readArray(array, i);
-           
-          }, 7000);
-         return(array[index]);
-  };
+    const onActive =(index)=>{
 
-  readArray( ['Student one says','Student two says',])
+      switch (index){
+        case 1:
+            setActivetab('guardians')
+        break;
+    
+        case 2:
+            setActivetab('financialeducators')
+        break;
+    
+        default:
+            setActivetab('students')
+      }
+    
+    }
     
     return (
        
-      <Tabs flex={false} background='brand-mobi'>
+      <Tabs flex={false} background='brand-mobi' onActive={onActive}>
       <Tab 
       title={<RichTabTitle icon={<Group/>} label='Students'/>}
-      onActive={()=>setActivetab('students')}
+      
       >
      <WhatotherssayBox
      {...{activetab}}
@@ -359,7 +345,7 @@ return (
       </Tab>
       <Tab 
       title={<RichTabTitle icon={<UserManager/>} label='Guardians'/>}
-      onActive={()=>setActivetab('guardians')}
+     
       >
     <WhatotherssayBox
     {...{activetab}}
@@ -379,7 +365,7 @@ return (
       </Tab>
       <Tab 
         title={<RichTabTitle icon={<UserExpert/>} label='Financial Educators'/>}
-        onActive={()=>setActivetab('financialeducators')}
+       
       >
     <WhatotherssayBox
     {...{activetab}}
@@ -445,18 +431,19 @@ return (
 </Box>
 
   const Inthemedia= () => {
-    const [activetab,setActivetab]=React.useState('https://www.king5.com/article/news/local/bellevue-mom-creates-college-crowd-funding-site/238763111')
+    const king4news = 'https://www.king5.com/article/news/local/bellevue-mom-creates-college-crowd-funding-site/238763111'
     
+   
     return (
        
-      <Tabs flex={false} background='brand-mobi'>
+      <Tabs flex={false} background='brand-mobi' >
       
       <Tab 
       title={<MediaTab image="static/imgs/king.png" />}
-      onActive={()=>setActivetab('https://www.king5.com/article/news/local/bellevue-mom-creates-college-crowd-funding-site/238763111')}
+      
       >
       <WhatotherssayBox
-    {...{activetab}}
+    activetab={king4news}
      media={
       <Box height="small" width="large" overflow="hidden" alignContent='center'>
     <Carousel fill play={8000}>
