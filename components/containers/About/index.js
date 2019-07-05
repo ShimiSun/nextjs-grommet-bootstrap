@@ -429,53 +429,16 @@ socialproof='We support over 9400 Students'
               >
              {description}
               </Paragraph>
-              <Paragraph/>
-            </Box>
-            <Box align="end" justify="end" pad="small" direction="row" alignSelf="end">
-            <Link href={`/${activetab}`}>
+              <Link href={`/${activetab}`}>
             <Button reverse  label="SEE MORE" plain icon={<LinkNext />} color='accent-1'  hoverIndicator={false} disabled={false} />
             </Link>
-            
-  </Box>
+            </Box>
+           
           </Box>
 </Box>
   );
 
-   const InthemediaBox = ({media,headline,activetab,description}) => (
-    <Box direction='row' fill >
-        
-    <Box align='start' margin={{top:'large'}}  gap='small' justify='start'>
-    
-   {media}
-    </Box>
   
-  <Box pad='medium' justify='center' fill='horizontal'>
-            <Box fill>
-            <Heading textAlign='center' level='4' margin='none' color='brand-mobi'>{headline}</Heading>
-          
-              <Paragraph
-             
-              color='white'
-                style={{
-                  display: '-webkit-box',
-                  WebkitLineClamp: '6',
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden',
-                }}
-              >
-             {description}
-              </Paragraph>
-              <Paragraph/>
-            </Box>
-            <Box align="end" justify="end" pad="small" direction="row" alignSelf="end">
-            
-            <Button reverse  href={activetab} label="SEE MORE" plain icon={<LinkNext />} color='accent-1'  hoverIndicator={false} disabled={false} />
-            
-            
-  </Box>
-          </Box>
-</Box>
-  );
 
   const MediaTab = ({image,})=><Box direction="row" align="center" gap="xsmall" margin="xsmall">
  <Image src={image} round/>
@@ -498,7 +461,7 @@ socialproof='We support over 9400 Students'
      media={
       <Box height="small" width="large" overflow="hidden" alignContent='center'>
     <Carousel fill play={8000}>
-      <Image fit="cover" src="static/imgs/liz.jpg" />
+      <Image fit="cover" src="static/imgs/kingnews.png" />
     </Carousel>
     </Box>
      }
