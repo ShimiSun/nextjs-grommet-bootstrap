@@ -488,24 +488,26 @@ socialproof='We support over 9400 Students'
     return (
        
       <Tabs flex={false} background='brand-mobi'>
+      
       <Tab 
       title={<MediaTab image="static/imgs/king.png" />}
       onActive={()=>setActivetab('https://www.king5.com/article/news/local/bellevue-mom-creates-college-crowd-funding-site/238763111')}
       >
-     <InthemediaBox
-     {...{activetab}}
+      <WhatotherssayBox
+    {...{activetab}}
      media={
-      <Carousel fill play={8000}>
-      <Image fit="cover" src="static/imgs/kingnews.png" />
+      <Box height="small" width="large" overflow="hidden" alignContent='center'>
+    <Carousel fill play={8000}>
+      <Image fit="cover" src="static/imgs/liz.jpg" />
     </Carousel>
+    </Box>
      }
-    headline='Bellevue mom creates college crowd-funding site'
-    description="
-    BELLEVUE, Wash. -- Just as students are preparing to pay for their first semester of college, 
+     caption='Bellevue mom creates college crowd-funding site'
+     description="BELLEVUE, Wash. -- Just as students are preparing to pay for their first semester of college, 
     a woman from Bellevue has created a website that works to make things a bit easier. She is taking 
-    on a new approach to crowd-funding to give students another option to help offset their pricey investment.
-    "
+    on a new approach to crowd-funding to give students another option to help offset their pricey investment."
      />
+     
       </Tab>
       
     </Tabs>
