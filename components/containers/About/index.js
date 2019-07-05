@@ -74,11 +74,7 @@ export default ({getSelected})=> {
       }
      
      {size!=='small'&& <Box gridArea="main" background="transparent">
-     {selected==='Who we are'&&<Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',"opacity":'0.3'}} pad='medium'>
-    
-     <WhoweareDesktop {...{showSidebar}}/>
-     </Box>
-     }
+     {selected==='Who we are'&&<WhoweareDesktop {...{showSidebar}}/>}
      
      {selected==='Who we serve'&&
      <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',"opacity":'0.3'}} pad='medium'>
@@ -103,24 +99,12 @@ export default ({getSelected})=> {
 }
 
 
-const WhoweareDesktop = () => (
+const WhoweareDesktop = ({showSidebar}) => (
     <Box direction='row' fill>
         
     <Box align='start' justify='start'  pad="medium" gap='small'>
-    <MediaTab image='static/imgs/header-symbol.png' />
-    <Paragraph
-              color='white'
-                style={{
-                  display: '-webkit-box',
-                  WebkitLineClamp: '10',
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden',
-                }}
-              >
-    Takesavillage is a crowdfunding platform 
-    that ensures that all the money collected goes directly to the {"student's"} college education
-    </Paragraph>
-      <Video controls="over" fit="cover">
+   
+      <Video controls="over" fit="contain">
       <source
           src="static/vids/tvillage-story-min.mp4"
           type="video/mp4"
@@ -135,7 +119,7 @@ const WhoweareDesktop = () => (
   <Box pad='medium' justify='between' fill='horizontal'>
             <Box fill>
              
-          
+            {showSidebar&&<Heading level='3' margin='none' color='brand-mobi'>Precisely this is who we are:</Heading>}
               
               <Paragraph
               color='white'
@@ -146,7 +130,7 @@ const WhoweareDesktop = () => (
                   overflow: 'hidden',
                 }}
               >
-               We allow students to build campaigns to crowdfund their education while connecting with 
+               Takesavillage allows students to build campaigns to crowdfund their education while connecting with 
                a network of financial educators.
                </Paragraph>
               <Paragraph
@@ -159,21 +143,10 @@ const WhoweareDesktop = () => (
                 }}
               >
               Our mission is to provide a secure virtual platform to connect with friends, 
-               family, schools, and businesses who are interested in funding {"students'"} education because we believe that 
-               it takes a village to educate a child. 
+               family, schools, and businesses who are interested in funding {"students'"} education.
+                Why? Because it takes a village to educate a child. 
               </Paragraph>
-              <Paragraph
-              color='white'
-                style={{
-                  display: '-webkit-box',
-                  WebkitLineClamp: '10',
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden',
-                }}
-              >
-              At takesavillage; we take your feedback very seriously and 
-              make sure that you are well taken care of. Each and everyone of your is our board member and we are listening.
-              </Paragraph>
+              <Paragraph/>
             </Box>
            
           </Box>
