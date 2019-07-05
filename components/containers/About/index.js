@@ -355,8 +355,6 @@ socialproof='We support over 9400 Students'
     caption='Montana Kyle speaks wonders'
      description="Montana kyle says Joining takesavillage was the best decision she has ever made. At the point when 
      Montana kyle says Joining takesavillage was the best decision she has ever made. At the point when
-     Montana kyle says Joining takesavillage was the best decision she has ever made. At the point when
-     Montana kyle says Joining takesavillage was the best decision she has ever made. At the point when
           "
      />
       </Tab>
@@ -376,8 +374,7 @@ socialproof='We support over 9400 Students'
      caption="Bruce attributes Ann`s academic success  to us"
      description="She was just 14 when I openned this campaign for her. I knew she wanted to be a cardiologist but we did not have such money
      She was just 14 when I openned this campaign for her. I knew she wanted to be a cardiologist but we did not have such money
-     She was just 14 when I openned this campaign for her. I knew she wanted to be a cardiologist but we did not have such money
-     She was just 14 when I openned this campaign for her. I knew she wanted to be a cardiologist but we did not have such money
+     
           "
      />
       </Tab>
@@ -396,7 +393,6 @@ socialproof='We support over 9400 Students'
      }
      caption='Liz knows no better platform for education crowdfunding than takesavillage'
      description="Elizabeth Fiattarone is my name, I have been a financial educator for a decade, but honestly speaking, I have not found
-     Elizabeth Fiattarone is my name, I have been a financial educator for a decade, but honestly speaking, I have not found
      Elizabeth Fiattarone is my name, I have been a financial educator for a decade, but honestly speaking, I have not found
      "
      />
