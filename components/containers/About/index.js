@@ -214,67 +214,66 @@ return (
   title={<RichTabTitle icon={<Group/>} label='Students'/>}
   onActive={()=>setActivetab('students')}
   >
- <WhoweareBox
- {...{activetab}}
- media={
-  <Box height="small" width="large" overflow="hidden" alignContent='center'>
-<Carousel fill play={8000}>
-  <Image fit="cover" src="static/imgs/student1.jpg" />
+ 
+ <WhatotherssayBox
+    {...{activetab}}
+     media={
+      <Box height="small" width="large" overflow="hidden" alignContent='center'>
+    <Carousel fill play={8000}>
+    <Image fit="cover" src="static/imgs/student1.jpg" />
   <Image fit="cover" src="static/imgs/student2.jpg" />
-</Carousel>
-</Box>
- }
-socialproof='We support over 9400 Students'
- description="Legendary assassin retired from his violent career after marrying the love of his life.
+    </Carousel>
+    </Box>
+     }
+     caption='We support over 9400 Students'
+     description="Legendary assassin retired from his violent career after marrying the love of his life.
  Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
  steal John's prized car and kill the puppy that was a last gift from his wife,
- John unleashes the remorseless killing machine within and seeks vengeance.
-      "
- />
+ John unleashes the remorseless killing machine within and seeks vengeance."
+     />
   </Tab>
   <Tab 
   title={<RichTabTitle icon={<UserManager/>} label='Guardians'/>}
   onActive={()=>setActivetab('guardians')}
   >
-<WhoweareBox
-{...{activetab}}
- media={
-  <Box height="small" width="large" overflow="hidden" alignContent='center'>
-<Carousel fill play={8000}>
-  <Image fit="cover" src="static/imgs/guardian1.jpg" />
+
+  <WhatotherssayBox
+    {...{activetab}}
+     media={
+      <Box height="small" width="large" overflow="hidden" alignContent='center'>
+    <Carousel fill play={8000}>
+    <Image fit="cover" src="static/imgs/guardian1.jpg" />
   <Image fit="cover" src="static/imgs/guardian2.jpg" />
-</Carousel>
-</Box>
- }
- socialproof='Over 900 Guardians have benefited'
- description="Legendary assassin retired from his violent career after marrying the love of his life.
+    </Carousel>
+    </Box>
+     }
+     caption='Over 900 Guardians have benefited'
+     description="Legendary assassin retired from his violent career after marrying the love of his life.
  Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
  steal John's prized car and kill the puppy that was a last gift from his wife,
- John unleashes the remorseless killing machine within and seeks vengeance.
-      "
- />
+ John unleashes the remorseless killing machine within and seeks vengeance."
+     />
   </Tab>
   <Tab 
     title={<RichTabTitle icon={<UserExpert/>} label='Financial Educators'/>}
     onActive={()=>setActivetab('financialeducators')}
   >
-<WhoweareBox
-{...{activetab}}
- media={
-  <Box height="small" width="large" overflow="hidden" alignContent='center'>
-<Carousel fill play={8000}>
-  <Image fit="cover" src="static/imgs/financialeducator1.png" />
+  <WhatotherssayBox
+    {...{activetab}}
+     media={
+      <Box height="small" width="large" overflow="hidden" alignContent='center'>
+    <Carousel fill play={8000}>
+    <Image fit="cover" src="static/imgs/financialeducator1.png" />
   <Image fit="cover" src="static/imgs/financialeducator2.jpg" />
-</Carousel>
-</Box>
- }
- socialproof='238 Financial Educators onboard'
- description="Legendary assassin retired from his violent career after marrying the love of his life.
+    </Carousel>
+    </Box>
+     }
+     caption='238 Financial Educators onboard'
+     description="Legendary assassin retired from his violent career after marrying the love of his life.
  Her sudden death leaves John in deep mourning and when sadistic mobster Iosef Tarasov and his thugs
  steal John's prized car and kill the puppy that was a last gift from his wife,
- John unleashes the remorseless killing machine within and seeks vengeance.
-      "
- />
+ John unleashes the remorseless killing machine within and seeks vengeance."
+     />
   </Tab>
 </Tabs>
   
