@@ -237,8 +237,8 @@ return (
      media={
       <Box height="small" width="large" overflow="hidden" alignContent='center'>
     <Carousel fill play={8000}>
-    <Image fit="cover" src="static/imgs/student1.jpg" />
-  <Image fit="cover" src="static/imgs/student2.jpg" />
+    <Image fit="cover" src="https://tav-s32.s3.us-east-2.amazonaws.com/student1.jpg" />
+  <Image fit="cover" src="https://tav-s32.s3.us-east-2.amazonaws.com/student2.jpg" />
     </Carousel>
     </Box>
      }
@@ -259,8 +259,8 @@ return (
      media={
       <Box height="small" width="large" overflow="hidden" alignContent='center'>
     <Carousel fill play={8000}>
-    <Image fit="cover" src="static/imgs/guardian1.jpg" />
-  <Image fit="cover" src="static/imgs/guardian2.jpg" />
+    <Image fit="cover" src="https://tav-s32.s3.us-east-2.amazonaws.com/guardian1.jpg" />
+  <Image fit="cover" src="https://tav-s32.s3.us-east-2.amazonaws.com/guardian2.jpg" />
     </Carousel>
     </Box>
      }
@@ -447,7 +447,7 @@ return (
      media={
       <Box height="small" width="large" overflow="hidden" alignContent='center'>
     <Carousel fill play={8000}>
-      <Image fit="cover" src="static/imgs/kingnews.png" />
+      <Image fit="cover" src="https://tav-s32.s3.us-east-2.amazonaws.com/kingnews.png" />
     </Carousel>
     </Box>
      }

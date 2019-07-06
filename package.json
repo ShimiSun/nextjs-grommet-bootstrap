@@ -12,6 +12,7 @@
     "grommet-controls": "^1.1.19",
     "grommet-icons": "https://github.com/grommet/grommet-icons/tarball/stable",
     "initials": "^3.0.1",
+    "is-valid-zip": "^0.0.5",
     "jss": "^9.8.7",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",

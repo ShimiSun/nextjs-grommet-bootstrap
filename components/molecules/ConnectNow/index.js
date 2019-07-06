@@ -13,25 +13,34 @@ import {isEmail,isMobilePhone} from 'validator';
 import PasswordInput from 'components/atoms/PasswordInput'
 import {MaskedInput} from 'grommet-controls'
 import {FormClose} from 'grommet-icons'
+import isValidZip from 'is-valid-zip';
 
 import config from 'config'
 
 const {schema}=config
+
+const PhoneInput = (props)=><MaskedInput
+placeholderChar='_'
+mask={['+', '1', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+placeholder='US Phone'
+{...props}
+// showMask
+keepCharPositions
+/>
+
+const StreetInput = (props)=><MaskedInput
+ pipe={conformedValue => ({ value: conformedValue.toUpperCase() })}
+   
+{...props}
+// showMask
+keepCharPositions
+/>
 
 const ZipInput = (props)=><MaskedInput
 placeholderChar='_'
 
 mask={[MaskedInput.digit,' ', MaskedInput.digit, ' ', MaskedInput.digit,' ',  MaskedInput.digit, ' ',MaskedInput.digit]}
 
-{...props}
-// showMask
-keepCharPositions
-/>
-
-const PhoneInput = (props)=><MaskedInput
-placeholderChar='_'
-mask={['+', '1', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
-placeholder='US Phone'
 {...props}
 // showMask
 keepCharPositions
@@ -70,6 +79,13 @@ const validatePassword = (value)=>{
         return 'invalid password'
     }
     return null
+}
+
+const validateZip = (value)=>{
+  if(!isValidZip(value.replace(/\s/g, ''))){
+      return 'invalid zip'
+  }
+  return null
 }
  
 const onSubmitCredentials = value=>{
@@ -211,7 +227,7 @@ const onBackToCredentials= ()=>{
               <Form  onSubmit={({ value }) => onSubmitAddress(value)}>
                 <FormField 
          //  help='Enter a valid e-mail address'
-            component={TextInput}
+            component={StreetInput}
            label="Street" 
            name="street" 
            type="text" 
@@ -227,7 +243,7 @@ const onBackToCredentials= ()=>{
               label="Zip Code"
               name="zip"
               required
-          //  validate={validatePhone}
+           validate={validateZip}
               value={zip}
               onChange={(e)=> setZip(e.target.value)}
               />
