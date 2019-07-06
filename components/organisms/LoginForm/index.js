@@ -10,22 +10,13 @@ import {
   Anchor
 } from "grommet";
 import Link from 'next/link';
-import PasswordValidator from 'password-validator';
 import {isEmail} from 'validator';
 import PasswordInput from "components/atoms/PasswordInput";
 import Email4ResetForm from 'components/organisms/Email4ResetForm'
 
-const schema = new PasswordValidator().is()
-.min(8) // Minimum length 8
-.is()
-.max(100) // Maximum length 100
-.has()
-.uppercase() // Must have uppercase letters
-.has()
-.lowercase() // Must have lowercase letters
-.has()
-.digits(); // Must have digits
+import config from 'config'
 
+const {schema}=config
 
 
 

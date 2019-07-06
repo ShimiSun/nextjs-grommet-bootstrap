@@ -6,6 +6,7 @@ import {
  import Link from 'next/link';
   import {Mail, Phone,Previous} from 'grommet-icons';
 import About from 'components/containers/About'
+import ConnectNow from 'components/molecules/ConnectNow';
 
 
 export default ()=>{
@@ -44,8 +45,8 @@ export default ()=>{
          
          </Box>
          <Box pad={{horizontal:'large'}} gap='small' background={{"image":"url('static/imgs/tav-heru-bkgd-mobi.png')","dark":true}} width='stretch'  direction="row" justify="center" >
-         <Button  label="CONNECT NOW" primary margin='medium' type='button'  alignSelf='center' />
-       {size!=='small'&& <Box alignSelf='center'>
+         <ConnectNow/>
+         {size!=='small'&& <Box alignSelf='center'>
         <Anchor  size='xsmall' icon={<Mail size='small' color='accent-1'/>} plain color='brand-mobi' label='info@takesavillage.com'/>
          <Anchor  size='xsmall' icon={<Phone size='small' color='accent-1'/>} plain color='brand-mobi' label='+1 (242) 444 - 4211'/>
          

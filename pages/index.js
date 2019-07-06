@@ -2,6 +2,7 @@ import React from 'react'
 import {Box, Button, Heading, Paragraph,ResponsiveContext} from 'grommet'
 import AppLayout from 'components/Layouts/AppLayout'
 import Link from 'next/link';
+import ConnectNow from 'components/molecules/ConnectNow';
 
 
 const Screen1 = (/* {  setScreen  } */) => {
@@ -62,7 +63,7 @@ pad='medium'
           Takesavillage allows students to build campaigns to crowdfund their education while connecting with a network of licensed Financial Educators. 
           Connect with friends, family, schools, and businesses who are interested in funding {"students'"} education because it takes a village to educate a child.
           </Paragraph>
-          <Button color='accent-1' label="CONNECT NOW" primary margin='medium' type='button' size='large' alignSelf='center' />
+          <ConnectNow/>
          
 </Box>
 
@@ -76,7 +77,7 @@ const HeroContent =()=><Box margin='medium    '  >
           Takesavillage allows students to build campaigns to crowdfund their education while connecting with a network of licensed Financial Educators. 
           Connect with friends, family, schools, and businesses who are interested in funding {"students'"} education because it takes a village to educate a child.
           </Paragraph>
-          <Button label="CONNECT NOW" primary margin='medium' type='button' size='large' alignSelf='start' />
+          <ConnectNow/>
          
 </Box>
 </Box>

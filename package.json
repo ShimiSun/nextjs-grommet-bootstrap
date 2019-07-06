@@ -19,6 +19,7 @@
     "next-plugin-transpile-modules": "^2.0.0",
     "next-routes": "^1.4.2",
     "password-validator": "^4.1.1",
+    "phone-validator-net": "^2.0.4",
     "pretty-quick": "^1.11.0",
     "ra-data-fakerest": "^2.6.0",
     "ra-language-english": "^2.8.5",
