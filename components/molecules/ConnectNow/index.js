@@ -9,15 +9,14 @@ import {
   Text,
   CheckBox,FormField,TextInput
 } from "grommet";
-import {isEmail,isMobilePhone} from 'validator';
+import {isEmail,isMobilePhone,matches} from 'validator';
 import PasswordInput from 'components/atoms/PasswordInput'
 import {MaskedInput} from 'grommet-controls'
 import {FormClose} from 'grommet-icons'
 import isValidZip from 'is-valid-zip';
-
 import config from 'config'
 
-const {schema}=config
+const {schema,getAddress,expandState,abbrvState}=config
 
 const PhoneInput = (props)=><MaskedInput
 placeholderChar='_'
@@ -29,8 +28,8 @@ keepCharPositions
 />
 
 const StreetInput = (props)=><MaskedInput
- pipe={conformedValue => ({ value: conformedValue.toUpperCase() })}
-   
+
+pipe={conformedValue => ({ value: conformedValue.toUpperCase() })}
 {...props}
 // showMask
 keepCharPositions
@@ -56,8 +55,10 @@ export default ()=>{
   const [password,setPassword]=React.useState('')
   const [street, setStreet]=React.useState('')
   const [zip,setZip]=React.useState('')
- 
-
+  const [state, setState]=React.useState('')
+  const [city, setCity]=React.useState('')
+  const [zipError,setZipError]=React.useState('')
+  const [streetError,setStreetError]=React.useState('')
 
   const validateEmail = (value)=>{
     if(!isEmail(value)){
@@ -81,10 +82,48 @@ const validatePassword = (value)=>{
     return null
 }
 
-const validateZip = (value)=>{
-  if(!isValidZip(value.replace(/\s/g, ''))){
-      return 'invalid zip'
+const validateStreet = (value)=>{
+  if(!matches(value,/^\s*\S+(?:\s+\S+){2}/i)){
+    setStreet('')
+      setStreetError('invalid street address')
+  }else{
+    setStreet(value)
+    setStreetError('')
   }
+  
+}
+
+
+const validateZip = async (value)=>{
+  const zipstr=value.replace(/\s/g, '');
+
+  try{
+    if(isValidZip(zipstr)){
+     const loc= await getAddress(zipstr)
+   
+     setCity(loc.city);
+     setZip(value)
+     setState(expandState(loc.state))
+    }
+  }catch({message}){
+if(message.includes('400')){
+  setZipError('invalid zipcode format')
+}
+if (message.includes('401')){
+  setZipError('a technical error occured - sorry we are on it')
+}
+
+if (message.includes('404')){
+  setZipError('zipcode does not exist - double check it')
+}
+
+if (message.includes('429')){
+  setZipError('usage limit exceeded - please retry after a hour')
+}
+
+  }
+
+  
   return null
 }
  
@@ -233,8 +272,8 @@ const onBackToCredentials= ()=>{
            type="text" 
            required 
            value={street}
-          // validate={validateEmail}
-          onChange={event => setStreet(event.target.value)}
+         error={streetError}
+          onChange={event => validateStreet(event.target.value)}
            />
 
 <FormField
@@ -243,10 +282,13 @@ const onBackToCredentials= ()=>{
               label="Zip Code"
               name="zip"
               required
-           validate={validateZip}
+          error={zipError}
               value={zip}
-              onChange={(e)=> setZip(e.target.value)}
+              onChange={(e)=> validateZip(e.target.value)}
               />
+
+             {street&&state&&(!zipError&&!streetError)&& 
+             <Text>{`${street}, ${city}, ${abbrvState(state)} ${zip}`}</Text>}
               <Box
                   as="footer"
                   gap="small"
