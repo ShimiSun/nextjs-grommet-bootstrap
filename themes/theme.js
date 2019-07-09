@@ -8,17 +8,17 @@ const theme = deepMerge(grommet, {
       brand:'#558b2f',
       'accent-1':'#FFD700',
       'brand-mobi':"#e5eec3",
-      placeholder:'#e5eec3',
+     placeholder:'#e5eec3',
  
   
     },
     drop: {
-      background: "#FFD700",
+      background: "brand",
       shadowSize: "medium",
       extend: `
           border-bottom-left-radius: 12px;
           border-bottom-right-radius: 12px;
-  
+        
           overflow: hidden;
         `
     },
@@ -34,7 +34,7 @@ const theme = deepMerge(grommet, {
       weight: 400
     },
     font: {
-      family: 'Roboto',// 'Roboto',
+      family: 'Segoe UI Light',// 'Roboto',
       size:'1em', // '14px',
       height:'4rem', // '20px',
       style:'normal',
@@ -47,7 +47,7 @@ const theme = deepMerge(grommet, {
     },
 focus:{
   border:{
-    color:'#558b2f'
+    color:'transparent'
   }
 },
 size:{
@@ -93,7 +93,8 @@ size:{
         }
       }
     },
-  }
+  },
+
 
 });
 

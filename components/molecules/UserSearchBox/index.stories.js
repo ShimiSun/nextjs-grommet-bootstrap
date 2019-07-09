@@ -6,6 +6,6 @@ import dynamic from 'next/dynamic';
 const UserSearchBox = dynamic(() => import('.'));
 
 
-storiesOf("TextInput", module).add("Custom", () => (
+storiesOf("UserSearchBox", module).add("Custom", () => (
     <UserSearchBox getSelectedUserId={(user)=>console.log('user: ',user)} />
   ));

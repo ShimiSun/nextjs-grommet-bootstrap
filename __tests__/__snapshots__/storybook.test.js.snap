@@ -20,6 +20,8 @@ exports[`Storyshots SideBar basic 1`] = `null`;
 
 exports[`Storyshots SocialLinks basic 1`] = `null`;
 
-exports[`Storyshots TextInput Custom 1`] = `null`;
+exports[`Storyshots StateSearchBox Custom 1`] = `null`;
 
 exports[`Storyshots UserCard basic 1`] = `null`;
+
+exports[`Storyshots UserSearchBox Custom 1`] = `null`;

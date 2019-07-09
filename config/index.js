@@ -1,6 +1,9 @@
 import PasswordValidator from 'password-validator';
 import axios from 'axios';
+// import moment from 'moment'
 /* eslint-disable new-cap */
+
+
 
 const statesAb = require('static/data/state-ab.json');
 
@@ -39,7 +42,7 @@ const schema = new PasswordValidator().is()
 .digits(); // Must have digits
 const truncateSentence = (text, sentenceCount) => `${text.split('.').slice(0, sentenceCount).join('.')}.`;
 
-
+const statessArray=()=>statesAb.map((s)=>s&&s.name)
 
 const config ={
     title: `Takesavillage`,
@@ -54,7 +57,9 @@ const config ={
     schema,
     getAddress,
     abbrvState,
-    expandState
+    expandState,
+    statessArray,
+    statesAb,
   }
 
   export default config

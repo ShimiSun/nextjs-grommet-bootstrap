@@ -64,7 +64,7 @@ export default({getSelectedUserId})=>{
             <Text>
               <strong>{name}</strong>
             </Text>
-           <Text size='xsmall' color='brand'>
+           <Text size='xsmall' color='brand-mobi'>
              ({category})  
            </Text>
           </Box>
