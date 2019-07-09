@@ -17,44 +17,7 @@ export default(props)=> {
     const [query,setQuery]=React.useState('')
      const selectRef =  React.useRef(null);
 
-     React.useEffect(
-      ()=>{
-      const {onChange}=props
-      onChange(
-      ({target:{value}})=>{
-      const option=value
-      const newSelectedPartners = [...selectedContentPartners];
-      const seasonIndex = newSelectedPartners
-        .map(({ name }) => name)
-        .indexOf(option.name);
-      if (seasonIndex >= 0) {
-        newSelectedPartners.splice(seasonIndex, 1);
-      } else {
-        newSelectedPartners.push(option);
-      }
-      const selectedPartnerNames = newSelectedPartners.map(
-        ({ name }) => name
-      );
-      setSelectedContentPartners(newSelectedPartners)
-      setContentPartners(allContentPartners.sort((p1, p2) => {
-          const p1Exists = selectedPartnerNames.includes(p1.name);
-          const p2Exists = selectedPartnerNames.includes(p2.name);
 
-          if (!p1Exists && p2Exists) {
-            return 1;
-          }
-          if (p1Exists && !p2Exists) {
-            return -1;
-          }
-          if (p1.name.toLowerCase() < p2.name.toLowerCase()) {
-            return -1;
-          }
-          return 1;
-        }))
-      }
-      )
-      },[props,selectedContentPartners]
-      )
 
      React.useEffect(() => {
       setSearching(true);
@@ -154,7 +117,38 @@ export default(props)=> {
                 contentPartners.indexOf(option)
               )}
               options={contentPartners}
-            
+              onChange={({ option }) => {
+                const newSelectedPartners = [...selectedContentPartners];
+                const seasonIndex = newSelectedPartners
+                  .map(({ name }) => name)
+                  .indexOf(option.name);
+                if (seasonIndex >= 0) {
+                  newSelectedPartners.splice(seasonIndex, 1);
+                } else {
+                  newSelectedPartners.push(option);
+                }
+                const selectedPartnerNames = newSelectedPartners.map(
+                  ({ name }) => name
+                );
+                setSelectedContentPartners(newSelectedPartners)
+                setContentPartners(allContentPartners.sort((p1, p2) => {
+                    const p1Exists = selectedPartnerNames.includes(p1.name);
+                    const p2Exists = selectedPartnerNames.includes(p2.name);
+
+                    if (!p1Exists && p2Exists) {
+                      return 1;
+                    }
+                    if (p1Exists && !p2Exists) {
+                      return -1;
+                    }
+                    if (p1.name.toLowerCase() < p2.name.toLowerCase()) {
+                      return -1;
+                    }
+                    return 1;
+                  }))
+                
+              }}
+
              
               onSearch={searchQuery=> setQuery(searchQuery)}
             >
