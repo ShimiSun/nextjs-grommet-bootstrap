@@ -96,7 +96,7 @@ export default(props)=> {
 
     return (
      
-        <Box fill align="center" justify="center" width="medium">
+        <Box fill  justify="stretch" width="medium">
           <SearchInputContext.Provider value={{ searching }}>
             <Select
             {...props}
