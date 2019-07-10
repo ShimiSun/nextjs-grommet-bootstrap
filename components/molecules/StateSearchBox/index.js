@@ -104,8 +104,8 @@ export default({selectedStates,setselectedStates})=> {
               ref={selectRef}
               dropHeight='medium'
               closeOnChange={false}
-              placeholder="Select Content Partners"
-              searchPlaceholder="Search Content Partners"
+              placeholder="Select for states"
+              searchPlaceholder="Search for states"
               emptySearchMessage="No partners found"
               multiple
               plain
