@@ -17,7 +17,11 @@ export default(props)=> {
     const [query,setQuery]=React.useState('')
      const selectRef =  React.useRef(null);
 
-
+React.useState(
+  ()=>{
+console.log(props)
+  },[props]
+)
 
      React.useEffect(() => {
       setSearching(true);
@@ -31,7 +35,52 @@ export default(props)=> {
                         }, 100);
       },[query])
 
-  const clearContentPartners = () => setSelectedContentPartners([]);
+     const onRemoveSeason = option => {
+       
+        const nextSelectedContentPartners = [...selectedContentPartners];
+        nextSelectedContentPartners.splice(nextSelectedContentPartners.indexOf(allContentPartners.indexOf(option)), 1);
+        setSelectedContentPartners(nextSelectedContentPartners)
+      };
+    
+      const renderContentPartners = (name) => (
+  <Button
+    key={`season_tag_${name}`}
+    href="#"
+    onClick={event => {
+      event.preventDefault();
+      event.stopPropagation();
+      onRemoveSeason(name);
+    }}
+    onFocus={event => event.stopPropagation()}
+    
+  >
+    <Box
+      align="center"
+      direction="row"
+      gap="xsmall"
+      pad={{ vertical: "xsmall", horizontal: "small" }}
+      margin="xsmall"
+      background="brand"
+      round="large"
+    >
+      <Text size="xsmall" color="white">
+        {name}
+      </Text>
+      <Box background="white" round="full" margin={{ left: "xsmall" }}>
+        <FormClose
+          color="brand"
+          size="small"
+          style={{ width: "12px", height: "12px" }}
+        />
+      </Box>
+    </Box>
+  </Button>
+)
+
+ 
+
+     
+  // const clearContentPartners = () => setSelectedContentPartners([]);
 
  const renderOption = ({ name }) => {
     
@@ -48,16 +97,18 @@ export default(props)=> {
       </Box>
     );
   };
-
+ /*
   const renderContentPartners = () => {
     
     return (
+      
       <Box
         direction="row"
         gap="xsmall"
         pad={{ left: "small", vertical: "small" }}
         align="center"
         flex={false}
+        wrap
       >
         <Box
           background="brand"
@@ -69,7 +120,7 @@ export default(props)=> {
         >
           <Text size="small">{selectedContentPartners.length}</Text>
         </Box>
-        <Box flex>
+        <Box wrap>
           <Text size="small" truncate>
             {selectedContentPartners.map(({ name }) => name).join(", ")}
           </Text>
@@ -92,7 +143,7 @@ export default(props)=> {
     );
   };
 
-
+*/
 
     return (
      
@@ -109,14 +160,17 @@ export default(props)=> {
               multiple
               plain
               valueLabel={
-                selectedContentPartners.length
-                  ? renderContentPartners()
-                  : undefined
+               <Box wrap direction="row" fill='horizontal'>
+                {
+                  selectedContentPartners.map((option) =>renderContentPartners(option.name))
+                }
+              </Box>
               }
               selected={selectedContentPartners.map(option =>
                 contentPartners.indexOf(option)
               )}
               options={contentPartners}
+             
               onChange={({ option }) => {
                 const newSelectedPartners = [...selectedContentPartners];
                 const seasonIndex = newSelectedPartners
@@ -149,7 +203,7 @@ export default(props)=> {
                 
               }}
 
-             
+              
               onSearch={searchQuery=> setQuery(searchQuery)}
             >
               {renderOption}
