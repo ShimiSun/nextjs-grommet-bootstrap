@@ -378,10 +378,12 @@ const onBackToForm=()=>{
                <FormField
       label="Probable study state(s) (if not yet in college)"
       name="prospective states"
-      component={StateSearchBox}
-      value={prospectiveStates}
-      onChange={event => setProspectiveStates(event.target.value)}
+      >
+        <StateSearchBox
+      selectedStates={prospectiveStates}
+      setselectedStates={value=>setProspectiveStates(value)}
       />
+      </FormField>
               
               <FormField 
          //  help='Enter a valid e-mail address'
