@@ -19,7 +19,8 @@ export default(props)=> {
 
 React.useState(
   ()=>{
-console.log(props)
+// const {onChange}=props
+// onChange()
   },[props]
 )
 
@@ -41,20 +42,8 @@ console.log(props)
         nextSelectedContentPartners.splice(nextSelectedContentPartners.indexOf(allContentPartners.indexOf(option)), 1);
         setSelectedContentPartners(nextSelectedContentPartners)
       };
-    
-      const renderContentPartners = (name) => (
-  <Button
-    key={`season_tag_${name}`}
-    href="#"
-    onClick={event => {
-      event.preventDefault();
-      event.stopPropagation();
-      onRemoveSeason(name);
-    }}
-    onFocus={event => event.stopPropagation()}
-    
-  >
-    <Box
+
+      const renderButtonContent=(name)=><Box
       align="center"
       direction="row"
       gap="xsmall"
@@ -74,6 +63,20 @@ console.log(props)
         />
       </Box>
     </Box>
+    
+      const renderContentPartners = (name) => (
+  <Button
+    key={`season_tag_${name}`}
+    href="#"
+    onClick={event => {
+      event.preventDefault();
+      event.stopPropagation();
+      onRemoveSeason(name);
+    }}
+    onFocus={event => event.stopPropagation()}
+    
+  >
+    {renderButtonContent(name)}
   </Button>
 )
 
@@ -161,8 +164,9 @@ console.log(props)
               plain
               valueLabel={
                <Box wrap direction="row" fill='horizontal'>
-                {
-                  selectedContentPartners.map((option) =>renderContentPartners(option.name))
+                {selectedContentPartners.length>0?
+                  selectedContentPartners.map((option) =>renderContentPartners(option.name)):
+                  renderContentPartners('')
                 }
               </Box>
               }
