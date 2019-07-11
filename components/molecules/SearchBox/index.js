@@ -5,33 +5,39 @@ import { FormClose } from "grommet-icons";
 
 import { Box, Button,  Select, Text } from "grommet";
 
-import config from 'config'
 
-const options = config.statesAb
 
-const StateInputContext= React.createContext(false)
+const SearchBoxContext= React.createContext(false)
 
-export default ({selectedState,setSelectedState})=> {
+export default ({value,onChange,options})=> {
 
-  const [states,setstates]=React.useState(options)
+  const [values,setValues]=React.useState(options)
     const [searching,setSearching]=React.useState(false)
     const [query,setQuery]=React.useState('')
      const selectRef =  React.useRef(null);
  
   React.useEffect(() => {
+    const abortController= new AbortController()
     setSearching(true);
                       setTimeout(() => {
                         setSearching(false)
-                          setstates(options.filter(
+                          setValues(options.filter(
                             s =>
                               s.name.toLowerCase().indexOf(query.toLowerCase()) >= 0
                           )
                         );
                       }, 100);
-    },[query,setstates])
+                      return  function cleanup(){
+                        abortController.abort()
+                      }
+    },[query,setValues,options])
 
  
-    const clearState =()=>setSelectedState('');
+    const clearState =()=>onChange({
+      target:{
+        value:''
+      }
+    });
 
   const renderOption = ({ name }) => {
     
@@ -42,7 +48,7 @@ export default ({selectedState,setSelectedState})=> {
     );
   };
 
-  const renderstates = () => {
+  const renderValues = () => {
    
     return (
       <Box
@@ -55,7 +61,7 @@ export default ({selectedState,setSelectedState})=> {
 
         <Box flex>
           <Text size="small" truncate>
-            {selectedState}
+            {value}
           </Text>
         </Box>
         <Button
@@ -81,7 +87,7 @@ export default ({selectedState,setSelectedState})=> {
     return (
      
       <Box fill  justify="stretch" width="medium">
-         <StateInputContext.Provider value={{searching, selectedState}}>
+         <SearchBoxContext.Provider value={{searching, value}}>
             <Select
               ref={selectRef}
               closeOnChange
@@ -90,16 +96,21 @@ export default ({selectedState,setSelectedState})=> {
               emptySearchMessage="No State found"
               plain
               value={
-                selectedState
-                  ? renderstates()
+                value
+                  ? renderValues()
                   : undefined
               }
               
-              options={states}
+              options={values}
               onChange={({ option }) => {
                 
-                setSelectedState(option.name)
-                setstates(options.sort((p1, p2) => {
+                onChange({
+                  target:{
+                    value:option.name
+                  }
+                }
+                  )
+                setValues(options.sort((p1, p2) => {
                     const p1Exists = option===p1.name;
                     const p2Exists = option===p2.name;
 
@@ -120,7 +131,7 @@ export default ({selectedState,setSelectedState})=> {
             >
               {renderOption}
             </Select>
-          </StateInputContext.Provider>
+          </SearchBoxContext.Provider>
          
         </Box>
      

@@ -1,23 +1,21 @@
 import React from "react";
 
-import { FormClose } from "grommet-icons";
-
 import { Box, Button, CheckBox,  Select, Text } from "grommet";
 import config from 'config'
 
 
-const allstates = config.statesAb
+const allstates = config.statessArray()
 
 const SearchInputContext= React.createContext(false)
 
 export default({selectedStates,setselectedStates})=> {
     const [states,setstates]=React.useState(allstates)
-  //  const [selectedStates,setselectedStates]=React.useState([])
     const [searching,setSearching]=React.useState(false)
     const [query,setQuery]=React.useState('')
      const selectRef =  React.useRef(null);
 
      React.useEffect(() => {
+      const abortController= new AbortController()
       setSearching(true);
                         setTimeout(() => {
                           setSearching(false)
@@ -27,6 +25,9 @@ export default({selectedStates,setselectedStates})=> {
                             )
                           );
                         }, 100);
+                        return  function cleanup(){
+                          abortController.abort()
+                        }
       },[query,setstates])
 
      const onRemoveSeason = option => {
@@ -48,13 +49,7 @@ export default({selectedStates,setselectedStates})=> {
       <Text size="xsmall" color="white">
         {name}
       </Text>
-      <Box background="white" round="full" margin={{ left: "xsmall" }}>
-        <FormClose
-          color="brand"
-          size="small"
-          style={{ width: "12px", height: "12px" }}
-        />
-      </Box>
+      
     </Box>
     
       const renderstates = (name) => (
@@ -135,7 +130,7 @@ export default({selectedStates,setselectedStates})=> {
                 const selectedPartnerNames = newSelectedPartners.map(
                   ({ name }) => name
                 );
-                setselectedStates(newSelectedPartners)
+                setselectedStates(newSelectedPartners.sort())
                 setstates(allstates.sort((p1, p2) => {
                     const p1Exists = selectedPartnerNames.includes(p1.name);
                     const p2Exists = selectedPartnerNames.includes(p2.name);

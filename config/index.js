@@ -7,22 +7,45 @@ import axios from 'axios';
 
 const statesAb = require('static/data/state-ab.json');
 
-const key = process.env.ZIPCODE_CLIENT_KEY;
+const zipkey = process.env.ZIPCODE_CLIENT_KEY
+
+const usdatakey=process.env.US_DATA_API
 
 const getAddress = async zip => {
   // console.log('key: ', key);
   const { data } = await axios.get(
-    `https://www.zipcodeapi.com/rest/${key}/info.json/${zip}/degrees`
+    `https://www.zipcodeapi.com/rest/${zipkey}/info.json/${zip}/degrees`
   );
   return data;
 };
-
 
 const abbrvState = state => {
   const stateObj = statesAb.filter(s => s.name === state)[0];
   //
   return (stateObj && stateObj.abbreviation)||'';
-};
+}
+// 
+const getCollegesPerState=async (state,search) => {
+let data=[]
+
+if(state){
+let query=`https://api.data.gov/ed/collegescorecard/v1/schools?api_key=${usdatakey}&school.state=${abbrvState(state)}&&_fields=school.name,school.state`
+if(search){
+  query=`https://api.data.gov/ed/collegescorecard/v1/schools?api_key=${usdatakey}&school.state=${abbrvState(state)}&school.name=${search}&_fields=school.name,school.state`
+}
+  const {data:{results}}= await axios.get(query);
+
+   data =results.map(r=>({name:r['school.name']}))
+  }
+  
+  console.log('returned: ',data)
+  
+  return data
+
+}
+
+
+;
 
 const expandState = abbrv => {
   const stateObj = statesAb.filter(s => s.abbreviation === abbrv)[0];
@@ -42,7 +65,7 @@ const schema = new PasswordValidator().is()
 .digits(); // Must have digits
 const truncateSentence = (text, sentenceCount) => `${text.split('.').slice(0, sentenceCount).join('.')}.`;
 
-const statessArray=()=>statesAb.map((s)=>s&&s.name)
+const statessArray=()=>statesAb.map((s)=>({name:s&&s.name}))
 
 const config ={
     title: `Takesavillage`,
@@ -60,6 +83,7 @@ const config ={
     expandState,
     statessArray,
     statesAb,
+    getCollegesPerState
   }
 
   export default config

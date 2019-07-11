@@ -8,7 +8,8 @@ import {
 import {isEmail,isMobilePhone,matches} from 'validator';
 import BirthdateInput from 'components/atoms/BirthdateInput'
 import MoneyInput from 'components/atoms/MoneyInput'
-import StateInput from 'components/atoms/StateInput'
+import SearchBox from 'components/molecules/SearchBox'
+import SchoolBox from 'components/molecules/SchoolBox'
 import SignupForm from 'components/organisms/SignupForm'
 import AddressForm from 'components/organisms/AddressForm'
 import FormContainer from 'components/containers/FormContainer'
@@ -17,7 +18,7 @@ import config from 'config'
 import moment from 'moment'
 import StateSearchBox from 'components/molecules/StateSearchBox'
 
-const {schema,getAddress,expandState,}=config
+const {schema,getAddress,expandState,statessArray,}=config
 
 
 
@@ -25,7 +26,7 @@ const {schema,getAddress,expandState,}=config
 
 
 /*
-const UniStateInput=(props)=>{
+const UniSearchBox=(props)=>{
 
   const [options,setOptions]=React.useState(statessArray())
 
@@ -69,16 +70,25 @@ export default ()=>{
   const [stateOfStudy,setStateOfStudy]=React.useState('') 
   const [showStates,setShowStates]=React.useState(true)
   const [showState,setShowState]=React.useState(true)  
+  const [school,setSchool]=React.useState(true)  
 
   React.useEffect(
     ()=>{
+      const abortController= new AbortController()
       setShowStates(!stateOfStudy)
+      return  function cleanup(){
+       abortController.abort()
+      }
     },[stateOfStudy]
   )
 
   React.useEffect(
     ()=>{
+      const abortController= new AbortController()
       setShowState(prospectiveStates.length===0)
+      return  function cleanup(){
+       abortController.abort()
+      }
     },[prospectiveStates]
   )
 
@@ -295,10 +305,21 @@ state,city
                 <FormField
       label="Your college's state (if already in college)"
       name="stateOfStudy"
+      component={SearchBox}
+      options={statessArray()}
+      value={stateOfStudy}
+      onChange={({target:{value}})=>setStateOfStudy(value)}
+      />
+           }
+
+           {!!stateOfStudy&&<FormField
+      label="Your college"
+      name="school"
       >
-        <StateInput
-      selectedState={stateOfStudy}
-      setSelectedState={value=>setStateOfStudy(value)}
+        <SchoolBox
+        stateOfStudy={stateOfStudy}
+       value={school}
+      onChange={({target:{value}})=>setSchool(value)}
       />
       </FormField>
            }
