@@ -71,6 +71,7 @@ export default ()=>{
   const [showStates,setShowStates]=React.useState(true)
   const [showState,setShowState]=React.useState(true)  
   const [school,setSchool]=React.useState(true)  
+  const [course,setCourse]=React.useState(true) 
 
   React.useEffect(
     ()=>{
@@ -322,6 +323,18 @@ state,city
       onChange={({target:{value}})=>setSchool(value)}
       />
       </FormField>
+    
+           }
+
+           {!!school&&<FormField
+      label="Your course"
+      name="course"
+      value={course}
+      onChange={({target:{value}})=>setCourse(value)}
+      required={school}
+      />
+     
+    
            }
               
               <FormField 
@@ -379,6 +392,20 @@ state,city
             value={goal}
          // error={streetError}
          onChange={event => setGoal(event.target.value)}
+           />
+
+
+
+<FormField 
+         //  help='Enter a valid e-mail address'
+            component={BirthdateInput}
+           label="Your child's birthdate" 
+           name="birthdate" 
+           type="text" 
+           required 
+            value={birthdate}
+         // error={streetError}
+         onChange={event => setBirthdate(event.target.value)}
            />
               </FormContainer>
                
