@@ -22,8 +22,8 @@ street,streetError,validateStreet,
   zip,zipError,validateZip,
 state,city
   }) => <FormContainer
-  step={2}
-  heading="Your street address:"
+  step={3}
+  heading="Your street address"
   open={openAddress}
   forward={onSubmitAddress}
   back={onBackToCredentials}

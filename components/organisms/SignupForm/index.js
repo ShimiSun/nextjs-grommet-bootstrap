@@ -12,17 +12,17 @@ import FormContainer from 'components/containers/FormContainer'
 
 
 export default ({
-  openCredentials,
+  openCredentials,onBackToName,
   onSubmitCredentials,
   email,validateEmail,setEmail,
   validatePassword,password,setPassword,
   validatePhone,phone,setPhone
   }) => <FormContainer
-step={1}
-heading={"We'll need your credentials"}
+step={2}
+heading="Your credentials"
 open={openCredentials}
 forward={onSubmitCredentials}
-
+back={onBackToName}
 >
 <FormField 
 //  help='Enter a valid e-mail address'

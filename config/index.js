@@ -38,7 +38,7 @@ if(search){
    data =results.map(r=>({name:r['school.name']}))
   }
   
-  console.log('returned: ',data)
+  // console.log('returned: ',data)
   
   return data
 

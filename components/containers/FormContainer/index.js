@@ -31,7 +31,7 @@ export default ({step,heading,children,open,back,forward})=>
  overflow='hidden'
 >
 <Text color='accent-1'>
- Step {step} of 4
+ Step {step} of 7
 </Text>
  <Button
    icon={<FormClose  />}
@@ -56,7 +56,7 @@ export default ({step,heading,children,open,back,forward})=>
                 {step>1&& <Button type='button'
 label="Back"  color="brand" onClick={back}/>}
                   <Button type='submit'
- primary label={step<4 ?"Next":`${step===4?"Connect":"Verify"}`}  color="brand" />
+ primary label={step<6 ?"Next":`${step===6?"Connect":"Verify"}`}  color="brand" />
                 
                 </Box>
 </Form>
