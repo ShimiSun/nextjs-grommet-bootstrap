@@ -16,7 +16,10 @@ const Screen1 = (/* {  setScreen  } */) => {
         <Link href="/about">
           <Button magin='small' primary  color='brand' label="ABOUT US"/>
           </Link>
-          <Button margin='small'  primary  color='brand' label="HOW IT WORK"/>  
+          <Link href="/campaigns?category='guardian" as="/campaigns/guardian">
+          <Button margin='small'  primary  color='brand' label="HOW IT WORK"/> 
+          </Link>
+           
         </Box>
         <Box/>
       </Box>

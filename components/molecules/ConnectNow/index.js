@@ -17,7 +17,7 @@ import GuardianForm from "components/organisms/GuardianForm";
 import LicenseForm from "components/organisms/LicenseForm";
 import HumanVerifyForm from "components/organisms/HumanVerifyForm";
 import VerifyForm from "components/organisms/VerifyForm";
-
+import Router from 'next/router'
 
 
 
@@ -197,11 +197,11 @@ const onSubmitCredentials = value=>{
 
 const onSubmitAddress= ()=>{
   
- // if (state){
+  if (state){
     openAddress(false)
 
  openForm(true)
- // }
+  }
 }
 
 const onSubmitForm= ()=>{
@@ -296,7 +296,7 @@ const onBackToForm=()=>{
 }
 
 
-const connect =async ()=>{
+const connecting =async ()=>{
   const user= {firstname,lastname,email,phone, password}
       const useraddress= {street,city,state,zip,lat,lng}
       const userstory ={goal,stateOfStudy,school,course,prospectiveStates,birthdate}
@@ -324,7 +324,7 @@ catch({message}){
 
 const onSubmitHuman=async()=>{
   
-  await connect()
+  await connecting()
 openVerify(true)
 openHuman(false)
 }
@@ -335,9 +335,42 @@ const onBackToProfile=()=>{
   checkIsHuman(false)
 }
 
+const verifing =async ()=>{
+ 
+try{
+  await setTimeout(() => {
+       
+    console.log('verify user by code: ',verifyCode)
+    }, 1000);
+ 
+}
+catch({message}){
+  console.log('error:',message)
+}
+    
+}
+
 const onSubmitVerify=async()=>{
   try{
-    console.log('verify user by code: ',verifyCode)
+    await verifing()
+    openVerify(false)
+let url  = ''
+// let as=''
+if(student){
+  url=`/campaigns?category=students&id=${3}`
+  // as=`/campaigns/students/${3}`
+}
+if(guardian){
+  url=`/campaigns?category=guardians&id=${3}`
+ // as=`/campaigns/guardians/${3}`
+}
+
+if(financialeducator){
+  url=`/brokers?id=${3}`
+ // as=`/brokers/${3}`
+}
+    Router.push(url,)
+
   }catch({message}){
     setVerifyCodeError(message)
   }

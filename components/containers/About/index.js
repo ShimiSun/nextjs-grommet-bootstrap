@@ -83,7 +83,7 @@ export default ({getSelected})=> {
      }
      {selected==='What others say'&&
      <Box round elevation='small' fill='vertical' width='large' alignSelf='center' background={{"color":'brand',opacity: "medium"}} pad='medium'>
-     <Whatotherssay/>
+     <Whatotherssay id={5}/>
      </Box>
      }
      {selected==='In the media'&&
@@ -205,21 +205,21 @@ const WhoweareDesktop = ({showSidebar}) => (
   );
 
 const Whoweserve= () => {
-const [activetab,setActivetab]=React.useState('students')
+const [activetab,setActivetab]=React.useState('campaigns?category=students')
 
 const onActive =(index)=>{
 
   switch (index){
     case 1:
-        setActivetab('guardians')
+        setActivetab('campaigns?category=guardians')
     break;
 
     case 2:
-        setActivetab('financialeducators')
+        setActivetab('brokers')
     break;
 
     default:
-        setActivetab('students')
+        setActivetab('campaigns?category=students')
   }
 
 }
@@ -301,22 +301,22 @@ return (
   
  
 
-  const Whatotherssay= () => {
-    const [activetab,setActivetab]=React.useState('students')
+  const Whatotherssay= ({id}) => {
+    const [activetab,setActivetab]=React.useState(`campaigns?category=students&id=${id}`)
 
     const onActive =(index)=>{
 
       switch (index){
         case 1:
-            setActivetab('guardians')
+            setActivetab(`campaigns?category=guardians&id=${id}`)
         break;
     
         case 2:
-            setActivetab('financialeducators')
+            setActivetab(`brokers?id=${id}`)
         break;
     
         default:
-            setActivetab('students')
+            setActivetab(`campaigns?category=students&id=${id}`)
       }
     
     }
