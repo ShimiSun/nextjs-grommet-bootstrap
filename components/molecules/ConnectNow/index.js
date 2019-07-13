@@ -15,8 +15,13 @@ import CategoryForm from "components/organisms/CategoryForm";
 import StudentForm from "components/organisms/StudentForm"
 import GuardianForm from "components/organisms/GuardianForm";
 import LicenseForm from "components/organisms/LicenseForm";
+import HumanVerifyForm from "components/organisms/HumanVerifyForm";
+import VerifyForm from "components/organisms/VerifyForm";
 
-const {schema,getAddress,expandState,statessArray,}=config
+
+
+
+const {schema,getAddress,expandState,}=config
 
 
 
@@ -54,17 +59,24 @@ export default ()=>{
  const [schoolError,setSchoolError]=React.useState('')
  const [firstname, setFirstname]=React.useState('')
  const [lastname,setLastname]=React.useState('')
+ const [profile,openProfile]= React.useState(false);
+ const [human,openHuman]= React.useState(false);
+ const [isHuman,checkIsHuman]=React.useState(false)
+ const [verify,openVerify]= React.useState(false);
+ const [verifyCode,setVerifyCode]=React.useState('')
+ const [verifyCodeError,setVerifyCodeError]=React.useState('')
+ 
 
 
 React.useEffect(
   ()=>{
     const abortController= new AbortController()
     
-    if(student&&(moment(birthdate).isAfter(moment().subtract(14, 'years').format('MM/DD/YYYY')))){
+    if(student&&(moment(birthdate,'MM/DD/YYYY').isAfter(moment().subtract(14, 'years').format('MM/DD/YYYY')))){
       setBirthdate(moment().subtract(13, 'years').format('MM/DD/YYYY'))
     }
 
-    if(guardian&&(moment(birthdate).isBefore(moment().subtract(12, 'years').format('MM/DD/YYYY')))){
+    if(guardian&&(moment(birthdate,'MM/DD/YYYY').isBefore(moment().subtract(12, 'years').format('MM/DD/YYYY')))){
       setBirthdate(moment().subtract(1, 'years').format('MM/DD/YYYY'))
     }
 
@@ -214,6 +226,7 @@ const onSubmitForm= ()=>{
   }
 
  openForm(false)
+openProfile(true)
 }
 
 const onBackToName= ()=>{
@@ -267,19 +280,10 @@ const onCreateUser=()=>{
   }
 if(validateProspectiveState&&validateSchool){
 
-  const user= {firstname,lastname,email,phone, password}
-  const useraddress= {street,city,state,zip,lat,lng}
-  const userstory ={goal,stateOfStudy,school,course,prospectiveStates,birthdate}
-  const userlicense={code,prospectiveStates}
+  
 
-console.log('user: ',user)
-console.log('address: ',useraddress)
-if(student || guardian){
-  console.log('story',userstory)
-}
-if(financialeducator){
-  console.log('license',userlicense)
-}
+openHuman(true)
+openProfile(false)
 
 }
 }
@@ -291,6 +295,54 @@ const onBackToForm=()=>{
   openFinancialeducator(false)
 }
 
+
+const connect =async ()=>{
+  const user= {firstname,lastname,email,phone, password}
+      const useraddress= {street,city,state,zip,lat,lng}
+      const userstory ={goal,stateOfStudy,school,course,prospectiveStates,birthdate}
+      const userlicense={code,prospectiveStates}
+try{
+  await setTimeout(() => {
+       
+    console.log('user: ',user)
+    console.log('address: ',useraddress)
+    if(student || guardian){
+      console.log('story',userstory)
+    }
+    if(financialeducator){
+      console.log('license',userlicense)
+    }
+    }, 1000);
+ 
+}
+catch({message}){
+  console.log('error:',message)
+}
+    
+}
+
+
+const onSubmitHuman=async()=>{
+  
+  await connect()
+openVerify(true)
+openHuman(false)
+}
+
+const onBackToProfile=()=>{
+  openHuman(false)
+  openProfile(true)
+  checkIsHuman(false)
+}
+
+const onSubmitVerify=async()=>{
+  try{
+    console.log('verify user by code: ',verifyCode)
+  }catch({message}){
+    setVerifyCodeError(message)
+  }
+
+}
 
       return (
         <React.Fragment>
@@ -347,6 +399,8 @@ state,city
   }}/>
                
           )}
+          {profile&&
+          <React.Fragment>
           {student&& (
            <StudentForm
            {...{
@@ -357,7 +411,7 @@ state,city
   prospectiveStatesError,
   prospectiveStates,setProspectiveStatesError,setProspectiveStates,
   showState,
-  stateOfStudy,statessArray,setStateOfStudy,
+  stateOfStudy,setStateOfStudy,
   schoolError,setSchoolError,
   school,setSchool,
   course,setCourse,
@@ -391,6 +445,22 @@ state,city
   }}
                />
           )}
+          </React.Fragment>
+         }
+         {
+           human&&<HumanVerifyForm
+           {...{  isHuman,
+  openHuman,
+  onSubmitHuman,
+  onBackToProfile,
+  student,guardian,checkIsHuman,
+  }}
+           />
+         }
+         {
+           verify&&<VerifyForm {...{openVerify,onSubmitVerify,verifyCode,verifyCodeError,setVerifyCode}}/>
+         }
+
         </React.Fragment>
       );
     

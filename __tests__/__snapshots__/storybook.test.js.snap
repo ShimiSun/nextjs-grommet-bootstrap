@@ -1,27 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots AddressForm basic 1`] = `null`;
+
 exports[`Storyshots AppBar basic 1`] = `null`;
 
 exports[`Storyshots AppLayout basic 1`] = `null`;
 
+exports[`Storyshots CRDInput basic 1`] = `null`;
+
+exports[`Storyshots CategoryForm basic 1`] = `null`;
+
 exports[`Storyshots ConnectNow basic 1`] = `null`;
+
+exports[`Storyshots DateInput basic 1`] = `null`;
 
 exports[`Storyshots Email4ResetForm basic 1`] = `null`;
 
+exports[`Storyshots FormContainer basic 1`] = `null`;
+
+exports[`Storyshots GuardianForm basic 1`] = `null`;
+
+exports[`Storyshots LicenseForm basic 1`] = `null`;
+
 exports[`Storyshots LoginForm basic 1`] = `null`;
+
+exports[`Storyshots MoneyInput basic 1`] = `null`;
+
+exports[`Storyshots NameForm basic 1`] = `null`;
 
 exports[`Storyshots PasswordInput basic 1`] = `null`;
 
+exports[`Storyshots PhoneInput basic 1`] = `null`;
+
 exports[`Storyshots Rating basic 1`] = `null`;
+
+exports[`Storyshots SchoolBox basic 1`] = `null`;
+
+exports[`Storyshots SchoolInput basic 1`] = `null`;
 
 exports[`Storyshots Score basic 1`] = `null`;
 
+exports[`Storyshots SearchBox basic 1`] = `null`;
+
 exports[`Storyshots SideBar basic 1`] = `null`;
+
+exports[`Storyshots SignupForm basic 1`] = `null`;
 
 exports[`Storyshots SocialLinks basic 1`] = `null`;
 
 exports[`Storyshots StateSearchBox Custom 1`] = `null`;
 
+exports[`Storyshots StreetInput basic 1`] = `null`;
+
+exports[`Storyshots StudentForm basic 1`] = `null`;
+
 exports[`Storyshots UserCard basic 1`] = `null`;
 
 exports[`Storyshots UserSearchBox Custom 1`] = `null`;
+
+exports[`Storyshots ZipInput basic 1`] = `null`;

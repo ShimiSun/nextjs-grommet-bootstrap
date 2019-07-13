@@ -16,24 +16,12 @@ export default ({
 
   }) =>  <FormContainer
   step={5}
-  heading="Your profile information"
+  heading="Your license information"
   open={openFinancialeducator}
   forward={onCreateUser}
   back={onBackToForm}
   >
-
-<FormField 
-//  help='Enter a valid e-mail address'
-component={CRDInput}
-label="Your CRD Number" 
-name="crdb" 
-type="text" 
-required 
-value={code}
-onChange={event => setCode(event.target.value)}
-/>
-  
-  <FormField
+<FormField
 label="Your state(s) of operation"
 name="prospectiveStates"
 error={prospectiveStatesError}
@@ -46,4 +34,14 @@ setProspectiveStates(value)
 }}
 />
 </FormField>
+<FormField 
+//  help='Enter a valid e-mail address'
+component={CRDInput}
+label="Your CRD Number" 
+name="crdb" 
+type="text" 
+required 
+value={code}
+onChange={event => setCode(event.target.value)}
+/>
   </FormContainer>

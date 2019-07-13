@@ -12,7 +12,7 @@ import {
   } from "grommet";
   import {FormClose} from 'grommet-icons'
 
-export default ({step,heading,children,open,back,forward})=>
+export default ({step,heading,children,open,back,forward,disabled})=>
 <Layer
             animate
              position="center"
@@ -53,9 +53,9 @@ export default ({step,heading,children,open,back,forward})=>
                   justify="end"
                   pad={{ top: "medium", bottom: "small" }}
                 >
-                {step>1&& <Button type='button'
+                {step>1&& step<7&&<Button type='button'
 label="Back"  color="brand" onClick={back}/>}
-                  <Button type='submit'
+                  <Button type='submit' {...{disabled}}
  primary label={step<6 ?"Next":`${step===6?"Connect":"Verify"}`}  color="brand" />
                 
                 </Box>

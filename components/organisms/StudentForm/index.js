@@ -8,6 +8,7 @@ import SearchBox from 'components/molecules/SearchBox'
 import SchoolBox from 'components/molecules/SchoolBox'
 import MoneyInput from 'components/atoms/MoneyInput'
 import DateInput from 'components/atoms/DateInput'
+import config from 'config'
 
 export default ({
   openStudent,
@@ -17,7 +18,7 @@ export default ({
   prospectiveStatesError,
   prospectiveStates,setProspectiveStatesError,setProspectiveStates,
   showState,
-  stateOfStudy,statessArray,setStateOfStudy,
+  stateOfStudy,setStateOfStudy,
   schoolError,setSchoolError,
   school,setSchool,
   course,setCourse,
@@ -51,7 +52,7 @@ setProspectiveStates(value)
 label="Your college's state (if already in college)"
 name="stateOfStudy"
 component={SearchBox}
-options={statessArray()}
+options={config.statessArray()}
 value={stateOfStudy}
 onChange={({target:{value}})=>setStateOfStudy(value)}
 />
