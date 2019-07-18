@@ -27,6 +27,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     const {stripe}=this.state
+    console.log('stripe: ',stripe)
     return (
       
       <Grommet theme={theme} style={{"height":"100vh"}}>
@@ -40,8 +41,9 @@ class MyApp extends App {
           
           <Component {...pageProps} {...this.state}/>
        
-      </StripeProvider>
-     
+      
+     </StripeProvider>
+
       </Grommet>
       
     );
