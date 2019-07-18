@@ -4,8 +4,11 @@ import { Grommet } from 'grommet';
 import theme from 'themes/theme'
 import { loadReCaptcha } from 'react-recaptcha-google';
 import { StripeProvider } from 'react-stripe-elements';
+ import NextSeo from 'next-seo';
 import 'static/css/styles.css'
+ import config from 'config'
 
+ const {SEO}=config
 
 
 class MyApp extends App {
@@ -27,7 +30,7 @@ class MyApp extends App {
     return (
       
       <Grommet theme={theme} style={{"height":"100vh"}}>
-     
+ <NextSeo config={SEO} />
      
       {/** 
       Typically, you should include Grommet only once as one of your top-level nodes.
@@ -38,7 +41,9 @@ class MyApp extends App {
           <Component {...pageProps} {...this.state}/>
        
       </StripeProvider>
+     
       </Grommet>
+      
     );
   }
 }

@@ -20,6 +20,7 @@
     "next": "^8.1.0",
     "next-plugin-transpile-modules": "^2.0.0",
     "next-routes": "^1.4.2",
+    "next-seo": "^1.12.0",
     "password-validator": "^4.1.1",
     "phone-validator-net": "^2.0.4",
     "pretty-quick": "^1.11.0",

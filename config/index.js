@@ -67,15 +67,30 @@ const truncateSentence = (text, sentenceCount) => `${text.split('.').slice(0, se
 
 const statessArray=()=>statesAb.map((s)=>({name:s&&s.name}))
 
+const SEO={
+  title: 'The #1 Education Crowdfunding Website',
+  titleTemplate: `Takesavillage | %s`,
+  itemScope: true,
+  itemType: 'http://schema.org/Article',
+  prefix: 'og: http://ogp.me/ns#',
+  openGraph: {
+    type: 'website',
+    locale: 'en_IE',
+    url: `${process.env.FRONTEND_URL}`,
+    site_name: 'Takesavillage'
+  },
+  twitter: {
+    handle: '@takesavillage',
+    site: '@takesavillage',
+    cardType: 'summary_large_image'
+  },
+  facebook: {
+    appId: process.env.FACEBOOK_APP_ID
+  },
+}
+
 const config ={
-    title: `Takesavillage`,
-    url: `https://www.takesavillage.com`,
-    description: `The # 1 crowdfunding website`,
-    twitter: `VillageFunding`,
-    linkedin: `company/18007056/admin/`,
-    // gaId: `UA-126639314-1`,
-    email: `info.takesavillage.com`,
-    facebook: `TakesaVillagecom-1231801423529757/`,
+  SEO,
     truncateSentence,
     schema,
     getAddress,
