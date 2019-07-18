@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
           <link
             rel="icon"
             type="image/x-icon"
-            href="/static/imgs/chat-logo.ico"
+            href="/static/imgs/tav-header-symbol.png"
           />
         </Head>
         <body>
