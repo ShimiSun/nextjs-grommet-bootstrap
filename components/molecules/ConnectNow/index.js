@@ -18,7 +18,7 @@ import LicenseForm from "components/organisms/LicenseForm";
 import HumanVerifyForm from "components/organisms/HumanVerifyForm";
 import VerifyForm from "components/organisms/VerifyForm";
 import Router from 'next/router'
-
+import {app} from 'api/feathers'
 
 
 const {schema,getAddress,expandState,}=config
@@ -65,7 +65,7 @@ export default ()=>{
  const [verify,openVerify]= React.useState(false);
  const [verifyCode,setVerifyCode]=React.useState('')
  const [verifyCodeError,setVerifyCodeError]=React.useState('')
- 
+ const [addedId,setAddedId]=React.useState(null)
 
 
 React.useEffect(
@@ -295,36 +295,139 @@ const onBackToForm=()=>{
   openFinancialeducator(false)
 }
 
+// process address
 
-const connecting =async ()=>{
+const addAddress= async () => {
+  const useraddress= {street,city,state,zip,lat,lng}
+  try{
+ const {id}= await app.service('address').create(useraddress)
+ /*
+ await setTimeout(() => {
+ console.log('address: ',useraddress)
+  },1000)
+  */
+ return id
+  }
+  catch({message}){
+console.log("Err: ",message)
+  }
+  return null
+}
+
+// process user
+
+const addUser = async () => {
   const user= {firstname,lastname,email,phone, password}
-      const useraddress= {street,city,state,zip,lat,lng}
-      const userstory ={goal,stateOfStudy,school,course,prospectiveStates,birthdate}
-      const userlicense={code,prospectiveStates}
+  try{
+  const {id}= await app.service('users').create(user)
+ /*
+ await setTimeout(() => {
+ console.log('user: ',user)
+  },1000)
+  */
+ return id
+  }
+  catch({message}){
+console.log("Err: ",message)
+  }
+  return null
+}
+
+// process story
+const addStory = async () => {
+  const userstory ={goal,stateOfStudy,school,course,prospectiveStates,birthdate}
+  const xpros =prospectiveStates.map((p)=>p.name)
+  userstory.prospectiveStates=xpros
+  try{
+  const {id}= await app.service('stories').create(userstory)
+/*
+ await setTimeout(() => {
+ console.log('story: ',userstory)
+  },1000)
+*/
+ return id
+  }
+  catch({message}){
+console.log("Err: ",message)
+  }
+  return null
+}
+// process license
+const addLicense = async () => {
+  const userlicense={code,prospectiveStates}
+  const xpros =prospectiveStates.map((p)=>p.name)
+  userlicense.prospectiveStates=xpros
+  try{
+ // const {id}= await app.service('licenses').create(userlicense)
+ await setTimeout(() => {
+ console.log('license: ',userlicense)
+  },1000)
+ return 1// id
+  }
+  catch({message}){
+console.log("Err: ",message)
+  }
+  return null
+}
+
+const syncAddress2User=(id,userId)=>app.service('address').patch(id,{userId}) 
+
+
+const syncStory2User=(id,userId)=>app.service('stories').patch(id,{userId})
+
+const syncFE2User=(id,userId)=>app.service('licenses').patch(id,{userId}) 
+
+const connecting =async ()=>{    
+    
 try{
-  await setTimeout(() => {
-       
-    console.log('user: ',user)
-    console.log('address: ',useraddress)
-    if(student || guardian){
-      console.log('story',userstory)
-    }
-    if(financialeducator){
-      console.log('license',userlicense)
-    }
-    }, 1000);
+    
+   
+    const addedUser=addUser()
+    const addedAddress=addAddress()
+let userId=null
+    await (async () => {
+     
+    
+     userId= await addedUser
+    const addressId=await addedAddress
+      syncAddress2User(addressId,userId)
+      await (async () => {
+        const synchedAddress = syncAddress2User(addressId,userId)
+          
+          await synchedAddress
+        if(student || guardian){ 
+          const addedStory = addStory()
+          const storyId=  await addedStory
+          const synchedStory= syncStory2User(storyId,userId)
+          await synchedStory
+        //  console.log('guardian',guardian,'student',student,'story: ',storyId,' userId: ',userId,' addressId: ',addressId)
+        }
+        if(financialeducator){
+          const addedLicense =addLicense()
+          const licenseId=  await addedLicense
+          const synchedFE= syncFE2User(licenseId,userId)
+            await synchedFE
+         //   console.log('fe',financialeducator,'story: ',storyId,' userId: ',userId,' addressId: ',addressId)
+        }   
+      })()
+      })()
+
+return userId
  
 }
 catch({message}){
   console.log('error:',message)
 }
+
+return null
     
 }
 
 
 const onSubmitHuman=async()=>{
   
-  await connecting()
+const userId = await connecting()
+setAddedId(userId)
 openVerify(true)
 openHuman(false)
 }
@@ -357,16 +460,17 @@ const onSubmitVerify=async()=>{
 let url  = ''
 // let as=''
 if(student){
-  url=`/campaigns?category=students&id=${3}`
+
+  url=`/campaigns?category=students&id=${addedId}`
   // as=`/campaigns/students/${3}`
 }
 if(guardian){
-  url=`/campaigns?category=guardians&id=${3}`
+  url=`/campaigns?category=guardians&id=${addedId}`
  // as=`/campaigns/guardians/${3}`
 }
 
 if(financialeducator){
-  url=`/brokers?id=${3}`
+  url=`/brokers?id=${addedId}`
  // as=`/brokers/${3}`
 }
     Router.push(url,)
